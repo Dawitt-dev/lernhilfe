@@ -113,6 +113,66 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 .miss li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:15px}
 .miss b{display:block;font-weight:600}
 /* Infografiken */
+/* art panels: one fixed "microscope" look in both themes */
+.art{position:relative;border-radius:14px;overflow:hidden;background:radial-gradient(120% 90% at 50% 35%,#18335E 0%,#0A1428 62%,#060B16 100%);color:#E8F1FF}
+.art>svg{display:block;width:100%;height:auto}
+.art text{font-family:var(--body)}
+.zr-stage{aspect-ratio:1/1;max-width:100%;cursor:zoom-in;touch-action:manipulation}
+.zr-layer{position:absolute;inset:0;will-change:transform,opacity}
+.zr-layer svg{display:block;width:100%;height:100%}
+.zr-cap{position:absolute;left:16px;top:14px;pointer-events:none;text-shadow:0 1px 8px #060B16}
+.zr-cap small{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#8FB4E8}
+.zr-cap b{display:block;font:700 clamp(22px,4.4vw,30px)/1.1 var(--display);color:#FFFFFF}
+.zr-tap{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font:500 12px var(--body);color:#CFE2FF;background:rgba(10,20,40,.6);padding:5px 12px;border-radius:99px;pointer-events:none;transition:opacity .3s;white-space:nowrap}
+.zr-ctrl{display:grid;gap:4px;padding:10px 4px 2px}
+.zr-ctrl input{width:100%;accent-color:var(--c1)}
+.zr-ends{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.zr-el{font:700 13px var(--body)}
+@keyframes zrPulse{50%{opacity:.25}}
+.zr-pulse{animation:zrPulse 1.4s ease-in-out infinite}
+@keyframes flow{to{stroke-dashoffset:-32}}
+.flow{stroke-dasharray:6 10;animation:flow 1.3s linear infinite}
+@keyframes beat{0%,100%{transform:scale(1)}14%{transform:scale(1.07)}28%{transform:scale(.97)}42%{transform:scale(1.03)}}
+.beat{transform-box:fill-box;transform-origin:center;animation:beat var(--beat,1s) ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{transform-origin:200px 205px;animation:spin 60s linear infinite}
+@keyframes wob{50%{transform:rotate(7deg)}}
+.wob{transform-origin:200px 200px;animation:wob 7s ease-in-out infinite}
+@keyframes tw{50%{opacity:.05}}
+.tw{animation:tw 3.5s ease-in-out infinite}
+@keyframes glowk{50%{opacity:.1}}
+.glow{animation:glowk 2.4s ease-in-out infinite}
+/* cell */
+#cell-svg .cell-o{cursor:pointer;transition:opacity .25s,filter .25s}
+#cell-svg.cell-dim .cell-o:not(.sel){opacity:.25}
+#cell-svg .cell-o.sel{filter:drop-shadow(0 0 9px rgba(255,255,255,.55))}
+#cell-svg .hit{pointer-events:stroke}
+#cell-svg .ct-l{cursor:pointer;transition:opacity .25s}
+#cell-svg .ct-l text{font:700 15px var(--body);paint-order:stroke;stroke:#0A1428;stroke-width:5px;stroke-linejoin:round}
+@keyframes qp{50%{filter:drop-shadow(0 0 16px rgba(255,255,255,.95))}}
+#cell-svg .cell-o.quizpulse{animation:qp 1.1s ease-in-out infinite}
+.ct-head{display:flex;gap:12px;align-items:center}
+.ct-ic{width:46px;height:46px;flex:none;padding:6px;border-radius:12px;background:#0F1E36}
+.ct-dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14.5px}
+.ct-dl dt{font:500 12px/1.8 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.ct-dl dd{margin:0;min-width:0}
+.ct-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ct-opts .opt{display:flex;gap:8px;align-items:center;padding:8px 10px;font-size:14px}
+.ct-opts .ct-ic{width:34px;height:34px;padding:4px}
+/* feedback loop */
+.rk-c{fill:#13233D;stroke:#5B7DB4;stroke-width:2.5;transition:all .3s}
+.rk-n.on .rk-c{fill:#1D4E7A;stroke:#7FD3FF;stroke-width:4;filter:url(#rkglow)}
+.rk-t{pointer-events:none}
+.rk-tn{font:700 14px var(--body);fill:#F2F7FF}
+.rk-tr{font:500 11.5px var(--body);fill:#9FB8DC}
+.rk-val{font:700 30px var(--display);fill:#FFFFFF}
+.rk-bolt{opacity:.55;transition:opacity .3s}
+.rk-bolt.on{opacity:1;filter:drop-shadow(0 0 6px #FFAA5C)}
+#rk-ves{transition:r .8s ease}
+.rk-steps{margin:0;padding-left:22px;display:grid;gap:6px;font-size:14.5px;color:var(--muted)}
+.rk-steps li{padding:4px 8px;border-radius:8px;transition:background .3s,color .3s}
+.rk-steps li.on{background:color-mix(in srgb,var(--c2) 18%,transparent);color:var(--ink);font-weight:600}
+@media (prefers-reduced-motion:reduce){.zr-pulse,.flow,.beat,.spin,.wob,.tw,.glow,#cell-svg .cell-o.quizpulse{animation:none}}
 .ig-planes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px}
 .ig-plb{display:flex;gap:10px;align-items:center;text-align:left;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit}
 .ig-plb b{display:block;font:700 15px/1.2 var(--display)}
@@ -173,6 +233,75 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 .ig-axis{display:flex;justify-content:space-between;font:500 12px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:520px){.tab{padding:9px 11px;font-size:14px}.card{padding:22px}}
+#h-switch{flex-wrap:wrap;justify-self:start}
+#ig-nav button{white-space:nowrap;flex:none}
+#ig-nav{max-width:100%}
+.sk-stage{aspect-ratio:3/4;max-height:680px;width:100%;touch-action:pan-y;cursor:grab}
+.sk-stage canvas{display:block;width:100%;height:100%}
+.sk-lbl{position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;font:600 13px var(--body);color:#0A1428;background:#E8F4FF;padding:4px 10px;border-radius:99px;box-shadow:0 2px 12px rgba(0,0,0,.35)}
+.sk-name{font:700 24px/1.15 var(--display);color:var(--c1)}
+.sk-latin{font:500 18px var(--mono);color:var(--ink);letter-spacing:.02em}
+.sk-dot,.sk-rg i{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px}
+.sk-rg i{margin-right:6px}
+#sk-list .chip{font-size:13px;padding:6px 11px}
+.wu-ff{font:700 22px var(--display);fill:#FFB3BE;letter-spacing:.04em}
+.wu-spot{cursor:pointer}
+.wu-sp{fill:#FFD27A;stroke:#0A1428;stroke-width:2}
+.wu-sr{fill:none;stroke:#FFD27A;stroke-width:2;opacity:.6;transform-box:fill-box;transform-origin:center;animation:ring 1.8s ease-out infinite}
+.wu-spot.on .wu-sp{fill:#FFFFFF}
+@keyframes ring{from{transform:scale(1);opacity:.7}to{transform:scale(2.2);opacity:0}}
+.wu-meters{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;font-size:13.5px;color:var(--muted)}
+.wu-meters i{display:block;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.wu-meters b{display:block;height:100%;background:var(--warn);border-radius:99px;transition:width .3s}
+.nb-stage{aspect-ratio:1/1;width:100%;background:radial-gradient(110% 90% at 50% 40%,#2A3A55 0%,#141E30 60%,#0B1220 100%)}
+.nb-item{position:absolute;width:28%;transform:translate(0,0);display:grid;justify-items:center;gap:4px;text-align:center;color:#FFE3B0;transition:opacity .6s,filter .6s}
+.nb-item svg{width:44px;height:44px}
+.nb-item span{font:600 13px/1.25 var(--body);color:#F2F7FF;text-shadow:0 1px 6px #0B1220}
+#nb-cv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.nb-tips{display:flex;flex-wrap:wrap;gap:6px}
+.nb-tips span{font-size:13.5px;padding:5px 11px;border-radius:99px;background:color-mix(in srgb,var(--pc) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--pc) 40%,var(--line))}
+.ik-lbl text{font:600 13px var(--body);fill:#E8F1FF;paint-order:stroke;stroke:#0A1428;stroke-width:4px}
+.ik-hot{filter:drop-shadow(0 0 6px #FF6B6B)}
+@keyframes flick{50%{opacity:.25}}
+.ik-flick{animation:flick .5s steps(2) infinite}
+@media (prefers-reduced-motion:reduce){.wu-sr,.ik-flick{animation:none}}
+@media (max-width:520px){.nb-item svg{width:34px;height:34px}.nb-item span{font-size:11.5px}}
+.ws-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+@media (max-width:760px){.ws-grid{grid-template-columns:minmax(0,1fr)}}
+.ws-r{cursor:pointer;transition:opacity .25s}
+.ws-lbl{font:700 14px var(--body);cursor:pointer;paint-order:stroke;stroke:#0A1428;stroke-width:4px}
+.ws-sm{font:500 12.5px var(--body);fill:#CFE2FF}
+.ws-sm2{font:600 13px var(--body);fill:#6B5B3A}
+.ws-h{font:700 14px var(--display);fill:#F2F7FF}
+.ws-state{font:700 14px var(--body);fill:#FFE38A}
+#ws-disc{transform-box:view-box}
+.pb-bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.pb-bar i{display:block;height:100%;width:10%;border-radius:99px;transition:width .3s,background .3s}
+.pb-tips{margin:0;padding-left:20px;display:grid;gap:4px;font-size:14.5px}
+.sp-art{padding:22px 18px 18px;display:grid;gap:12px;position:relative}
+#sp-steps{display:grid;gap:10px;justify-items:center}
+.sp-step{width:var(--w);min-width:180px;display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:14px;border:2px solid transparent;background:color-mix(in srgb,var(--sc) 22%,#0F1E36);color:#F2F7FF;cursor:pointer;font:inherit;transition:transform .2s,border-color .2s}
+.sp-step b{font:800 30px/1 var(--display);color:var(--sc);width:30px;text-align:center}
+.sp-step span{font:600 16px var(--body)}
+.sp-step[aria-pressed="true"]{border-color:var(--sc);transform:scale(1.03);box-shadow:0 0 22px color-mix(in srgb,var(--sc) 45%,transparent)}
+.sp-arrow{position:absolute;left:12px;top:22px;bottom:70px;width:22px;display:flex;align-items:center;justify-content:center}
+.sp-arrow::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:3px;transform:translateX(-50%);background:#CFE2FF}
+.sp-arrow::after{content:"";position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top:10px solid #CFE2FF;border-bottom:0}
+.sp-step em{font:600 13px var(--mono);color:#CFE2FF;font-style:normal;width:18px}
+.sp-arrow span{writing-mode:vertical-rl;transform:rotate(180deg);font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#CFE2FF;background:#0F1E36;padding:6px 0;position:relative}
+.sp-note{margin:0;font-size:13.5px;color:#CFE2FF;text-align:center}
+.sp-badge{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;color:#0A1428;font:800 18px var(--display)}
+.sp-q{font:600 17px/1.35 var(--body)}
+.sp-ans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.am-art{display:grid;justify-items:center;padding-top:14px}
+.am-art svg{width:min(220px,60%);height:auto}
+.am-l{cursor:pointer;transition:fill .3s}
+.am-warn{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px;font-size:14px}
+.am-warn div{display:grid;gap:6px;align-content:start}
+.am-warn label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.am-warn input{accent-color:var(--warn);margin-top:3px}
+#sp-steps{padding-left:30px}
+.ws-nuc{font:700 10.5px var(--body);fill:#6B4A00;pointer-events:none}
 </style>
 
 </head>
@@ -181,8 +310,9 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 <noscript><div style="padding:16px;margin:12px 0;border:2px solid #B1432A;border-radius:12px;background:#fff;color:#14262B;font:16px/1.5 sans-serif"><b>Diese Lernhilfe braucht JavaScript.</b><br>Bitte die Datei direkt im Browser öffnen (Chrome, Safari, Edge oder Firefox), nicht in einer Vorschau von WhatsApp, E-Mail oder Cloud-Ordner.</div></noscript>
 
   <header>
-    <div class="kicker">PFK 4 FFM · Theorieblock 1</div>
-    <h1>Bewegung beobachten, beschreiben und verstehen</h1>
+    <div class="kicker" id="kick">PFK 4 FFM · Theorieblock 1</div>
+    <h1 id="htitle">Bewegung beobachten, beschreiben und verstehen</h1>
+    <div class="seg" id="h-switch" role="group" aria-label="Handout wählen"><button data-h="bew" aria-pressed="true">Bewegung beobachten</button><button data-h="grund" aria-pressed="false">Grundstrukturen</button><button data-h="tag" aria-pressed="false">Mein erster Tag</button><button data-h="ruecken" aria-pressed="false">Bewegungsapparat schützen</button></div>
     <div class="progress"><div class="bar"><i id="pbar"></i></div><span><b id="pnum">0</b> von <span id="ptot">0</span> Themen gelernt</span></div>
   </header>
 
@@ -222,7 +352,7 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
         <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--c2)"/></marker>
         <marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--c3)"/></marker>
       </defs></svg>
-      <div class="ig-nav"><div class="seg" id="ig-nav"><button data-v="pl" aria-pressed="true">Ebenen &amp; Achsen</button><button data-v="dir" aria-pressed="false">Richtungen</button><button data-v="who" aria-pressed="false">WHO</button></div></div>
+      <div class="ig-nav"><div class="seg" id="ig-nav"></div></div>
 
       <div id="ig-pl">
         <div class="ig-grid">
@@ -266,6 +396,18 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
         </div>
       </div>
 
+      <div id="ig-org" hidden></div>
+      <div id="ig-city" hidden></div>
+      <div id="ig-loop" hidden></div>
+      <div id="ig-skel" hidden></div>
+      <div id="ig-wut" hidden></div>
+      <div id="ig-nebel" hidden></div>
+      <div id="ig-inko" hidden></div>
+      <div id="ig-spine" hidden></div>
+      <div id="ig-posture" hidden></div>
+      <div id="ig-stop" hidden></div>
+      <div id="ig-ampel" hidden></div>
+
       <div id="ig-who" hidden>
         <div class="ig-who">
           <div class="ig-scale" id="whoscale"></div>
@@ -285,7 +427,7 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 </script>
 <script>
 const chk = s => ({s, chk:1});
-const DATA = [
+const DATA_BEW = [
  {t:"Bewegungsachsen", s:"Achsen", subs:[
   {t:"Sagittale Achse", items:["Verlauf von vorne nach hinten","Ermöglicht Bewegungen in der Frontalebene", "Beispiele sind Abspreizen und Heranführen (Abduktion und Adduktion)"]},
   {t:"Transversale Achse", items:["Verlauf von links nach rechts","Ermöglicht Bewegungen in der Sagittalebene", "Beispiele sind Beugen und Strecken (Flexion und Extension)"]},
@@ -317,6 +459,155 @@ const DATA = [
   {t:"Maßnahmen zur Mobilitätsförderung", items:["Bewegungsangebote: angepasst an die Bedürfnisse","Mobilisation im Alltag: Einbeziehen in alltägliche Aktivitäten","Schulung des Pflegepersonals: Fort- und Weiterbildungen"]}]}
 ];
 
+const DATA_GRUND = [
+ {t:"Kennzeichen des Lebens", s:"Kennzeichen", subs:[
+  {t:"Aufbau und Stoffwechsel", items:["Zellen: kleinste Einheiten, die selbstständig leben können. Alle Lebewesen bestehen aus einer oder vielen Zellen","Stoffwechsel: alle chemischen Reaktionen im Körper. Sie sorgen dafür, dass Energie entsteht und neue Stoffe aufgebaut werden"]},
+  {t:"Reaktion und Bewegung", items:["Erregbarkeit und Kommunikation: Lebewesen nehmen Informationen aus der Umwelt auf und können darauf antworten","Motilität: Lebewesen können sich aktiv bewegen, z. B. um Nahrung zu finden oder vor Gefahr zu fliehen"]},
+  {t:"Vermehrung, Wachstum und Entwicklung", items:["Vermehrung: Lebewesen bilden neue Zellen oder erzeugen Nachkommen, damit ihre Art weiterlebt","Wachstum und Entwicklung: Zellen werden größer oder verändern sich, und der ganze Organismus wächst"]}]},
+
+ {t:"Anatomie und Physiologie", s:"Anatomie & Physiologie", subs:[
+  {t:"Die zwei Bereiche", items:["Anatomie: beschreibt den Aufbau des Körpers","Physiologie: beschäftigt sich mit den Funktionen des Körpers, also damit, wie Organe und Organsysteme arbeiten"]},
+  {t:"Organisationsebenen (von groß nach klein)", items:["Organismus: höchste Organisationsebene. Umfasst alle Organe und Systeme, die zusammenarbeiten, damit der Körper funktioniert","Organsystem: Organe, die im Körper zusammenarbeiten","Organ: eine Funktionseinheit, die aus verschiedenen Geweben bestehen kann","Gewebe: viele ähnliche Zellen, die zusammenarbeiten und die gleiche Funktion erfüllen","Zelle: die kleinste lebensfähige und teilungsfähige Einheit","Zellorganell: kleine Funktionseinheit innerhalb einer Zelle mit bestimmter Struktur und Aufgabe","Molekül: mehrere Atome, die sich durch Elektronenpaarbindungen verbinden","Atom: kleinster chemischer Baustein, z. B. Wasserstoff, Sauerstoff, Kohlenstoff oder Stickstoff"]}]},
+
+ {t:"Zellarten", s:"Zellarten", subs:[
+  {t:"Differenzierung", items:["Differenzierung: Damit Zellen die vielen verschiedenen Aufgaben schaffen, gibt es verschiedene Zelltypen"]},
+  {t:"Die 12 Zelltypen aus der Übung", nq:true, items:["Drüsenzelle","Blutzellen","Epithelzelle","glatte Muskelzelle","Eizelle","Nervenzelle","Knorpelzellen","Knochenzelle","Bindegewebszelle","Samenzelle","Sinneszelle","Flimmerepithelzelle"]},
+  {t:"Notizen aus deinem Handout", items:["Epithelzelle: englisch epithelial cell","Sinneszelle: englisch sensory cell","Drüsenzelle: englisch glandular cell, bildet z. B. Hormone und Enzyme","Flimmerepithelzelle: kommt z. B. in der Nase vor","Knorpelzelle: Chondrozyt, englisch cartilage cell"]}]},
+
+ {t:"Zelle und Zellorganellen", s:"Zelle", subs:[
+  {t:"Aufbau der Zelle", items:["Zellkern: enthält das Erbgut (genetisches Material) und koordiniert die Zellarbeit","Zytoplasma: die wässrige Grundsubstanz der Zelle. Es enthält viele Zellorganellen","Zellorganellen: spezielle abgetrennte Räume für bestimmte Aufgaben (Zellarbeit)","Zellmembran: grenzt die Zelle nach außen ab"]},
+  {t:"Beschriftung der Zellzeichnung", nq:true, items:["Mikrovilli","Mikrotubulus","Zentriol","Sekretbläschen (durch Exozytose auszuschleusen)","Kontaktstelle zur Nachbarzelle","raues endoplasmatisches Retikulum mit Ribosomen","glattes endoplasmatisches Retikulum","Golgi-Vesikel","Golgi-Apparat","Zellkern","Kernkörperchen","Kernpore","Mitochondrium"]},
+  {t:"Die Zelle als Stadt", items:["Mitochondrien (Kraftwerk): Ort der Zellatmung und damit Energiebereitstellung für die Zelle. Die innere Membran ist vergrößert, damit viele Reaktionen ablaufen können","Zellmembran (Stadtmauer): Abgrenzung der Zelle, regelt den Transport bestimmter Stoffe in die Zelle","Zellkern (Rathaus): steuert alle Zellvorgänge, enthält die genetische Information","Raues ER (Fabrik): Ort der Proteinbiosynthese. Große Oberfläche für viele Ribosomen","Lysosomen (Abfallentsorgung): Abbau von zelleigenem Material. Die Verdauungssäfte liegen geschützt in Vesikeln vor","Golgi-Apparat (Logistik): Umbau, Verpackung und Transport von Proteinen. Schnürt Vesikel für den Stofftransport in der Zelle ab"]}]},
+
+ {t:"Organsysteme", s:"Organsysteme", subs:[
+  {t:"Atmungssystem", items:["Aufgabe: versorgt den Körper mit Sauerstoff (O₂) und entfernt Kohlendioxid (CO₂), ein Abfallprodukt des Stoffwechsels","Organe: Nase (Nasus), Rachen (Pharynx), Kehlkopf (Larynx), Luftröhre (Trachea), Bronchien (Bronchi), Lunge (Pulmo)","Lungenbläschen (Alveolen): hier findet der Gasaustausch (Diffusion) statt. Sauerstoff gelangt ins Blut, Kohlendioxid wird abgegeben"]},
+  {t:"Herz-Kreislauf-System", items:["Aufgabe: transportiert das Blut durch den Körper","Bestandteile: Herz (Cor) und Blutgefäße","Arterien (Arteriae): bringen sauerstoffreiches Blut vom linken Ventrikel (Ventriculus sinister) zu Organen und Geweben","Venen (Venae): bringen sauerstoffarmes Blut zurück zum rechten Vorhof (Atrium dextrum), danach geht es wieder zur Lunge","Zusammenarbeit: Atmung und Kreislauf versorgen den Körper gemeinsam mit Sauerstoff und scheiden Kohlendioxid zuverlässig aus"]},
+  {t:"Urogenitalsystem", items:["Aufgabe: umfasst Harnorgane und Geschlechtsorgane, zuständig für Ausscheidung von Stoffwechselprodukten und Fortpflanzung","Nieren (Renes): filtern das Blut und bilden Urin","Harnwege: Harnleiter (Ureter), Harnblase (Vesica urinaria), Harnröhre (Urethra)","Weibliche Geschlechtsorgane: Eierstöcke (Ovaria), Eileiter (Tubae uterinae), Gebärmutter (Uterus), Vagina","Männliche Geschlechtsorgane: Hoden (Testes), Nebenhoden (Epididymides), Samenleiter (Ductus deferentes), Penis","Zusammenarbeit: mit dem Herz-Kreislauf-System, weil die Nieren ständige Blutfiltration brauchen"]},
+  {t:"Immunsystem", items:["Aufgabe: schützt den Körper vor Krankheitserregern wie Bakterien und Viren. Es erkennt fremde Zellen und bekämpft sie","Lymphatisches System: Lymphgefäße (Vasa lymphatica) und Lymphknoten (Nodi lymphatici), die Lymphflüssigkeit (Lympha) transportieren","Weitere Organe: Thymus, Milz (Lien) und Mandeln (Tonsillae)","Abwehrzellen (Leukozyten): ihre Bildung, Reifung und Aktivierung wird von diesen Organen unterstützt"]},
+  {t:"Nervensystem", items:["Aufgabe: steuert die Körperfunktionen und die Kommunikation zwischen Organen","Bestandteile: Gehirn (Cerebrum), Kleinhirn (Cerebellum), Rückenmark (Medulla spinalis), Nerven (Nervi)","Sinnesorgane: Augen (Oculi) für Sehen, Ohren (Auris) für Hören, Nase (Nasus) für Riechen, Zunge (Lingua) für Schmecken, Haut (Cutis) für Tasten","Haut (Cutis): schützt vor Schäden, Krankheitserregern und Wasserverlust. Enthält Haare (Pili), Drüsen (Glandulae) und viele Sinneszellen (Rezeptoren)","Sinneszellen der Haut: nehmen Berührung, Druck, Temperatur und Schmerz wahr"]},
+  {t:"Stütz- und Bewegungsapparat", items:["Aufgabe: ermöglicht dem Körper Haltung, Bewegung und Schutz innerer Organe","Knochen (Ossa): bilden das Skelett (Skeletum), das den Körper stützt und Ansatz für die Muskeln ist","Gelenke (Articulationes): verbinden die Knochen beweglich","Muskeln (Musculi): ermöglichen Bewegung durch Kontraktion","Sehnen (Tendines): verbinden Muskeln mit Knochen","Bänder (Ligamenta): stabilisieren die Gelenke","Zusammenarbeit: mit dem Nervensystem, damit Bewegungen koordiniert und präzise ablaufen"]},
+  {t:"Verdauungssystem", items:["Aufgabe: nimmt Nährstoffe auf und scheidet Abfallstoffe (Exkremente) aus","Mundhöhle (Cavitas oris): Beginn der Verdauung mit Zähnen (Dentes) und Speichel aus den Speicheldrüsen (Glandulae salivariae)","Weg der Nahrung: Speiseröhre (Ösophagus), Magen (Gaster), Dünndarm (Duodenum, Jejunum, Ileum)","Dünndarm: hier werden Nährstoffe ins Blut aufgenommen","Dickdarm (Colon): entzieht Wasser. Unverdauliche Stoffe werden als Stuhl gespeichert und über den After (Anus) ausgeschieden","Leber (Hepar): produziert Galle (Bile)","Gallenblase (Vesica biliaris): speichert die Galle","Bauchspeicheldrüse (Pancreas): liefert Verdauungsenzyme, die die Nahrung im Dünndarm aufspalten"]},
+  {t:"Hormonsystem", items:["Aufgabe: steuert Körperfunktionen über Hormone, chemische Botenstoffe von Hormonzellen (Cellulae endocrinae)","Zusammenarbeit: mit dem Nervensystem, um Wachstum, Stoffwechsel, Fortpflanzung und Anpassung an die Umwelt zu regulieren","Endokrine Drüsen: Hypophyse, Schilddrüse, Nebenschilddrüsen, Nebennieren, Bauchspeicheldrüse und Gonaden","Hypophyse (Hypophysis): reguliert andere Drüsen","Schilddrüse (Glandula thyreoidea): beeinflusst den Stoffwechsel","Nebennieren (Glandulae suprarenales): steuern Stressreaktionen","Bauchspeicheldrüse (Pancreas): reguliert den Blutzuckerspiegel","Gonaden (Ovaria, Testes): steuern Fortpflanzung und Sexualmerkmale"]}]},
+
+ {t:"Regulation und Anpassung", s:"Regulation", subs:[
+  {t:"Inneres Milieu und Homöostase", items:["Inneres Milieu: alle Umgebungsbedingungen, die für das Funktionieren der Zellen wichtig sind und möglichst konstant bleiben müssen","Homöostase: die Fähigkeit des Körpers, das innere Milieu konstant zu halten, auch wenn sich die äußeren Bedingungen ändern","Beispiele: Blutdruck nach dem Aufstehen, Sauerstoffgehalt im Blut, CO₂-Abgabe über die Atmung, Atemfrequenz bei Belastung, Körpertemperatur bei Minusgraden, Herzfrequenz beim Joggen, Bewusstsein bei Schlaf und Wachheit"]},
+  {t:"Der Regelkreis", items:["Regelgröße: die Größe, die konstant bleiben soll, z. B. Blutdruck","Messfühler: Sensoren im Körper, die den Istwert erfassen","Istwert: der aktuell gemessene Wert (englisch actual value)","Sollwert: der Zielwert (englisch target value)","Regler: vergleicht den Istwert mit dem Sollwert","Störgröße: verursacht Abweichungen, z. B. Blutverlust oder Kälte","Stellglieder: korrigieren den Istwert in Richtung Sollwert","Negative Rückkopplung: Änderungen des Istwertes werden an den Regler zurückgemeldet. Die Stellglieder werden abgeschaltet, sobald der Sollwert erreicht ist"]},
+  {t:"Beispiel Blutdruckregelung", items:["Pressorezeptoren: Druckmessfühler, z. B. in Arterien (Messfühler)","Gehirn (Kreislaufzentrum): vergleicht die Blutdruckwerte mit dem Soll-Blutdruck (Regler)","Nervenimpulse: ändern die Gefäßweite und stimulieren bzw. drosseln die Herzarbeit (Stellglieder)","Störgrößen: Blutung, Stress und Sport"]},
+  {t:"Organsysteme, die die Homöostase unterstützen", items:["Herz-Kreislauf-System: transportiert Blut und Sauerstoff","Atmungssystem: liefert Sauerstoff (O₂) und entfernt Kohlendioxid (CO₂)","Hormonsystem: reguliert mit Hormonen viele Prozesse","Nervensystem: steuert schnelle Anpassungen"]}]},
+
+ {t:"Körperabschnitte", s:"Körperabschnitte", subs:[
+  {t:"Körperstamm", items:["Stamm: Kopf, Hals und Rumpf","Rumpf: Brust (Thorax), Bauch (Abdomen) und Becken (Pelvis)"]},
+  {t:"Extremitäten", items:["Obere Extremitäten: Hände und Arme","Untere Extremitäten: Beine und Füße"]}]},
+
+ {t:"Richtungsbezeichnungen", s:"Richtungen", subs:[
+  {t:"Grundstellung und Ebenen", items:["Anatomische Grundstellung: der Mensch steht aufrecht, schaut nach vorn, die Arme hängen an der Seite und die Handflächen zeigen nach vorn","Medianebene: teilt den Körper in links und rechts","Frontalebene: teilt den Körper in vorne und hinten","Transversalebene: teilt den Körper in oben und unten"]},
+  {t:"Richtungsbegriffe", items:["kranial (superior): kopfwärts, in Richtung Kopf oder oben gelegen","kaudal (inferior): schwanzwärts oder steißwärts, in Richtung Füße oder unten gelegen","anterior (ventral): bauchwärts oder vorne, zur Vorderseite des Körpers hin","posterior (dorsal): rückenwärts oder hinten, zur Rückseite des Körpers hin","medial: zur Mitte hin, näher an der Körpermitte gelegen","lateral: seitlich oder zur Seite hin, weiter weg von der Körpermitte","proximal: körpernah, näher am Rumpf oder am Ausgangspunkt einer Struktur","distal: körperfern, weiter entfernt vom Rumpf oder vom Ausgangspunkt einer Struktur","superfiziell: oberflächlich, näher an der Körperoberfläche","profund: tief, weiter im Körperinneren gelegen"]},
+  {t:"Beispielsätze", nq:true, items:["Das Herz liegt medial zur Lunge.","Die Hand ist distal zum Ellbogen.","Der Kopf ist kranial zum Bauch."]}]},
+
+ {t:"Das menschliche Skelett", s:"Skelett", subs:[
+  {t:"Überblick", items:["Skelett: das Knochengerüst des Körpers. Es besteht aus über 200 Knochen und macht etwa 15 % des Körpergewichts aus","Aufgaben: stützt den Körper, schützt innere Organe und ermöglicht gemeinsam mit den Muskeln die Bewegung","Gliederung: Schädel (Cranium), Rumpfskelett, Schultergürtel, Beckengürtel sowie obere und untere Extremitäten"]},
+  {t:"Knochen von Kopf, Schulter und Arm", items:["Schädel: Cranium","Augenhöhle: Orbita","Schlüsselbein: Clavicula","Schulterblatt: Scapula","Brustbein: Sternum","Rippen: Costae","Oberarmknochen: Humerus","Elle: Ulna","Speiche: Radius","Handwurzelknochen: Carpus","Mittelhandknochen: Metacarpus","Finger: Phalanges"]},
+  {t:"Knochen von Rumpf, Becken und Bein", items:["Wirbelsäule: Columna vertebralis","Kreuzbein: Os sacrum","Darmbein: Os ilium","Schambein: Os pubis","Sitzbein: Os ischii","Oberschenkelknochen: Femur","Kniescheibe: Patella","Schienbein: Tibia","Wadenbein: Fibula","Fußwurzelknochen: Tarsus","Mittelfußknochen: Metatarsus","Zehen: Phalanges"]}]}
+];
+
+const DATA_TAG = [
+ {t:"Lernziele", s:"Lernziele", subs:[
+  {t:"Lernziele", nq:true, items:["Gefühle in Bezug auf Wut und Ekel reflektieren","Strategien kennen, um mit Wut und Ekel umzugehen, und sie umsetzen","Gründe für Stuhlinkontinenz kennen","Menschen mit Inkontinenz fachlich richtig und respektvoll unterstützen"]}]},
+
+ {t:"Gefühle in der Pflege", s:"Ekel, Scham, Wut", subs:[
+  {t:"Ekel", items:["Ekel: ein starkes Gefühl von Abneigung oder Widerwillen gegen etwas, das man als unangenehm, unrein oder abstoßend wahrnimmt","Auslöser von Ekel: Gerüche, Anblicke, Geschmäcker oder sogar Gedanken","Schutzfunktion: Ekel warnt vor gefährlichen oder ungesunden Substanzen, z. B. verdorbenem Essen","Ekel im sozialen Kontext: wenn man das Verhalten anderer als moralisch verwerflich empfindet","Ekel in der Pflege: Ausscheidungen (Stuhlgang, Urin), Sekrete (Eiter, Wundflüssigkeit, Sputum, Nasensekret) und intensive Gerüche. Es ist normal, sich davor zu ekeln"]},
+  {t:"Scham", items:["Scham: ein Gefühl, wenn wir glauben, etwas Falsches oder Peinliches getan zu haben, oder Angst haben, negativ beurteilt zu werden","Folge von Scham: man zieht sich zurück oder versteckt sich","Werte und Normen: man schämt sich, wenn das eigene Verhalten nicht den gesellschaftlichen oder persönlichen Normen entspricht","Nutzen von Scham: sie hilft, in einer Gemeinschaft zu leben, weil sie uns erinnert, wie wir uns verhalten sollten","Risiko von Scham: zu oft oder zu stark schwächt sie das Selbstbewusstsein und kann zu sozialer Isolation führen"]},
+  {t:"Wut", items:["Wut: ein intensives Gefühl durch starke Unzufriedenheit, Ärger oder Frustration","Auslöser von Wut: man fühlt sich ungerecht behandelt oder hat keine Kontrolle über eine unangenehme oder unerwartete Situation, auch Enttäuschungen oder Missverständnisse","Folge von Wut: man handelt impulsiv, das kann zu Konflikten oder unüberlegten Entscheidungen führen"]}]},
+
+ {t:"Wut und Stress im Körper", s:"Wut im Körper", subs:[
+  {t:"Was passiert im Körper", items:["Stressreaktion: Puls und Blutdruck steigen","Sauerstoff: mehr Sauerstoff wird mit dem Blut in die Muskulatur transportiert","Kampf oder Flucht: der Körper bereitet sich auf Abwehr vor (fight or flight)"]},
+  {t:"Folgen von Dauerstress", items:["Dauerstress: kann zu Herzerkrankungen, Bluthochdruck, Kopfschmerzen, Verspannungen, Magenproblemen und einem geschwächten Immunsystem führen","Deshalb sinnvoll: lernen, wie man Stress und besonders Wut wieder abbauen kann"]},
+  {t:"Umgang mit Wut", items:["Gelerntes Verhalten: wie wir mit Wut und Stress umgehen, lernen wir oft schon als Kinder von unseren Eltern","Vertrauensperson: in der Pflege sollten Sie mit einer Vertrauensperson darüber sprechen, was Sie wütend macht"]}]},
+
+ {t:"Durchfallerkrankungen", s:"Durchfall", subs:[
+  {t:"Entstehung", items:["Durchfall: der Darm arbeitet nicht mehr richtig und gibt zu viel Flüssigkeit in den Stuhl ab"]},
+  {t:"Ursachen", items:["Infektionen: Viren, Bakterien oder Parasiten, oft durch verunreinigtes Essen oder Wasser","Unverträglichkeit oder Allergie: z. B. Laktoseintoleranz, der Körper kann bestimmte Stoffe nicht richtig verdauen","Medikamente: vor allem Antibiotika können die Darmflora stören","Stress und psychische Belastung: sie beeinflussen das Nervensystem, das den Darm steuert"]},
+  {t:"Was ist wichtig?", items:["Verlauf: meistens nicht gefährlich, klingt von selbst wieder ab","Flüssigkeit: ausreichend Flüssigkeit und Elektrolyte zu sich nehmen, um den Verlust auszugleichen","Gefahr: bei kleinen Kindern und älteren Menschen kann Durchfall gefährlich werden und sollte ärztlich behandelt werden"]}]},
+
+ {t:"Stuhlinkontinenz", s:"Stuhlinkontinenz", subs:[
+  {t:"Definition", items:["Stuhlinkontinenz: eine Person verliert die Kontrolle über ihren Stuhlgang und kann den Stuhl nicht mehr richtig zurückhalten. Es kommt zu ungewolltem Stuhlabgang"]},
+  {t:"Ursachen", items:["Geschwächter Schließmuskel: durch Alter, Verletzungen oder Operationen im Bereich von Darm oder Beckenboden","Nach einer Geburt: Probleme mit dem Schließmuskel, vor allem nach Verletzungen bei der Geburt","Nervenschäden: z. B. durch Diabetes, Multiple Sklerose oder Rückenmarksverletzungen. Die Nerven steuern die Muskeln, die den Stuhl zurückhalten","Darmerkrankungen: chronischer Durchfall, Reizdarmsyndrom, Morbus Crohn oder Colitis ulcerosa"]},
+  {t:"Auswirkungen", items:["Psychische Folgen: Betroffene schämen sich häufig und fühlen sich sozial isoliert","Rückzug: aus Angst vor unangenehmen Situationen ziehen sie sich aus dem sozialen Leben zurück","Ärztliche Hilfe: es gibt verschiedene Behandlungsmöglichkeiten, die die Lebensqualität verbessern"]}]},
+
+ {t:"Desorientierung und Demenz", s:"Demenz", subs:[
+  {t:"Wortschatz", items:["die Desorientierung: das Wort, das man in der Pflege meistens benutzt. Adjektiv: desorientiert","die Orientierungsstörung: Schwierigkeiten, sich in der Umgebung zurechtzufinden","die Demenz: eine Krankheit, bei der das Gehirn nicht mehr so gut funktioniert wie früher","dement: das Adjektiv. Man sagt: die Person ist dement oder an Demenz erkrankt","Geduld: ruhig bleiben und warten können, auch wenn etwas lange dauert oder sich wiederholt (Erklärung ergänzt)"]},
+  {t:"Orientierungsstörung", items:["Ort und Zeit: die Person weiß nicht mehr, wo sie ist, oder welches Datum oder welcher Tag gerade ist","Zur Person: sie weiß nicht, wer sie selbst ist, und erkennt andere Menschen nicht mehr","Ursachen: oft bei älteren Menschen mit Demenz, aber auch nach einer Kopfverletzung oder bei starkem Stress"]},
+  {t:"Verhalten bei Demenz", items:["Frühere Zeit: manche denken, sie leben in einer früheren Zeit, und vergessen z. B., dass sie Kinder haben oder verheiratet sind","Wie ein dichter Nebel: es gibt Tage mit mehr und weniger Nebel, aber mit der Zeit wird der Nebel immer dichter","Stimmung: ändert sich sehr schnell, von guter Laune zu Weinen oder Wut und nach 2 Minuten wieder zu Lachen","Sehr sensibel: Menschen mit Demenz merken, wenn die Pflegekräfte Stress haben","Alltag: Bewegungen und Aktivitäten werden schwieriger. Sie brauchen immer mehr Hilfe, z. B. beim Waschen, Anziehen, Essen und Trinken","Persönlichkeit: verändert sich meist stark, z. B. von sehr freundlich zu schnell wütend oder umgekehrt"]},
+  {t:"So unterstützen Pflegekräfte", items:["Humor haben","Musik spielen oder zusammen singen","Geduld haben","freundlich sein","Berührung","Lächeln"]}]}
+];
+
+const DATA_RUECKEN = [
+ {t:"Wirbelsäule und Bandscheibe", s:"Wirbelsäule", subs:[
+  {t:"Aufbau der Wirbelsäule", items:["Aufgabe der Wirbelsäule: das tragende Element des Körpers. Sie schützt das Rückenmark","Bewegliche Wirbel: 24, dazu kommen Kreuzbein und Steißbein","Halswirbelsäule (HWS): 7 Halswirbel","Brustwirbelsäule (BWS): 12 Brustwirbel","Lendenwirbelsäule (LWS): 5 Lendenwirbel. Sie ist am stärksten belastet","Unter der LWS: Kreuzbein und Steißbein","Doppelte S-Form: federt Belastungen und Erschütterungen ab","Aufbau: ermöglicht hohe Beweglichkeit und gleichzeitig Stabilität für den ganzen Rücken"]},
+  {t:"Die Bandscheibe", items:["Bandscheiben: elastische Stoßdämpfer zwischen den Wirbeln","Faserring: der feste äußere Teil der Bandscheibe","Gallertkern: der weiche innere Teil der Bandscheibe","Ernährung der Bandscheibe: sie hat keine eigenen Blutgefäße und bekommt Nährstoffe nur durch Bewegung","Bei Druck: Flüssigkeit wird aus der Bandscheibe herausgepresst","Bei Entlastung: die Bandscheibe saugt wieder Flüssigkeit mit Nährstoffen auf. Deshalb ist der Wechsel zwischen Belastung und Entlastung wichtig"]},
+  {t:"Muskeln und Bandscheibenvorfall", items:["Rücken- und Bauchmuskeln: halten die Wirbelsäule stabil, wie ein Korsett","Bandscheibenvorfall: der Faserring reißt und der Gallertkern drückt nach außen. Er kann auf Nerven drücken"]}]},
+
+ {t:"Berufliche Gesundheitsrisiken", s:"Risiken", subs:[
+  {t:"Die vier Gruppen", items:["Physische Risiken: Belastungen für Muskeln, Knochen und Gelenke sowie Unfallgefahren","Biologische Risiken: Krankheitserreger wie Bakterien und Viren","Chemische Risiken: Stoffe, die Haut oder Atemwege schädigen können","Psychische Risiken: Belastungen durch Stress, hohe Verantwortung und emotional schwierige Situationen","Häufige Folgen: Rückenschmerzen, Hautkrankheiten an den Händen, Infektionen und Erschöpfung","Krankmeldungen: Erkrankungen von Muskeln und Skelett gehören in der Pflege zu den häufigsten Gründen"]},
+  {t:"Risiken zuordnen (Lösungsvorschlag)", items:["Heben und Tragen: physisch","Arbeit in gebeugter Haltung: physisch","Nasser Boden: physisch (Unfallgefahr)","Nadelstichverletzung: physisch (Verletzung) und biologisch (Erreger)","Grippe- und Noroviren: biologisch","Kontakt mit Blut und Ausscheidungen: biologisch","Desinfektionsmittel: chemisch","Umgang mit Zytostatika: chemisch","Häufiges Tragen von Handschuhen (feuchte Haut): chemisch, weil die Haut geschädigt wird","Zeitdruck: psychisch","Tod und Sterben erleben: psychisch","Schichtarbeit: psychisch, belastet auch den Körper durch gestörten Schlaf","Konflikte mit Angehörigen: psychisch","Aggressive Bewohnerinnen oder Bewohner: psychisch, dazu Verletzungsgefahr","Personalmangel: psychisch"]},
+  {t:"Erkrankungen und Ursachen (deine Notizen)", items:["Rückenschmerzen, Bandscheibenvorfall: Heben und Tragen, Vorbeugen und Verdrehen, falsche Bewegungen, nicht genutzte Hilfsmittel","Schulter-Arm-Syndrom (Verspannungen in Schulter und Nacken): falsche Körperhaltung, Stress, einseitige Belastungen","Handekzem (Hauterkrankung an den Händen): häufiges Tragen von Handschuhen, Desinfektionsmittel, Allergien","Infektionskrankheiten (Grippe, Norovirus, Hepatitis B): Nadelstichverletzung, Kontakt mit Blut, Ausscheidungen und Körperflüssigkeiten, fehlende Schutzausrüstung und Impfungen","Erschöpfung, Burnout: Schichtarbeit, Zeitdruck, Überstunden","Schlafstörungen: Schichtarbeit, Personalmangel"]}]},
+
+ {t:"Gefahren für den Bewegungsapparat", s:"Rückenbelastung", subs:[
+  {t:"Belastende Bewegungen", items:["Heben und Tragen: z. B. einen Menschen hochheben oder umsetzen","Vorbeugen: z. B. am zu niedrigen Bett. Schon ohne Last ist der Druck auf die Bandscheiben etwa doppelt so hoch wie im Stehen","Verdrehen: den Oberkörper drehen, während die Füße stehen bleiben","Zwangshaltung: lange in der gleichen, ungünstigen Haltung bleiben, z. B. gebeugt, kniend, mit den Armen über dem Kopf","Ziehen und Schieben: z. B. Betten, Rollstühle, Essenswagen","Plötzliche Bewegungen: z. B. wenn ein Mensch beim Gehen wegsackt und man ihn auffängt"]},
+  {t:"Kombination und Folgen", items:["Am gefährlichsten: die Kombination aus Vorbeugen, Verdrehen und gleichzeitigem Heben einer Last. Sie tritt häufig beim Transfer vom Bett in den Stuhl auf","Mögliche Folgen: Verspannungen, Hexenschuss, Bandscheibenvorfall, Schmerzen in Schulter und Nacken, Gelenkverschleiß (z. B. Knie)","Berufskrankheit: Bandscheibenschäden der LWS durch langjähriges Heben und Tragen können als Berufskrankheit anerkannt werden","Körperübung: zwei volle Wasserflaschen 20 Sekunden dicht am Körper halten, danach 20 Sekunden mit gestreckten Armen. Den Unterschied spüren"]},
+  {t:"Belastende Tätigkeiten (deine Notizen)", items:["Transfer Bett – Rollstuhl: belastend durch Gewicht, Lagerung, fehlende Hilfe und Hilfsmittel. Hilft: Lifter, zweite Pflegekraft, Rutschbrett, Drehscheibe, Selbstständigkeit nutzen","Hochrutschen im Bett: belastend durch Gewicht, Position, Platzmangel, Vorbeugen. Hilft: Stecklaken, Hebelaken, Gleitmatte, zweite Pflegekraft, Selbstständigkeit","Körperpflege im Bett: belastend durch Vorbeugen und Immobilität. Hilft: Bett auf Arbeitshöhe","Duschen im Bad: belastend durch nassen Boden (Ausrutschen) und Hitze. Hilft: Toilettenstuhl, Waschschüssel, Handtuch, Lifter","Aufheben vom Boden nach einem Sturz: belastend durch Vorbeugen und Gewicht. Hilft: Hilfe holen, Lifter, Rollstuhl"]}]},
+
+ {t:"Grenzen der Belastbarkeit", s:"Belastbarkeit", subs:[
+  {t:"Typische Belastungsfaktoren", items:["Heben und Bewegen: von Menschen, z. B. beim Transfer","Zwangshaltungen: Körperhaltungen, die man lange einnehmen muss und in denen man sich kaum bewegen kann (z. B. gebückt, verdreht, kniend)","Zeitdruck: besonders bei Personalmangel","Schichtdienst: Schlafrhythmus und Erholung sind gestört","Emotionale Belastung: durch Krankheit, Sterben, Konflikte mit Angehörigen"]},
+  {t:"Warnsignale des Körpers", items:["Warnsignale: der Körper zeigt Überlastung früh. Sie sollten ernst genommen werden und sind kein Zeichen von Schwäche","Körperliche Warnsignale: Ziehen oder Schmerz im Rücken, verspannter Nacken und Schultern, Kribbeln oder Taubheit in Armen oder Beinen, Kopfschmerzen, Schwindel, Schlafstörungen","Psychische Warnsignale: anhaltende Müdigkeit trotz Schlaf, Konzentrationsstörungen, Gereiztheit, Lustlosigkeit, Gefühl der Überforderung („ich schaffe das nicht mehr“)"]},
+  {t:"Ampel-Check", items:["Grün: ich fühle mich leistungsfähig, leichte Beschwerden verschwinden nach einer Pause. Weiter so, Ausgleich und Bewegung beibehalten","Gelb: ich habe wiederholt Beschwerden und bin häufig erschöpft. Arbeitsweise prüfen, Hilfsmittel konsequent nutzen, mit Praxisanleitung sprechen, Pausen einhalten","Rot: starke oder anhaltende Schmerzen, Taubheit oder Kribbeln im Bein, ich kann nicht mehr abschalten. Sofort ärztlich abklären lassen, Leitung informieren, nicht unverändert weiterarbeiten"]},
+  {t:"Warum Pflegende trotz Schmerzen weiterarbeiten (deine Notizen)", nq:true, items:["Zeitdruck und Personalmangel","hohe Arbeitsbelastung","Angst, schwach oder faul zu wirken","Angst, unmotiviert zu wirken","schlechtes Arbeitsklima"]}]},
+
+ {t:"Selbstfürsorge und Ausgleich", s:"Selbstfürsorge", subs:[
+  {t:"Strategien zur Selbstfürsorge", items:["Selbstfürsorge: Verantwortung für die eigene Gesundheit übernehmen und aktiv etwas tun","Belastungen ansprechen: früh, bei der Praxisanleitung, im Team oder bei der Leitung","Unterstützung anfordern: wenn eine Aufgabe allein nicht sicher durchführbar ist","Aufgaben planen: Was ist wichtig? Was kann warten?","Pausen: einhalten und wirklich nutzen","Ausgleichsbewegungen: Ausgleichs- und Dehnübungen in den Alltag einbauen","Bei Schmerzen: nicht „durchhalten“, sondern reagieren und ärztlich abklären lassen","Nach dem Dienst: abschalten mit Bewegung, Schlaf, Zeit mit Familie und Freunden"]},
+  {t:"Ausgleich und eigene Gesundheit", items:["Gesunder Rücken: braucht Bewegung, Kraft und Erholung, bei der Arbeit und in der Freizeit","Bei der Arbeit: Pausen konsequent einhalten, Haltung oft wechseln, kurze Bewegungspausen machen","In der Freizeit: regelmäßige Bewegung, z. B. Schwimmen, Radfahren, Yoga, Krafttraining für Bauch und Rücken","Erholung: ausreichend Schlaf, auch nach dem Nachtdienst, Entspannung, Zeit mit Freunden und Familie","Angebote nutzen: Rückenkurse und Sportangebote von Arbeitgebern und Krankenkassen, auch die BGW"]},
+  {t:"Bewegungspause (ca. 5 Minuten, im Stehen)", nq:true, items:["1. Schultern 10-mal nach hinten kreisen","2. Kopf langsam zur rechten Schulter neigen, 15 Sekunden halten, dann links","3. Hände in den unteren Rücken legen, Oberkörper sanft nach hinten strecken, 10 Sekunden halten","4. Arme nach oben strecken, den Körper aufrichten, die Arme locker sinken lassen","5. Becken langsam kreisen, 5-mal in jede Richtung","6. Auf der Stelle gehen und tief ein- und ausatmen","Alle Übungen langsam und ohne Schmerz. Bei Beschwerden weglassen"]}]},
+
+ {t:"Arbeitsschutz und Unfallverhütung", s:"Arbeitsschutz", subs:[
+  {t:"Rechte und Pflichten", items:["Arbeitsschutzgesetz: regelt, wie Beschäftigte bei der Arbeit geschützt werden","Pflichten des Arbeitgebers: Gefahren prüfen und aufschreiben (Gefährdungsbeurteilung), Schutzmaßnahmen umsetzen, mindestens einmal im Jahr unterweisen, schweres Heben und Tragen so weit wie möglich vermeiden (Lastenhandhabungsverordnung)","Pflichten der Beschäftigten (auch Auszubildende): auf die eigene Sicherheit und die anderer achten, Anweisungen befolgen, Hilfsmittel und Schutzausrüstung richtig benutzen, Gefahren und defekte Geräte sofort melden"]},
+  {t:"Wer hilft?", items:["Unfallversicherung: übernimmt die Kosten nach einem Arbeitsunfall, einem Wegeunfall oder bei einer Berufskrankheit. Den Beitrag zahlt der Arbeitgeber","BGW: Berufsgenossenschaft für Gesundheitsdienst und Wohlfahrtspflege, die Unfallversicherung vieler Pflegeeinrichtungen. Für öffentliche Einrichtungen ist es die Unfallkasse","Betriebsarzt / Betriebsärztin: berät bei Gesundheitsfragen und macht Vorsorge, z. B. Impfungen","Fachkraft für Arbeitssicherheit und Sicherheitsbeauftragte: achten auf sichere Arbeitsplätze"]},
+  {t:"Das STOP-Prinzip", items:["STOP-Prinzip: Schutzmaßnahmen haben eine feste Reihenfolge. Maßnahmen weiter oben haben Vorrang","S – Substitution: die Gefahrenquelle wird ersetzt, z. B. hautschonendes Desinfektionsmittel, Sicherheitskanülen","T – Technisch: technische Schutzeinrichtungen, z. B. höhenverstellbares Pflegebett, Lifter, Kanülenabwurfbehälter","O – Organisatorisch: Arbeitsabläufe werden angepasst, z. B. schwere Transfers zu zweit, Unterweisungen, Hilfsmittel griffbereit, Pausen im Dienstplan","P – Personenbezogen: die Person schützt sich selbst, z. B. Handschuhe, Schutzkittel, Maske, feste Schuhe, rückengerechte Arbeitsweise lernen, Hautschutzplan"]},
+  {t:"Was tun bei einem Arbeitsunfall?", items:["Arbeitsunfall Schritt 1: Erste Hilfe leisten bzw. holen","Arbeitsunfall Schritt 2: den Unfall sofort der Leitung melden","Arbeitsunfall Schritt 3: den Unfall dokumentieren, auch kleine Verletzungen. Wichtig als Beweis, falls später Folgen auftreten","Arbeitsunfall Schritt 4: zum Durchgangsarzt (D-Arzt), wenn man nach dem Unfalltag nicht arbeiten kann oder die Behandlung länger dauert. Dem Arzt sagen: „Es war ein Arbeitsunfall.“","Arbeitsunfall Schritt 5: der Arbeitgeber meldet den Unfall der Unfallversicherung, wenn man mehr als 3 Tage arbeitsunfähig ist (Unfallanzeige)"]},
+  {t:"Sonderfall Nadelstichverletzung", items:["Nadelstich Schritt 1: Blutung fördern, das Gewebe um die Wunde mindestens 1 Minute herumdrücken","Nadelstich Schritt 2: die Wunde gründlich mit Antiseptikum desinfizieren","Nadelstich Schritt 3: Infektiosität der Patientin oder des Patienten klären (Blutentnahme nur mit Einwilligung)","Nadelstich Schritt 4: sofort die Leitung informieren und sofort zum D-Arzt, Betriebsarzt oder in die Notaufnahme zur Blutentnahme. Eine mögliche HIV-Prophylaxe sollte möglichst innerhalb von 2 Stunden beginnen","Nadelstich Schritt 5: den Unfall dokumentieren","Vorbeugen: Kanülen nie in die Schutzkappe zurückstecken (kein „Recapping“), direkt in den Abwurfbehälter werfen"]}]},
+
+ {t:"PSA und Hygiene", s:"PSA & Hygiene", subs:[
+  {t:"Persönliche Schutzausrüstung (PSA)", items:["PSA: schützt vor Erregern und gefährlichen Stoffen. Der Arbeitgeber muss sie bereitstellen, die Beschäftigten müssen sie verwenden","Schutzhandschuhe: bei Kontakt mit Blut, Ausscheidungen, Schleimhäuten, Wunden und bei Desinfektionsmitteln","Schutzkittel / Schürze: wenn die Kleidung schmutzig oder nass werden kann, bei Isolierung","Mund-Nasen-Schutz / FFP2-Maske: bei Erregern, die über die Luft übertragen werden (z. B. Grippe), nach Hygieneplan","Schutzbrille: wenn Spritzer ins Auge gelangen können, z. B. beim Absaugen oder Erbrechen","Feste, geschlossene Schuhe: immer, Schutz vor Stürzen und herabfallenden Gegenständen"]},
+  {t:"Wichtige Hygienemaßnahmen", items:["Händedesinfektion: vor und nach jedem Kontakt mit einem Menschen, vor sauberen Tätigkeiten, nach Kontakt mit Körperflüssigkeiten und mit der direkten Umgebung des Menschen","Flächendesinfektion: nach Plan und wenn Flächen verschmutzt sind","Abfall richtig entsorgen: spitze und scharfe Gegenstände sofort in den Kanülenabwurfbehälter","Hautschutz: Haut schützen, reinigen und pflegen, nach dem Hautschutzplan","Impfungen: nutzen, z. B. gegen Hepatitis B und Grippe (Betriebsarzt)"]}]},
+
+ {t:"Rückengerechte Arbeitsweise und Hilfsmittel", s:"Rückengerecht", subs:[
+  {t:"Die Grundregeln", items:["Transfer planen: Was kann der Mensch selbst? Welches Hilfsmittel brauche ich? Brauche ich eine zweite Person? Ist der Weg frei? Sind die Bremsen fest?","Den Menschen einbeziehen: erklären, was Sie vorhaben. Alles, was er selbst macht, entlastet Ihren Rücken und fördert seine Selbstständigkeit","Arbeitshöhe einstellen: das Bett etwa auf Hüfthöhe hochstellen, danach wieder ganz nach unten (Sturzgefahr)","Sicher stehen: Füße hüftbreit, ein Fuß vor dem anderen (Schrittstellung), Knie leicht gebeugt","Rücken gerade halten: in die Knie gehen, statt den Rücken rund zu machen","Körpernah arbeiten: näher an den Menschen oder die Last herangehen","Nicht verdrehen: mit den Füßen drehen, nicht mit dem Oberkörper. Oberkörper und Füße zeigen in dieselbe Richtung","Gewicht verlagern statt heben: die Bewegung kommt aus den Beinen, Gewicht von einem Bein auf das andere verlagern","Hilfsmittel nutzen: kleine Hilfsmittel grundsätzlich, große Hilfsmittel, wenn der Mensch wenig mithelfen kann","Gemeinsam bewegen: bei zwei Pflegepersonen ein gemeinsames Startkommando vereinbaren","Feste Schuhe tragen: geschlossen, flach, rutschfest, mit Fersenkappe"]},
+  {t:"Hilfsmittel im Überblick", items:["Gleitmatte / Gleittuch: zum Hochrutschen und Drehen im Bett. Nach Gebrauch entfernen (Rutschgefahr)","Rutschbrett: für den Transfer im Sitzen, z. B. Bett – Rollstuhl. Höhen angleichen, Armlehne entfernen","Drehscheibe: zum Drehen im Stand beim Transfer. Der Mensch muss kurz stehen können","Haltegürtel / Transfergurt: sicherer Griff beim Aufstehen und Gehen. Nicht unter den Armen greifen","Antirutschmatte: die Füße finden Halt im Bett","Bettleiter / Aufrichter: der Mensch richtet sich selbst auf","Aufstehhilfe (aktiver Lifter): zum Aufstehen, wenn etwas Kraft vorhanden ist. Einweisung nötig","Lifter (passiver Lifter): für den Transfer, wenn der Mensch gar nicht mithelfen kann. Einweisung nötig, Gurt prüfen","Höhenverstellbares Pflegebett: Arbeitshöhe einstellen, danach wieder tief stellen"]}]},
+
+ {t:"Glossar", s:"Glossar", subs:[
+  {t:"Wörter A bis H", items:["der Abwurfbehälter: fester Behälter für gebrauchte Kanülen und andere spitze Gegenstände","der Arbeitsschutz: alle Regeln und Maßnahmen, die Beschäftigte bei der Arbeit schützen","der Arbeitsunfall: Unfall bei der Arbeit oder in der Schule","die Arbeitshöhe: Höhe, in der man aufrecht und rückenschonend arbeiten kann","die Bandscheibe: Stoßdämpfer zwischen zwei Wirbeln","der Bandscheibenvorfall: der Gallertkern drückt durch den Faserring nach außen und kann auf Nerven drücken","die Belastbarkeit: wie viel Belastung ein Mensch aushalten kann, ohne krank zu werden","die Berufskrankheit: Krankheit, die durch die Arbeit entsteht und offiziell anerkannt ist","die Berufsgenossenschaft (BGW): Unfallversicherung für viele Einrichtungen im Gesundheitsdienst","der Betriebsarzt / die Betriebsärztin: Arzt oder Ärztin, der oder die Beschäftigte bei Gesundheitsfragen berät","das Burnout: starke körperliche und seelische Erschöpfung durch lange Überlastung","die Drehscheibe: runde Scheibe für die Füße, hilft beim Drehen im Stand","der Durchgangsarzt (D-Arzt): Arzt, zu dem man nach einem Arbeitsunfall geht","die Erschöpfung: Zustand starker körperlicher oder psychischer Kraftlosigkeit","der Faserring: fester äußerer Teil der Bandscheibe","der Gallertkern: weicher innerer Teil der Bandscheibe","die Gefährdungsbeurteilung: der Arbeitgeber prüft und schreibt auf, welche Gefahren es am Arbeitsplatz gibt","die Gleitmatte: glattes Tuch, auf dem ein Mensch im Bett leicht rutschen kann","der Haltegürtel: Gurt mit Griffen, um einen Menschen beim Aufstehen sicher zu halten","die Händedesinfektion: Einreiben der Hände mit einem Mittel, das Erreger abtötet","das Hilfsmittel: Gegenstand, der die Arbeit leichter und sicherer macht"]},
+  {t:"Wörter K bis Z", items:["die Kanüle: dünne Hohlnadel, z. B. für Spritzen","die Lendenwirbelsäule (LWS): unterer Teil der Wirbelsäule mit 5 Wirbeln, am stärksten belastet","der Lifter: Gerät, mit dem man einen Menschen anhebt und umsetzt","die Nadelstichverletzung: Verletzung mit einer gebrauchten Nadel oder Kanüle, Infektionsgefahr","die Persönliche Schutzausrüstung (PSA): Handschuhe, Kittel, Maske, Schutzbrille usw.","die Prävention: Vorbeugung von Krankheiten und Unfällen","die Ressource: Kraft oder Hilfe, die man nutzen kann (z. B. Fähigkeiten des Menschen, Hilfsmittel, Team)","das Rutschbrett: Brett, über das ein Mensch im Sitzen rutschen kann, z. B. vom Bett in den Rollstuhl","die Schrittstellung: ein Fuß steht vor dem anderen, sorgt für einen stabilen Stand","die Selbstfürsorge: Verantwortung für die eigene Gesundheit übernehmen","der Transfer: Umsetzen eines Menschen, z. B. vom Bett in den Rollstuhl","die Unfallversicherung: Versicherung, die nach einem Arbeitsunfall die Kosten übernimmt","die Unterweisung: Schulung des Arbeitgebers zu Gefahren und Schutzmaßnahmen","das Warnsignal: Zeichen des Körpers für Überlastung (z. B. Schmerz)","der Wegeunfall: Unfall auf dem direkten Weg zur Arbeit oder zur Schule und zurück","der Wirbel: Knochen der Wirbelsäule","die Wirbelsäule: Säule aus Wirbeln, trägt den Körper und schützt das Rückenmark","die Zwangshaltung: ungünstige Körperhaltung, die man lange einnehmen muss"]}]}
+];
+const FIXQ = {ruecken:[
+  ['Wie bekommen Bandscheiben ihre Nährstoffe?', ['über eigene Blutgefäße','durch Wechsel von Belastung und Entlastung','nur im Liegen'], 1],
+  ['Welche Bewegung ist für den Rücken am gefährlichsten?', ['aufrecht gehen','in die Knie gehen','vorbeugen, verdrehen und dabei eine Last heben'], 2],
+  ['Wie hoch sollte das Pflegebett bei der Körperpflege sein?', ['ungefähr Hüfthöhe','ganz tief','Brusthöhe'], 0],
+  ['Was bedeutet das „T“ im STOP-Prinzip?', ['Training','Technische Maßnahmen','Teamarbeit'], 1],
+  ['Welche Maßnahme kommt im STOP-Prinzip zuerst?', ['Schutzhandschuhe tragen','eine Unterweisung','die Gefahr ersetzen'], 2],
+  ['Sie haben sich an einer gebrauchten Kanüle gestochen. Was ist richtig?', ['Blutung fördern, desinfizieren, sofort zum D-Arzt','bis Dienstende warten','Pflaster aufkleben und weiterarbeiten'], 0],
+  ['Wer bezahlt nach einem Arbeitsunfall die Behandlung?', ['die Unfallversicherung (z. B. BGW)','die eigene Krankenkasse','die Pflegeschule'], 0],
+  ['Was ist eine Pflicht der Beschäftigten im Arbeitsschutz?', ['Gefährdungsbeurteilung schreiben','Hilfsmittel kaufen','Gefahren und defekte Geräte melden'], 2],
+  ['Welches Hilfsmittel passt, wenn ein Mensch gar nicht mithelfen kann?', ['Drehscheibe','passiver Lifter','Haltegürtel'], 1],
+  ['Sie haben seit Tagen Kribbeln im Bein und Rückenschmerzen. Was tun Sie?', ['ärztlich abklären und Leitung informieren','weiterarbeiten wie bisher','Schmerzmittel einnehmen und weiterarbeiten'], 0]
+]};
+
+const HANDOUTS = {
+  bew:   {label:'Bewegung beobachten', kicker:'PFK 4 FFM · Theorieblock 1', title:'Bewegung beobachten, beschreiben und verstehen', data:DATA_BEW},
+  grund: {label:'Grundstrukturen des Körpers', kicker:'PFK · Kompetenzbereich I', title:'Grundstrukturen des menschlichen Körpers', data:DATA_GRUND},
+  tag:   {label:'Mein erster Tag', kicker:'PFK · Kompetenzbereich I', title:'Mein erster Tag', data:DATA_TAG},
+  ruecken:{label:'Bewegungsapparat schützen', kicker:'PFK · Block 1', title:'Den eigenen Bewegungsapparat schützen', data:DATA_RUECKEN}
+};
+const SKEY = {bew:'bb-status', grund:'bb-status-grund', tag:'bb-status-tag', ruecken:'bb-status-ruecken'};
+
 /* ---------- helpers ---------- */
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
@@ -328,14 +619,16 @@ const store = {
 const text = it => typeof it === 'string' ? it : it.s;
 const isChk = it => typeof it !== 'string';
 const split = s => { const i = s.indexOf(': '); return i < 0 ? [null, s] : [s.slice(0, i), s.slice(i + 2)]; };
-let status = store.get('bb-status') || {};
-const setStatus = (id, v) => { if (v) status[id] = v; else delete status[id]; store.set('bb-status', status); updateProgress(); };
+let H = store.get('bb-handout'); if (!HANDOUTS[H]) H = 'bew';
+let DATA = HANDOUTS[H].data;
+let status = store.get(SKEY[H]) || {};
+const setStatus = (id, v) => { if (v) status[id] = v; else delete status[id]; store.set(SKEY[H], status); updateProgress(); };
 
-const totalTopics = DATA.reduce((n, b) => n + b.subs.length, 0);
+const countTopics = () => DATA.reduce((n, b) => n + b.subs.length, 0);
 function updateProgress(){
   const known = Object.keys(status).filter(k => k[0] === 't' && status[k] === 'known').length;
-  $('#pnum').textContent = known; $('#ptot').textContent = totalTopics;
-  $('#pbar').style.width = (100 * known / totalTopics) + '%';
+  $('#pnum').textContent = known; $('#ptot').textContent = countTopics();
+  $('#pbar').style.width = (100 * known / countTopics()) + '%';
 }
 
 /* ---------- tabs ---------- */
@@ -354,9 +647,9 @@ function showTab(t){
 document.querySelectorAll('.tab').forEach(b => b.onclick = () => showTab(b.dataset.tab));
 
 /* ---------- shared branch chips ---------- */
-function chipsHTML(sel){
+function chipsHTML(sel, wc){
   return ['<button class="chip" data-b="all" aria-pressed="' + (sel === 'all') + '">All topics</button>']
-    .concat(DATA.map((b, i) => '<button class="chip" data-b="' + i + '" aria-pressed="' + (sel === String(i)) + '">' + esc(b.s) + '</button>')).join('');
+    .concat(DATA.map((b, i) => '<button class="chip" data-b="' + i + '" aria-pressed="' + (sel === String(i)) + '">' + esc(b.s) + '</button>')).concat(wc && FIXQ[H] ? ['<button class="chip" data-b="wc" aria-pressed="' + (sel === 'wc') + '">Wissenscheck (Skript)</button>'] : []).join('');
 }
 
 /* ---------- mind map ---------- */
@@ -479,16 +772,21 @@ document.addEventListener('keydown', e => {
 
 /* ---------- quiz ---------- */
 const qz = {branch:'all', list:null, i:0, score:0, done:false, answered:false, misses:[]};
-const allTerms = [];
-DATA.forEach((b, bi) => b.subs.forEach((s, si) => s.items.forEach(it => {
-  const [term, def] = split(text(it)); if (term && !isChk(it)) allTerms.push({term, def, bi, sub:s.t});
-})));
+let allTerms = [];
+function buildTerms(){
+  allTerms = [];
+  DATA.forEach((b, bi) => b.subs.forEach((s, si) => s.items.forEach(it => {
+    const [term, def] = split(text(it)); if (term && !isChk(it) && !s.nq) allTerms.push({term, def, bi, sub:s.t});
+  })));
+}
+buildTerms();
 function buildQuestions(){
+  if (qz.branch === 'wc') return (FIXQ[H] || []).map(([q, o, a]) => ({ctx:'Wissenscheck aus dem Skript', q, ans:o[a], opts:shuffle(o), why:q + ' Richtig: ' + o[a]}));
   const qs = [];
   DATA.forEach((b, bi) => {
     if (qz.branch !== 'all' && +qz.branch !== bi) return;
     b.subs.forEach(s => s.items.forEach(it => {
-      if (isChk(it)) return;
+      if (isChk(it) || s.nq) return;
       const [term, def] = split(text(it));
       if (term) {
         const same = shuffle(allTerms.filter(x => x.bi === bi && x.def !== def));
@@ -496,7 +794,8 @@ function buildQuestions(){
         const wrong = [...new Set(same.concat(other).map(x => x.def))].slice(0, 3);
         qs.push({ctx:s.t, q:'Was passt zu „' + term + '“?', ans:def, opts:shuffle([def, ...wrong]), why:term + ': ' + def});
       } else {
-        const subs = b.subs.map(x => x.t);
+        if (b.subs.length < 3) return;
+        const subs = [s.t, ...shuffle(b.subs.map(x => x.t).filter(t => t !== s.t)).slice(0, 3)];
         qs.push({ctx:b.t, q:'Zu welchem Punkt gehört diese Aussage? „' + def + '“', ans:s.t, opts:shuffle(subs), why:'Gehört zu: ' + s.t});
       }
     }));
@@ -509,7 +808,7 @@ function startQuiz(){
   renderQuiz();
 }
 function renderQuiz(){
-  $('#qz-chips').innerHTML = chipsHTML(qz.branch);
+  $('#qz-chips').innerHTML = chipsHTML(qz.branch, true);
   const st = $('#qz-stage');
   if (!qz.list.length) { st.innerHTML = '<div class="empty">No questions for this topic.</div>'; return; }
   if (qz.done) {
@@ -557,9 +856,24 @@ const PLANES = [
 let igView = 'pl', igSel = 0, igMove = 'armFE', ig3d = null;
 const findMove = () => igSel === null ? null : (PLANES[igSel].moves.find(m => m.id === igMove) || PLANES[igSel].moves[0]);
 function showInfo(){
-  document.querySelectorAll('#ig-nav button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === igView));
-  ['pl','dir','who'].forEach(v => $('#ig-' + v).hidden = v !== igView);
+  const views = IG_VIEWS[H];
+  if (!views.some(v => v[0] === igView)) igView = views[0][0];
+  $('#ig-nav').innerHTML = views.map(v => '<button data-v="' + v[0] + '" aria-pressed="' + (v[0] === igView) + '">' + esc(v[1]) + '</button>').join('');
+  ['pl','dir','who','org','city','loop','skel','wut','nebel','inko','spine','posture','stop','ampel'].forEach(v => $('#ig-' + v).hidden = v !== igView);
+  stopArt(igView);
   if (igView === 'pl' && !ig3d) { ig3d = init3D(); ig3d.set(igSel, findMove()); }
+  if (igView === 'dir') renderDir();
+  if (igView === 'org') renderOrg();
+  if (igView === 'city') renderCity();
+  if (igView === 'loop') renderLoop();
+  if (igView === 'skel') renderSkel();
+  if (igView === 'wut') renderWut();
+  if (igView === 'nebel') renderNebel();
+  if (igView === 'inko') renderInko();
+  if (igView === 'spine') renderSpine();
+  if (igView === 'posture') renderPosture();
+  if (igView === 'stop') renderStop();
+  if (igView === 'ampel') renderAmpel();
 }
 $('#ig-nav').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { igView = b.dataset.v; showInfo(); } });
 
@@ -785,6 +1099,1069 @@ function init3D(){
   };
 }
 
+/* ---------- extra infographics for "Grundstrukturen" ---------- */
+const IG_VIEWS = {
+  bew:   [['pl','Ebenen & Achsen'], ['dir','Richtungen'], ['who','WHO']],
+  grund: [['org','Zoom-Reise'], ['city','Zelle als Stadt'], ['loop','Regelkreis'], ['skel','Skelett 3D'], ['dir','Richtungen']],
+  tag:   [['nebel','Demenz-Nebel']],
+  ruecken: [['spine','Wirbelsäule & Bandscheibe'], ['posture','Rückenbelastung'], ['stop','STOP-Prinzip'], ['ampel','Ampel-Check']]
+};
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function rnd(seed){ let x = seed; return () => (x = (x * 16807) % 2147483647) / 2147483647; }
+function stopArt(view){
+  if (view !== 'org') { cancelAnimationFrame(zr.raf); zr.raf = 0; }
+  if (view !== 'loop') rkStop();
+  if (view !== 'wut') cancelAnimationFrame(wu.raf);
+  if (view !== 'nebel') cancelAnimationFrame(nb.raf);
+  if (view !== 'inko') cancelAnimationFrame(ik.raf);
+  if (view !== 'spine') cancelAnimationFrame(ws.raf);
+  if (view !== 'posture') cancelAnimationFrame(pb.raf);
+}
+
+/* ===================== 1. Zoom journey ===================== */
+const ZR = [
+  {t:'Organismus', d:'Die höchste Organisationsebene. Umfasst alle Organe und Systeme, die zusammenarbeiten, damit der Körper funktioniert.', img:'ein Mensch', hx:'Mensch', f:[52.5, 38]},
+  {t:'Organsystem', d:'Organe, die im Körper zusammenarbeiten.', img:'das Herz-Kreislauf-System: Herz, Arterien (rot) und Venen (blau)', f:[50, 49]},
+  {t:'Organ', d:'Eine Funktionseinheit. Ein Organ kann aus verschiedenen Geweben bestehen.', img:'das Herz', hx:'Niere, Herz, Muskel', f:[42, 58]},
+  {t:'Gewebe', d:'Viele ähnliche Zellen, die zusammenarbeiten und die gleiche Funktion erfüllen.', img:'viele gleichartige Zellen nebeneinander', f:[50, 50]},
+  {t:'Zelle', d:'Die kleinste lebensfähige und teilungsfähige Einheit.', img:'eine Zelle mit Zellkern und Zellorganellen', f:[71.25, 33.75]},
+  {t:'Zellorganell', d:'Kleine Funktionseinheit innerhalb einer Zelle mit bestimmter Struktur und Aufgabe.', img:'ein Mitochondrium mit gefalteter innerer Membran', hx:'Mitochondrium', f:[53.75, 51.25]},
+  {t:'Molekül', d:'Mehrere Atome, die sich durch Elektronenpaarbindungen verbinden.', img:'ein kleines Molekül aus C, H, N und O', f:[41.25, 53.75]},
+  {t:'Atom', d:'Der kleinste chemische Baustein. Aus Atomen entstehen größere Moleküle.', img:'Atomkern mit kreisenden Elektronen', hx:'Wasserstoff (H), Sauerstoff (O), Kohlenstoff (C), Stickstoff (N)'}
+];
+const ZART = (() => {
+  const A = [];
+  A[0] = `<svg viewBox="0 0 400 400"><defs><linearGradient id="zb0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8D8FF"/><stop offset="1" stop-color="#3E6FC9"/></linearGradient><radialGradient id="zh0"><stop offset="0" stop-color="#FF6B7A" stop-opacity=".9"/><stop offset="1" stop-color="#FF6B7A" stop-opacity="0"/></radialGradient></defs>
+  <circle cx="200" cy="205" r="178" fill="none" stroke="#8FB4E8" stroke-opacity=".22" stroke-dasharray="2 9" class="spin"/><circle cx="200" cy="205" r="150" fill="none" stroke="#8FB4E8" stroke-opacity=".1"/>
+  <g fill="url(#zb0)" stroke="url(#zb0)" stroke-linecap="round" stroke-linejoin="round" opacity=".95"><circle cx="200" cy="68" r="28" stroke="none"/><rect x="189" y="92" width="22" height="22" rx="6" stroke="none"/>
+  <path stroke="none" d="M152 116 Q200 104 248 116 Q262 160 258 214 Q254 250 236 262 L164 262 Q146 250 142 214 Q138 160 152 116 Z"/>
+  <path fill="none" stroke-width="20" d="M156 126 Q132 170 120 214 L112 266"/><path fill="none" stroke-width="20" d="M244 126 Q268 170 280 214 L288 266"/>
+  <path fill="none" stroke-width="26" d="M182 256 L176 320 L174 372"/><path fill="none" stroke-width="26" d="M218 256 L224 320 L226 372"/></g>
+  <circle class="zr-pulse" cx="210" cy="152" r="30" fill="url(#zh0)"/>
+  <path fill="#FF7A88" d="M210 166 C198 158 192 151 192 144 C192 138 197 135 201 135 C205 135 208 137 210 141 C212 137 215 135 219 135 C223 135 228 138 228 144 C228 151 222 158 210 166 Z"/></svg>`;
+  const red = ['M200 178 C200 120 160 90 130 36','M212 180 C240 120 280 90 300 26','M190 222 C150 260 120 300 80 366','M212 224 C250 262 290 300 322 374','M178 198 C140 198 90 188 26 210','M226 198 C262 198 312 210 376 190'];
+  const blue = ['M194 184 C176 130 140 112 96 58','M206 184 C230 140 270 122 334 70','M194 228 C170 272 150 322 118 384','M206 228 C232 282 262 332 272 392','M180 206 C128 222 80 242 22 262','M222 206 C270 222 322 240 384 252'];
+  const vessel = (d, base, hi) => `<path d="${d}" stroke="${base}" stroke-width="7" opacity=".85"/><path d="${d}" stroke="${hi}" stroke-width="2.5" class="flow"/>`;
+  A[1] = `<svg viewBox="0 0 400 400"><defs><radialGradient id="zh1" cx=".45" cy=".4"><stop offset="0" stop-color="#FF8F9A"/><stop offset="1" stop-color="#C21F3A"/></radialGradient></defs>
+  <g fill="none" stroke-linecap="round">${blue.map(d => vessel(d, '#3F7BE8', '#C9DCFF')).join('')}${red.map(d => vessel(d, '#E2405A', '#FFD0D6')).join('')}</g>
+  <path class="beat" d="M200 236 C160 210 150 180 165 165 C178 152 195 158 200 172 C205 158 222 152 235 165 C250 180 240 210 200 236 Z" fill="url(#zh1)" stroke="#FFC2CB" stroke-width="2"/></svg>`;
+  A[2] = `<svg viewBox="0 0 400 400"><defs><radialGradient id="zh2" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#FF8C8C"/><stop offset=".6" stop-color="#D6334A"/><stop offset="1" stop-color="#7A1028"/></radialGradient></defs>
+  <g class="beat"><path d="M185 128 C178 88 150 66 122 76" fill="none" stroke="#4C86F0" stroke-width="24" stroke-linecap="round"/><path d="M158 150 L148 58" fill="none" stroke="#3A6FD8" stroke-width="20" stroke-linecap="round"/>
+  <path d="M212 132 C212 82 242 58 276 68 C302 76 304 100 292 112" fill="none" stroke="#E2405A" stroke-width="28" stroke-linecap="round"/><path d="M232 72 L236 46 M252 66 L258 42 M270 68 L280 46" stroke="#E2405A" stroke-width="9" stroke-linecap="round"/>
+  <path d="M200 344 C120 296 80 232 92 172 C102 122 150 102 184 130 C194 140 200 150 200 160 C204 140 226 112 262 112 C312 112 332 170 314 222 C296 272 252 312 200 344 Z" fill="url(#zh2)" stroke="#FFB3BE" stroke-width="2"/>
+  <path d="M200 160 C192 212 206 262 200 334" fill="none" stroke="#FFD27A" stroke-width="3" opacity=".8"/><path d="M232 140 C262 182 272 232 252 284 M120 190 C130 230 150 260 170 280" fill="none" stroke="#FFD27A" stroke-width="2.5" opacity=".7"/>
+  <path d="M120 160 C130 140 150 132 165 136" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="6" stroke-linecap="round"/><circle cx="168" cy="232" r="10" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width="2" class="zr-pulse"/></g></svg>`;
+  let hex = ''; const r = 34, w = Math.sqrt(3) * r;
+  for (let row = -1; row < 9; row++) for (let col = -1; col < 8; col++) {
+    const cx = col * w + (row % 2 ? w / 2 : 0) + (200 - 3 * w), cy = row * 1.5 * r - 4;
+    const pts = [0,1,2,3,4,5].map(k => { const a = Math.PI / 180 * (60 * k - 30); return (cx + (r - 2) * Math.cos(a)).toFixed(1) + ',' + (cy + (r - 2) * Math.sin(a)).toFixed(1); }).join(' ');
+    const mid = Math.hypot(cx - 200, cy - 200) < 5;
+    hex += `<polygon points="${pts}" fill="url(#zt3)" stroke="${mid ? '#FFFFFF' : '#F7A8C0'}" stroke-width="${mid ? 3 : 1.4}" opacity="${mid ? 1 : .82}"/><ellipse cx="${(cx + 4).toFixed(1)}" cy="${(cy - 2).toFixed(1)}" rx="10" ry="8" fill="#7B4FB8"/>`;
+  }
+  A[3] = `<svg viewBox="0 0 400 400"><defs><radialGradient id="zt3" cx=".4" cy=".35"><stop offset="0" stop-color="#FFC9D8"/><stop offset="1" stop-color="#D96C93"/></radialGradient></defs>${hex}<circle cx="200" cy="200" r="38" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" class="zr-pulse"/></svg>`;
+  const mitoS = (x, y, rot, hl) => `<g transform="translate(${x} ${y}) rotate(${rot})"><rect x="-30" y="-14" width="60" height="28" rx="14" fill="url(#zm4)" stroke="${hl ? '#FFFFFF' : '#FFD08A'}" stroke-width="${hl ? 3 : 2}"/><path d="M-20 -8 v10 M-10 8 v-10 M0 -8 v10 M10 8 v-10 M20 -8 v10" stroke="#8A3510" stroke-width="3" stroke-linecap="round"/></g>`;
+  const R4 = rnd(7); let dots4 = '';
+  for (let i = 0; i < 40; i++) { const a = R4() * Math.PI * 2, d = 40 + R4() * 115; dots4 += `<circle cx="${(200 + Math.cos(a) * d).toFixed(1)}" cy="${(200 + Math.sin(a) * d).toFixed(1)}" r="${(1 + R4() * 2).toFixed(1)}" fill="#BFE9FF" opacity=".35"/>`; }
+  A[4] = `<svg viewBox="0 0 400 400"><defs><radialGradient id="zc4" cx=".45" cy=".4"><stop offset="0" stop-color="#2E5C7A"/><stop offset="1" stop-color="#173349"/></radialGradient><radialGradient id="zn4"><stop offset="0" stop-color="#B58CF0"/><stop offset="1" stop-color="#5B3A9E"/></radialGradient><linearGradient id="zm4"><stop offset="0" stop-color="#FFB15C"/><stop offset="1" stop-color="#E06A2C"/></linearGradient></defs>
+  <circle cx="200" cy="200" r="172" fill="none" stroke="#7FE0CF" stroke-opacity=".3" stroke-width="2"/><circle cx="200" cy="200" r="165" fill="url(#zc4)" stroke="#7FE0CF" stroke-width="6"/>${dots4}
+  <g fill="none" stroke="#FF9FB6" stroke-width="6" stroke-linecap="round" opacity=".85"><path d="M128 260 A80 80 0 0 1 132 170"/><path d="M112 272 A98 98 0 0 1 116 160"/></g>
+  <circle cx="180" cy="215" r="62" fill="url(#zn4)" stroke="#D9C2FF" stroke-width="3"/><circle cx="192" cy="222" r="18" fill="#3D2470"/>
+  <g fill="none" stroke="#FFD27A" stroke-width="5" stroke-linecap="round"><path d="M268 236 Q290 226 312 236"/><path d="M272 248 Q290 240 308 248"/><path d="M276 260 Q290 254 304 260"/></g>
+  ${mitoS(110, 300, -20)}${mitoS(300, 310, 60)}${mitoS(285, 135, 30, true)}<circle cx="285" cy="135" r="40" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" class="zr-pulse"/></svg>`;
+  let cr = '';
+  for (let x = -120, k = 0; x <= 120; x += 24, k++) {
+    const top = k % 2 === 0, yb = 70 * Math.sqrt(Math.max(0, 1 - (x / 148) ** 2));
+    const y0 = 200 + (top ? -yb : yb), y1 = y0 + (top ? 1 : -1) * Math.min(52, yb * .85);
+    cr += `<path d="M${200 + x} ${y0.toFixed(1)} L${200 + x} ${y1.toFixed(1)}" stroke="#FFD08A" stroke-width="11" stroke-linecap="round"/><path d="M${200 + x} ${y0.toFixed(1)} L${200 + x} ${y1.toFixed(1)}" stroke="#9A3F12" stroke-width="3" stroke-linecap="round"/>`;
+  }
+  const R5 = rnd(11); let d5 = '';
+  for (let i = 0; i < 46; i++) { const x = 200 + (R5() - .5) * 250, y = 200 + (R5() - .5) * 100; d5 += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(1.5 + R5() * 2.5).toFixed(1)}" fill="#FFE6B0" opacity=".55"/>`; }
+  A[5] = `<svg viewBox="0 0 400 400"><defs><radialGradient id="zm5" cx=".45" cy=".4"><stop offset="0" stop-color="#FFB86A"/><stop offset="1" stop-color="#C9541E"/></radialGradient></defs>
+  <g transform="rotate(-12 200 200)"><ellipse cx="200" cy="200" rx="168" ry="92" fill="url(#zm5)" stroke="#FFC37A" stroke-width="4"/><ellipse cx="200" cy="200" rx="148" ry="72" fill="#A8401A" stroke="#FFD08A" stroke-width="3"/>${cr}${d5}</g>
+  <circle cx="215" cy="205" r="7" fill="#FFFFFF"/><circle cx="215" cy="205" r="16" fill="none" stroke="#fff" stroke-width="2" class="zr-pulse"/></svg>`;
+  const AT = {N:[105,195,'N'], H1:[72,218,'H'], H2:[86,156,'H'], Ca:[165,215,'C'], H3:[155,266,'H'], H4:[180,163,'H'], C:[232,190,'C'], O1:[238,130,'O'], O2:[292,222,'O'], H5:[334,200,'H']};
+  const bond = (a, b, off) => { const [x1, y1] = AT[a], [x2, y2] = AT[b]; const o = off || 0; return `<line x1="${x1 + o}" y1="${y1}" x2="${x2 + o}" y2="${y2}" stroke="#D7E3F2" stroke-width="7" stroke-linecap="round"/>`; };
+  const rad = {C:22, N:21, O:21, H:13};
+  const atoms = Object.values(AT).map(([x, y, e]) => `<circle cx="${x}" cy="${y}" r="${rad[e]}" fill="url(#zq${e})"/><text x="${x}" y="${y + 4.5}" text-anchor="middle" class="zr-el" fill="${e === 'H' ? '#24324A' : '#FFFFFF'}">${e}</text>`).join('');
+  const g6 = (id, a, b) => `<radialGradient id="zq${id}" cx=".35" cy=".3"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></radialGradient>`;
+  A[6] = `<svg viewBox="0 0 400 400"><defs>${g6('C', '#8892A3', '#2E3440')}${g6('N', '#9DB8FF', '#2F5BC8')}${g6('O', '#FF9A90', '#C4302A')}${g6('H', '#FFFFFF', '#B9C6D8')}</defs>
+  <g class="wob">${bond('N','H1')}${bond('N','H2')}${bond('N','Ca')}${bond('Ca','H3')}${bond('Ca','H4')}${bond('Ca','C')}${bond('C','O1',-5)}${bond('C','O1',5)}${bond('C','O2')}${bond('O2','H5')}${atoms}
+  <circle cx="165" cy="215" r="32" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="2" class="zr-pulse"/></g></svg>`;
+  const nuc = [[0,0],[14,4],[-12,6],[4,-14],[-6,-12],[10,14],[-14,-6],[16,-10],[-2,16]].map(([x, y], i) => `<circle cx="${200 + x}" cy="${200 + y}" r="10" fill="${i % 2 ? '#B8C2CC' : '#FF6B6B'}" stroke="#0A1428" stroke-opacity=".4"/>`).join('');
+  const orbit = (rot, dur) => `<g transform="rotate(${rot} 200 200)"><ellipse cx="200" cy="200" rx="160" ry="56" fill="none" stroke="#9CC9FF" stroke-opacity=".55" stroke-width="1.6"/>` +
+    (RM ? `<circle cx="360" cy="200" r="7" fill="#E9F6FF"/>` : `<circle r="7" fill="#E9F6FF"><animateMotion dur="${dur}s" repeatCount="indefinite" path="M40 200 a160 56 0 1 0 320 0 a160 56 0 1 0 -320 0"/></circle>`) + `</g>`;
+  A[7] = `<svg viewBox="0 0 400 400"><defs><radialGradient id="za7"><stop offset="0" stop-color="#7FD3FF" stop-opacity=".35"/><stop offset="1" stop-color="#7FD3FF" stop-opacity="0"/></radialGradient></defs>
+  <circle cx="200" cy="200" r="96" fill="url(#za7)"/>${orbit(0, 3.2)}${orbit(60, 4.1)}${orbit(120, 5)}${nuc}</svg>`;
+  return A;
+})();
+const zr = {z:0, raf:0, k:-1, built:false};
+function zrApply(){
+  const z = zr.z;
+  ZR.forEach((L, i) => {
+    const el = document.getElementById('zl' + i); if (!el) return;
+    let op = 0, sc = 1, org = '50% 50%';
+    if (z >= i - 1 && z < i) { const t = z - (i - 1); op = Math.min(1, Math.max(0, (t - .3) / .45)); sc = Math.pow(14, t - 1); const f = ZR[i - 1].f; org = f[0] + '% ' + f[1] + '%'; }
+    else if (z >= i && z <= i + 1) { const t = z - i; op = i === ZR.length - 1 ? 1 : Math.min(1, Math.max(0, 1 - (t - .25) / .45)); if (L.f) { sc = Math.pow(14, t); org = L.f[0] + '% ' + L.f[1] + '%'; } }
+    el.style.opacity = op; el.style.transform = 'scale(' + sc.toFixed(4) + ')'; el.style.transformOrigin = org;
+    el.style.visibility = op > .002 ? 'visible' : 'hidden';
+  });
+  const k = Math.round(z), rg = $('#zr-range');
+  if (rg && document.activeElement !== rg) rg.value = Math.round(z * 100);
+  if (k !== zr.k) {
+    zr.k = k; const L = ZR[k];
+    $('#zr-k').textContent = 'Ebene ' + (k + 1) + ' von ' + ZR.length; $('#zr-t').textContent = L.t;
+    $('#zr-ct').textContent = L.t; $('#zr-cd').textContent = L.d;
+    $('#zr-ce').innerHTML = 'Im Bild: ' + esc(L.img) + '.' + (L.hx ? '<br>Beispiel aus dem Handout: ' + esc(L.hx) : '');
+    document.querySelectorAll('#zr-dots .chip').forEach(b => b.setAttribute('aria-pressed', +b.dataset.i === k));
+  }
+  const tap = $('#zr-tap'); if (tap) tap.style.opacity = z < .02 ? 1 : 0;
+}
+function zrGo(target, dur){
+  cancelAnimationFrame(zr.raf);
+  const z0 = zr.z, t0 = performance.now(); dur = RM ? 1 : (dur || Math.min(3200, 650 + Math.abs(target - z0) * 700));
+  const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  const step = now => { const t = Math.min(1, (now - t0) / dur); zr.z = z0 + (target - z0) * ease(t); zrApply(); if (t < 1) zr.raf = requestAnimationFrame(step); else { zr.raf = 0; const p = $('#zr-play'); if (p) p.textContent = 'Reise starten'; } };
+  zr.raf = requestAnimationFrame(step);
+}
+function renderOrg(){
+  if (!zr.built) {
+    $('#ig-org').innerHTML =
+      '<div class="ig-grid"><div class="ig-box"><div class="art zr-stage" id="zr-stage" role="img" aria-label="Zoom vom Menschen bis zum Atom">' +
+      ZART.map((s, i) => '<div class="zr-layer" id="zl' + i + '">' + s + '</div>').join('') +
+      '<div class="zr-cap"><small id="zr-k"></small><b id="zr-t"></b></div><div class="zr-tap" id="zr-tap">Tippe ins Bild zum Hineinzoomen</div></div>' +
+      '<div class="zr-ctrl"><input type="range" id="zr-range" min="0" max="' + ((ZR.length - 1) * 100) + '" value="0" aria-label="Zoomstufe"><div class="zr-ends"><span>Organismus</span><span>Atom</span></div></div></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--c1)"><div class="ig-state" id="zr-ct" style="color:var(--c1)"></div><div id="zr-cd"></div><div class="ig-note2" id="zr-ce"></div>' +
+      '<div class="ig-moves"><button class="chip" id="zr-play">Reise starten</button><button class="chip" id="zr-out">Herauszoomen</button><button class="chip" id="zr-in">Hineinzoomen</button></div></div>' +
+      '<div class="chips" id="zr-dots">' + ZR.map((l, i) => '<button class="chip" data-i="' + i + '" aria-pressed="false">' + esc(l.t) + '</button>').join('') + '</div>' +
+      '<p class="ig-hint">Schieberegler ziehen, ins Bild tippen oder eine Ebene wählen. Jede Ebene ist ein Ausschnitt der Ebene davor.</p></div></div>';
+    zr.built = true; zr.k = -1;
+  }
+  zrApply();
+}
+$('#ig-org').addEventListener('click', e => {
+  const t = e.target;
+  if (t.closest('#zr-stage')) { if (zr.z < ZR.length - 1.01) zrGo(Math.min(ZR.length - 1, Math.floor(zr.z + .02) + 1)); return; }
+  const d = t.closest('#zr-dots .chip'); if (d) { zrGo(+d.dataset.i); return; }
+  if (t.id === 'zr-in') zrGo(Math.min(ZR.length - 1, Math.floor(zr.z + .02) + 1));
+  if (t.id === 'zr-out') zrGo(Math.max(0, Math.ceil(zr.z - .02) - 1));
+  if (t.id === 'zr-play') {
+    if (zr.raf) { cancelAnimationFrame(zr.raf); zr.raf = 0; t.textContent = 'Reise starten'; return; }
+    if (zr.z > ZR.length - 1.05) zr.z = 0;
+    t.textContent = 'Anhalten'; zrGo(ZR.length - 1, (ZR.length - 1 - zr.z) * 1700);
+  }
+});
+$('#ig-org').addEventListener('input', e => { if (e.target.id === 'zr-range') { cancelAnimationFrame(zr.raf); zr.raf = 0; zr.z = +e.target.value / 100; zrApply(); } });
+
+/* ===================== 2. Cell as a city ===================== */
+const CELL = {
+  membran:{n:'Zellmembran', f:'Grenzt die Zelle nach außen ab und regelt den Transport bestimmter Stoffe in die Zelle.', c:'Stadtmauer', cf:'Abgrenzung, regelt die Zugänge in die Stadt.', i:'wall', col:'#7FE0CF', lx:16, ly:34, la:'start', px:115, py:88},
+  kern:{n:'Zellkern', f:'Steuert alle Zellvorgänge und enthält die genetische Information (Erbgut).', c:'Rathaus', cf:'Bestimmt Regeln, steuert Abläufe, Verwaltung, Lagerung von Informationen.', i:'hall', col:'#C7A6FF', lx:300, ly:212, la:'middle'},
+  er:{n:'Raues ER', f:'Ort der Proteinbiosynthese.', x:'Große Oberfläche für viele Ribosomen, intensive Proteinbiosynthese.', c:'Fabrik', cf:'Herstellung von Gütern.', i:'factory', col:'#FF9FB6', lx:16, ly:452, la:'start', px:205, py:318},
+  golgi:{n:'Golgi-Apparat', f:'Umbau, Verpackung und Transport von Proteinen. Schnürt Vesikel für den Stofftransport in der Zelle ab.', c:'Logistikunternehmen', cf:'Verpackung in Lkw und Abtransport.', i:'box', col:'#FFD27A', lx:628, ly:452, la:'end', px:505, py:322},
+  mito:{n:'Mitochondrien', f:'Ort der Zellatmung und damit Energiebereitstellung für die Zelle.', x:'Die innere Membran ist stark gefaltet. So ist die Oberfläche größer und die Reaktionen können vielfach ablaufen.', c:'Kraftwerk', cf:'Bereitstellen von elektrischem Strom für Haushalte.', i:'power', col:'#FFAA5C', lx:628, ly:34, la:'end', px:470, py:118},
+  lyso:{n:'Lysosomen', f:'Abbau von zelleigenem Material.', x:'Die Verdauungssäfte liegen geschützt in Vesikeln vor.', c:'Abfallentsorgung', cf:'Müllentsorgung im Mülltransporter, Recycling.', i:'truck', col:'#9BE07A', lx:330, ly:464, la:'middle', px:396, py:404}
+};
+const ICONS = {
+  power:'<path d="M5 35 L9 15 Q11 11 9 7 H17 Q15 11 17 15 L21 35 Z M21 35 L24 21 Q25 18 24 15 H30 Q29 18 30 21 L33 35 Z" /><circle cx="13" cy="4" r="2.5"/><circle cx="17" cy="2.5" r="2"/>',
+  wall:'<path d="M3 35 V15 H8 V20 H13 V15 H18 V20 H23 V15 H28 V20 H33 V15 H37 V35 Z M16 35 V28 A4 4 0 0 1 24 28 V35"/>',
+  hall:'<path d="M4 35 V19 L20 9 L36 19 V35 Z M18 9 V3 H22 V9"/><circle cx="20" cy="21" r="3.5"/><path d="M9 35 V27 M14 35 V27 M26 35 V27 M31 35 V27"/>',
+  factory:'<path d="M3 35 V21 L12 15 V21 L21 15 V21 L30 15 V35 Z M30 35 V7 H35 V35"/><path d="M8 29 H12 M16 29 H20 M24 29 H28"/>',
+  truck:'<path d="M3 11 H25 V29 H3 Z M25 17 H32 L37 23 V29 H25"/><circle cx="10" cy="31" r="3.5"/><circle cx="31" cy="31" r="3.5"/>',
+  box:'<path d="M20 4 L36 12 V30 L20 38 L4 30 V12 Z M4 12 L20 20 L36 12 M20 20 V38 M12 8 L28 16"/>'
+};
+const icon = (k, col) => '<svg viewBox="0 0 40 40" class="ct-ic" style="color:' + col + '" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">' + ICONS[k] + '</g></svg>';
+function cellSVG(){
+  const blob = 'M320 30 C470 30 600 110 610 230 C620 350 500 440 330 440 C170 440 40 370 32 240 C24 120 170 30 320 30 Z';
+  const R = rnd(5); let dots = '';
+  for (let i = 0; i < 70; i++) { const x = 70 + R() * 520, y = 60 + R() * 360; dots += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(1 + R() * 1.8).toFixed(1)}" fill="#CFF3FF" opacity="${(.12 + R() * .25).toFixed(2)}" class="${i % 3 ? '' : 'tw'}" style="animation-delay:${(R() * 4).toFixed(1)}s"/>`; }
+  const arc = (r, a0, a1) => { const p = a => [300 + r * Math.cos(a * Math.PI / 180), 235 + r * Math.sin(a * Math.PI / 180)]; const [x0, y0] = p(a0), [x1, y1] = p(a1); return `M${x0.toFixed(1)} ${y0.toFixed(1)} A${r} ${r} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`; };
+  let er = '', ribo = '';
+  [104, 120, 136].forEach((r, k) => { er += `<path d="${arc(r, 112 - k * 4, 250 + k * 3)}" stroke="#FF9FB6" stroke-width="9" fill="none" stroke-linecap="round"/><path d="${arc(r, 112 - k * 4, 250 + k * 3)}" stroke="#FFD6E0" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>`;
+    for (let a = 116 - k * 4; a < 248 + k * 3; a += 7) { const rr = r + (a % 14 ? 7 : -7); ribo += `<circle cx="${(300 + rr * Math.cos(a * Math.PI / 180)).toFixed(1)}" cy="${(235 + rr * Math.sin(a * Math.PI / 180)).toFixed(1)}" r="2.6" fill="#FFE9A8"/>`; } });
+  let pores = '';
+  for (let a = 0; a < 360; a += 26) pores += `<circle cx="${(300 + 82 * Math.cos(a * Math.PI / 180)).toFixed(1)}" cy="${(235 + 82 * Math.sin(a * Math.PI / 180)).toFixed(1)}" r="3.4" fill="#1D4560"/>`;
+  let golgi = '';
+  for (let k = 0; k < 5; k++) { const y = 282 + k * 12, x0 = 428 + k * 6, x1 = 516 - k * 6; golgi += `<path d="M${x0} ${y} Q472 ${y - 24} ${x1} ${y}" stroke="#FFD27A" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M${x0 + 4} ${y} Q472 ${y - 22} ${x1 - 4} ${y}" stroke="#FFF2C9" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/>`; }
+  golgi += [[528,276],[534,300],[416,320],[526,330],[540,316]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5.5" fill="#FFD27A" stroke="#FFF2C9" stroke-width="1.5"/>`).join('');
+  const mito = (x, y, rot) => `<g transform="translate(${x} ${y}) rotate(${rot})"><rect x="-46" y="-22" width="92" height="44" rx="22" fill="url(#cm)" stroke="#FFC37A" stroke-width="3"/><rect x="-38" y="-15" width="76" height="30" rx="15" fill="#A8401A"/><path d="M-28 -15 v18 M-14 15 v-18 M0 -15 v18 M14 15 v-18 M28 -15 v18" stroke="#FFD08A" stroke-width="5" stroke-linecap="round"/><ellipse cx="0" cy="0" rx="50" ry="26" fill="none" stroke="#FFAA5C" stroke-width="3" class="glow"/></g>`;
+  const lyso = (x, y) => `<g><circle cx="${x}" cy="${y}" r="15" fill="url(#cl)" stroke="#D2F7BE" stroke-width="2"/><circle cx="${x - 4}" cy="${y - 3}" r="2.5" fill="#2F6B1E"/><circle cx="${x + 5}" cy="${y + 2}" r="2" fill="#2F6B1E"/><circle cx="${x - 1}" cy="${y + 6}" r="1.8" fill="#2F6B1E"/></g>`;
+  const ves = RM ? '' : [0, 2, 4].map(b => `<circle r="6" fill="#FFD27A" stroke="#FFF2C9" stroke-width="1.5"><animateMotion dur="6s" begin="${b}s" repeatCount="indefinite" path="M195 160 C260 90 400 170 450 280 C470 330 540 365 588 372"/></circle>`).join('');
+  const lbl = Object.entries(CELL).map(([k, o]) => `<g class="ct-l" data-o="${k}">${o.px ? `<line x1="${o.lx + (o.la === 'start' ? 40 : o.la === 'end' ? -40 : 0)}" y1="${o.ly > 300 ? o.ly - 16 : o.ly + 8}" x2="${o.px}" y2="${o.py}" stroke="${o.col}" stroke-width="1.5" stroke-dasharray="3 3"/>` : ''}<text x="${o.lx}" y="${o.ly}" text-anchor="${o.la}" fill="${o.col}" id="lb-${k}">${o.n}</text></g>`).join('');
+  return `<svg viewBox="0 0 640 470" id="cell-svg" role="img" aria-label="Illustrierte Zelle mit Zellorganellen"><defs>
+    <radialGradient id="cc" cx=".45" cy=".45" r=".6"><stop offset="0" stop-color="#245675"/><stop offset="1" stop-color="#112A40"/></radialGradient>
+    <radialGradient id="cn" cx=".42" cy=".38"><stop offset="0" stop-color="#B58CF0"/><stop offset="1" stop-color="#4E2F8E"/></radialGradient>
+    <linearGradient id="cm"><stop offset="0" stop-color="#FFB15C"/><stop offset="1" stop-color="#E06A2C"/></linearGradient>
+    <radialGradient id="cl" cx=".4" cy=".35"><stop offset="0" stop-color="#C9F5A8"/><stop offset="1" stop-color="#5DAE3A"/></radialGradient></defs>
+    <path d="${blob}" fill="url(#cc)"/>${dots}
+    <g class="cell-o" data-o="er">${er}${ribo}</g>
+    <g class="cell-o" data-o="kern"><circle cx="300" cy="235" r="82" fill="url(#cn)" stroke="#D9C2FF" stroke-width="4"/><circle cx="300" cy="235" r="88" fill="none" stroke="#D9C2FF" stroke-width="2" opacity=".6"/>${pores}
+      <path d="M262 214 q12 -14 24 0 t24 0 M268 262 q10 10 22 0 t20 4 M330 210 q8 12 0 22" stroke="#E7D6FF" stroke-width="2.5" fill="none" opacity=".6"/><circle cx="318" cy="252" r="22" fill="#3A2168"/><circle cx="312" cy="246" r="6" fill="#7E5BC0" opacity=".7"/></g>
+    <g class="cell-o" data-o="golgi">${golgi}</g>
+    <g class="cell-o" data-o="mito">${mito(458, 132, 25)}${mito(150, 360, -20)}${mito(552, 228, 80)}</g>
+    <g class="cell-o" data-o="lyso">${lyso(100, 236)}${lyso(190, 96)}${lyso(396, 392)}</g>
+    <g class="ves">${ves}</g>
+    <g class="cell-o" data-o="membran"><path d="${blob}" fill="none" stroke="#7FE0CF" stroke-width="7"/><path d="${blob}" fill="none" stroke="#C9FFF5" stroke-width="1.6" stroke-dasharray="1 7" stroke-linecap="round"/><path d="${blob}" fill="none" stroke="transparent" stroke-width="26" class="hit"/></g>
+    ${lbl}</svg>`;
+}
+const ct = {mode:'cell', sel:null, built:false, q:null, qOpts:[], score:0, total:0, answered:false};
+function ctCard(){
+  const box = $('#ct-card'); if (!box) return;
+  if (ct.mode === 'quiz') {
+    if (!ct.q) { box.innerHTML = ''; return; }
+    const o = CELL[ct.q];
+    box.innerHTML = '<div class="ig-joint">Punkte: <b>' + ct.score + ' / ' + ct.total + '</b></div><div class="ig-state" style="color:var(--c1)">Welcher Teil der Stadt ist das?</div><div class="ig-note2">Das leuchtende Organell im Bild.</div>' +
+      '<div class="ct-opts">' + ct.qOpts.map(k => '<button class="opt' + (ct.answered ? (k === ct.q ? ' ok' : '') : '') + '" data-a="' + k + '"' + (ct.answered ? ' disabled' : '') + '>' + icon(CELL[k].i, CELL[k].col) + '<span>' + esc(CELL[k].c) + '</span></button>').join('') + '</div>' +
+      (ct.answered ? '<div class="ig-note2">' + esc(o.n) + ' = ' + esc(o.c) + ': ' + esc(o.f) + '</div><div class="ig-moves"><button class="chip" id="ct-next">Nächstes Organell</button></div>' : '');
+    return;
+  }
+  if (!ct.sel) { box.innerHTML = '<div class="ig-state" style="color:var(--c1)">Tippe ein Organell an</div><div class="ig-note2">Die Zelle arbeitet wie eine kleine Stadt. Jedes Organell hat eine Aufgabe, so wie ein Gebäude in der Stadt.</div>'; return; }
+  const o = CELL[ct.sel];
+  box.innerHTML = '<div class="ct-head">' + icon(o.i, o.col) + '<div><div class="ig-state" style="color:var(--c1);font-size:22px">' + esc(o.n) + '</div><div class="ig-joint">in der Stadt: <b>' + esc(o.c) + '</b></div></div></div>' +
+    '<dl class="ct-dl"><dt>Zelle</dt><dd>' + esc(o.f) + '</dd><dt>Stadt</dt><dd>' + esc(o.cf) + '</dd>' + (o.x ? '<dt>Extra</dt><dd>' + esc(o.x) + '</dd>' : '') + '</dl>';
+}
+function ctApply(){
+  const svg = $('#cell-svg'); if (!svg) return;
+  const hl = ct.mode === 'quiz' ? ct.q : ct.sel;
+  svg.classList.toggle('cell-dim', !!hl);
+  svg.querySelectorAll('.cell-o').forEach(g => { g.classList.toggle('sel', g.dataset.o === hl); g.classList.toggle('quizpulse', ct.mode === 'quiz' && g.dataset.o === hl && !ct.answered); });
+  Object.entries(CELL).forEach(([k, o]) => { const t = document.getElementById('lb-' + k); if (t) t.textContent = ct.mode === 'city' ? o.c : o.n; });
+  svg.querySelectorAll('.ct-l').forEach(l => l.style.opacity = ct.mode === 'quiz' ? 0 : (hl && l.dataset.o !== hl ? .35 : 1));
+  document.querySelectorAll('#ct-modes .chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === ct.mode));
+  ctCard();
+}
+function ctNewQ(){
+  const keys = Object.keys(CELL), prev = ct.q;
+  do { ct.q = keys[Math.floor(Math.random() * keys.length)]; } while (keys.length > 1 && ct.q === prev);
+  ct.qOpts = shuffle([ct.q, ...shuffle(keys.filter(k => k !== ct.q)).slice(0, 3)]); ct.answered = false; ctApply();
+}
+function renderCity(){
+  if (!ct.built) {
+    $('#ig-city').innerHTML = '<div class="chips" id="ct-modes" style="padding-top:18px"><button class="chip" data-m="cell">Zell-Ansicht</button><button class="chip" data-m="city">Stadt-Ansicht</button><button class="chip" data-m="quiz">Quiz</button></div>' +
+      '<div class="ig-grid"><div class="ig-box"><div class="art">' + cellSVG() + '</div></div><div class="ig-panel"><div class="ig-card" id="ct-card" style="--pc:var(--c1)"></div>' +
+      '<p class="ig-hint">Die gelben Bläschen zeigen den Stofftransport: vom rauen ER über den Golgi-Apparat bis zur Zellmembran.</p></div></div>';
+    ct.built = true;
+  }
+  ctApply();
+}
+$('#ig-city').addEventListener('click', e => {
+  const m = e.target.closest('#ct-modes .chip');
+  if (m) { ct.mode = m.dataset.m; if (ct.mode === 'quiz') { ct.score = 0; ct.total = 0; ctNewQ(); } else ctApply(); return; }
+  const a = e.target.closest('[data-a]');
+  if (a && ct.mode === 'quiz' && !ct.answered) { ct.answered = true; ct.total++; if (a.dataset.a === ct.q) ct.score++; else a.classList.add('no'); ctApply(); if (a.dataset.a !== ct.q) { const b = document.querySelector('#ct-card [data-a="' + a.dataset.a + '"]'); if (b) b.classList.add('no'); } return; }
+  if (e.target.id === 'ct-next') { ctNewQ(); return; }
+  const o = e.target.closest('.cell-o, .ct-l');
+  if (o && ct.mode !== 'quiz') { ct.sel = ct.sel === o.dataset.o ? null : o.dataset.o; ctApply(); }
+});
+
+/* ===================== 3. Feedback loop ===================== */
+const RK = {
+  gen:{n:{regler:['Regler','vergleicht Ist und Soll'], stell:['Stellglied','korrigiert'], gr:['Regelgröße','soll konstant bleiben'], mess:['Messfühler','misst den Istwert']}, soll:'Sollwert', stoer:'Störgröße', unit:'', t0:100, lo:50, hi:150, dist:[['Wert fällt',-34],['Wert steigt',34]]},
+  bp:{n:{regler:['Gehirn','Kreislaufzentrum = Regler'], stell:['Herz und Gefäße','Stellglieder'], gr:['Blutdruck','Regelgröße'], mess:['Pressorezeptoren','Messfühler']}, soll:'Soll-Blutdruck', stoer:'Blutung · Stress · Sport', unit:' mmHg', t0:120, lo:70, hi:170, dist:[['Blutung',-38],['Aufstehen',-20],['Stress',24],['Sport',36]]}
+};
+const RA = {regler:-90, stell:0, gr:90, mess:180}, RC = [220, 220], RR = 150;
+const RIC = {
+  brain:'<path d="M9 4.5C6.5 4.5 5 6.5 5.3 8.6 3.6 9.4 3.4 12 4.8 13.2 4.2 15.6 6 17.8 8.4 17.6 9.2 19.2 11 19.6 12 18.6V5.6C11.4 4.9 10.3 4.5 9 4.5ZM15 4.5C17.5 4.5 19 6.5 18.7 8.6 20.4 9.4 20.6 12 19.2 13.2 19.8 15.6 18 17.8 15.6 17.6 14.8 19.2 13 19.6 12 18.6V5.6C12.6 4.9 13.7 4.5 15 4.5Z"/>',
+  cmp:'<path d="M5 8h14M15 4l4 4-4 4M19 16H5M9 12l-4 4 4 4"/>',
+  heart:'<path d="M12 20C6 16 3 13 3 9 3 6 5 4 8 4 10 4 11 5 12 7 13 5 14 4 16 4 19 4 21 6 21 9 21 13 18 16 12 20Z"/>',
+  slide:'<path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.5"/><circle cx="15" cy="17" r="2.5"/>',
+  gauge:'<path d="M4 16a8 8 0 0 1 16 0M12 16l4-5"/>',
+  wave:'<path d="M3 12h3l2-5 3 10 3-8 2 3h5"/>'
+};
+const rk = {mode:'bp', val:120, step:-1, timers:[], raf:0, built:'', eff:0, dist:'', done:false};
+const rP = a => [RC[0] + RR * Math.cos(a * Math.PI / 180), RC[1] + RR * Math.sin(a * Math.PI / 180)];
+function rkStop(){ rk.timers.forEach(clearTimeout); rk.timers = []; cancelAnimationFrame(rk.raf); rk.raf = 0; }
+function rkSVG(){
+  const m = RK[rk.mode], bp = rk.mode === 'bp';
+  const ic = {regler: bp ? RIC.brain : RIC.cmp, stell: bp ? RIC.heart : RIC.slide, gr: RIC.gauge, mess: RIC.wave};
+  const lab = {regler:[264, 44, 'start'], stell:[370, 212 + 62, 'middle'], gr:[268, 380, 'start'], mess:[70, 274, 'middle']};
+  const nodes = Object.keys(RA).map(k => { const [x, y] = rP(RA[k]); const [lx, ly, la] = lab[k];
+    return `<g class="rk-n" id="rk-${k}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="38" class="rk-c"/><g transform="translate(${(x - 17).toFixed(1)} ${(y - 17).toFixed(1)}) scale(1.42)" fill="none" stroke="#EAF4FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ic[k]}</g>
+      <text x="${lx}" y="${ly}" text-anchor="${la}" class="rk-t"><tspan class="rk-tn">${esc(m.n[k][0])}</tspan><tspan x="${lx}" dy="16" class="rk-tr">${esc(m.n[k][1])}</tspan></text></g>`; }).join('');
+  const arrows = [45, 135, 225, 315].map(a => { const [x, y] = rP(a); return `<path d="M-7 -6 L5 0 L-7 6" transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${a + 90})" fill="none" stroke="#8FB4E8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>`; }).join('');
+  const G = [220, 214], GR = 70, ga = v => 180 + 180 * (v - m.lo) / (m.hi - m.lo);
+  const gp = (a, r) => [G[0] + r * Math.cos(a * Math.PI / 180), G[1] + r * Math.sin(a * Math.PI / 180)];
+  const garc = (v0, v1, col) => { const [x0, y0] = gp(ga(v0), GR), [x1, y1] = gp(ga(v1), GR); return `<path d="M${x0.toFixed(1)} ${y0.toFixed(1)} A${GR} ${GR} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}" stroke="${col}" stroke-width="12" fill="none"/>`; };
+  const band = (m.hi - m.lo) * .1;
+  let ticks = ''; for (let v = m.lo; v <= m.hi + .1; v += (m.hi - m.lo) / 10) { const [x0, y0] = gp(ga(v), GR - 10), [x1, y1] = gp(ga(v), GR - 16); ticks += `<line x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="#8FB4E8" stroke-opacity=".6" stroke-width="1.5"/>`; }
+  const [tx0, ty0] = gp(ga(m.t0), GR - 9), [tx1, ty1] = gp(ga(m.t0), GR + 11);
+  return `<svg viewBox="0 0 440 470" role="img" aria-label="Regelkreis als Kreislauf"><defs><filter id="rkglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <circle cx="220" cy="220" r="${RR}" fill="none" stroke="#8FB4E8" stroke-opacity=".14" stroke-width="12"/>
+    <circle cx="220" cy="220" r="${RR}" fill="none" stroke="#8FB4E8" stroke-opacity=".4" stroke-width="2" class="flow"/>${arrows}
+    <path id="rk-arc" d="" fill="none" stroke="#7FD3FF" stroke-width="6" stroke-linecap="round" opacity="0" filter="url(#rkglow)"/>
+    <g opacity=".9">${garc(m.lo, m.t0 - band, '#4C86F0')}${garc(m.t0 - band, m.t0 + band, '#4FD1A1')}${garc(m.t0 + band, m.hi, '#FF6B7A')}</g>${ticks}
+    <line x1="${tx0.toFixed(1)}" y1="${ty0.toFixed(1)}" x2="${tx1.toFixed(1)}" y2="${ty1.toFixed(1)}" stroke="#FFFFFF" stroke-width="3"/>
+    <g id="rk-needle" style="transform-origin:${G[0]}px ${G[1]}px;transition:transform .9s cubic-bezier(.3,1.4,.5,1)"><line x1="${G[0]}" y1="${G[1]}" x2="${G[0] - GR + 14}" y2="${G[1]}" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/><circle cx="${G[0]}" cy="${G[1]}" r="7" fill="#FFFFFF"/></g>
+    <text x="220" y="250" text-anchor="middle" class="rk-val" id="rk-val"></text><text x="220" y="268" text-anchor="middle" class="rk-tr">${bp ? 'mmHg · Soll ' + m.t0 : 'Soll ' + m.t0}</text>
+    <g id="rk-body" style="display:${bp ? 'inline' : 'none'}"><g transform="translate(166 284)"><g id="rk-heart" class="beat"><path d="M14 26C6 20 1 15 1 10 1 5 4 2 8 2 11 2 13 4 14 6 15 4 17 2 20 2 24 2 27 5 27 10 27 15 22 20 14 26Z" fill="#FF6B7A" stroke="#FFC2CB" stroke-width="1.5"/></g></g>
+      <circle cx="260" cy="298" r="17" fill="#3A0E1A" stroke="#E2405A" stroke-width="7" id="rk-ves"/><text x="180" y="328" text-anchor="middle" class="rk-tr">Herz</text><text x="260" y="328" text-anchor="middle" class="rk-tr">Gefäß</text></g>
+    <g><rect x="18" y="26" width="128" height="32" rx="16" fill="#FFD27A" fill-opacity=".14" stroke="#FFD27A" stroke-width="1.5"/><text x="82" y="47" text-anchor="middle" class="rk-tn" fill="#FFD27A">${esc(m.soll)}</text><path d="M146 46 L180 64" stroke="#FFD27A" stroke-width="2" marker-end="url(#a3)"/></g>
+    <g id="rk-bolt" class="rk-bolt"><path d="M232 456 L222 438 L230 438 L220 418" fill="none" stroke="#FFAA5C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="250" y="456" class="rk-tr" fill="#FFAA5C">${esc(m.stoer)}</text></g>
+    ${nodes}<circle id="rk-dot" r="9" fill="#DFF4FF" filter="url(#rkglow)" opacity="0"/></svg>`;
+}
+function rkText(){
+  const m = RK[rk.mode], bp = rk.mode === 'bp', v = Math.round(rk.val), low = rk.val < m.t0;
+  if (rk.step === 0) return [bp ? 'Störgröße: ' + rk.dist : 'Störgröße wirkt', (bp ? rk.dist + ': der Blutdruck ' : 'Der Wert ') + (low ? 'fällt' : 'steigt') + ' auf ' + v + m.unit + '.'];
+  if (rk.step === 1) return [bp ? 'Pressorezeptoren messen' : 'Messfühler misst', bp ? 'Die Druckmessfühler in den Arterien melden den Istwert über Nerven ans Gehirn.' : 'Der Messfühler erfasst den Istwert und meldet ihn an den Regler.'];
+  if (rk.step === 2) return [bp ? 'Gehirn vergleicht' : 'Regler vergleicht', 'Istwert ' + v + m.unit + ' liegt ' + (low ? 'unter' : 'über') + ' dem Sollwert ' + m.t0 + m.unit + '.'];
+  if (rk.step === 3) return [bp ? 'Herz und Gefäße reagieren' : 'Stellglied korrigiert', bp ? (rk.eff > 0 ? 'Das Herz schlägt schneller, die Gefäße werden enger. Der Blutdruck steigt.' : 'Das Herz schlägt langsamer, die Gefäße werden weiter. Der Blutdruck sinkt.') : 'Das Stellglied bewegt den Wert in Richtung Sollwert.'];
+  if (rk.done) return ['Sollwert erreicht', 'Die Änderung wurde an den Regler zurückgemeldet. Das Stellglied schaltet ab: negative Rückkopplung.'];
+  return ['Bereit', 'Wähle eine Störgröße und sieh zu, wie der Körper gegensteuert.'];
+}
+function rkUpdate(){
+  const m = RK[rk.mode];
+  const n = $('#rk-needle'); if (!n) return;
+  n.style.transform = 'rotate(' + (180 * (rk.val - m.lo) / (m.hi - m.lo)).toFixed(1) + 'deg)';
+  $('#rk-val').textContent = Math.round(rk.val);
+  const act = ['gr', 'mess', 'regler', 'stell'][rk.step];
+  Object.keys(RA).forEach(k => document.getElementById('rk-' + k).classList.toggle('on', k === act));
+  $('#rk-bolt').classList.toggle('on', rk.step === 0);
+  const h = $('#rk-heart'), vs = $('#rk-ves');
+  const eff = rk.step === 3 ? rk.eff : 0;
+  h.style.setProperty('--beat', eff > 0 ? '.42s' : eff < 0 ? '1.5s' : '.9s');
+  vs.setAttribute('r', eff > 0 ? 11 : eff < 0 ? 23 : 17);
+  const [t, d] = rkText(); $('#rk-title').textContent = t; $('#rk-text').textContent = d;
+  $('#rk-read').innerHTML = 'Istwert <b>' + Math.round(rk.val) + m.unit + '</b> · Sollwert <b>' + m.t0 + m.unit + '</b>';
+  document.querySelectorAll('#rk-steps li').forEach((li, i) => li.classList.toggle('on', i === rk.step));
+}
+function rkTravel(a0, a1, ms){
+  cancelAnimationFrame(rk.raf);
+  const dot = $('#rk-dot'), arc = $('#rk-arc'); if (!dot) return;
+  const [x0, y0] = rP(a0), [x1, y1] = rP(a1);
+  arc.setAttribute('d', `M${x0.toFixed(1)} ${y0.toFixed(1)} A${RR} ${RR} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`);
+  arc.setAttribute('opacity', .85); dot.setAttribute('opacity', 1);
+  if (RM) { dot.setAttribute('cx', x1); dot.setAttribute('cy', y1); return; }
+  const t0 = performance.now();
+  const f = now => { const t = Math.min(1, (now - t0) / ms), a = a0 + (a1 - a0) * t, [x, y] = rP(a); dot.setAttribute('cx', x.toFixed(1)); dot.setAttribute('cy', y.toFixed(1)); if (t < 1) rk.raf = requestAnimationFrame(f); };
+  rk.raf = requestAnimationFrame(f);
+}
+function rkRun(name, delta){
+  rkStop();
+  const m = RK[rk.mode];
+  rk.dist = name; rk.done = false; rk.val = Math.max(m.lo + 2, Math.min(m.hi - 2, m.t0 + delta)); rk.eff = Math.sign(m.t0 - rk.val);
+  const later = (fn, ms) => rk.timers.push(setTimeout(fn, ms));
+  const T = RM ? 1500 : 1300;
+  const cycle = startAt => {
+    later(() => { rk.step = 1; rkUpdate(); rkTravel(90, 180, T * .8); }, startAt);
+    later(() => { rk.step = 2; rkUpdate(); rkTravel(180, 270, T * .8); }, startAt + T);
+    later(() => { rk.step = 3; rkUpdate(); rkTravel(270, 450, T * 1.2); }, startAt + 2 * T);
+    later(() => { rk.val += (m.t0 - rk.val) * .55; rkUpdate(); }, startAt + 2.6 * T);
+    later(() => {
+      if (Math.abs(rk.val - m.t0) < 3) { rk.val = m.t0; rk.step = -1; rk.done = true; $('#rk-arc').setAttribute('opacity', 0); $('#rk-dot').setAttribute('opacity', 0); rkUpdate(); }
+      else cycle(0);
+    }, startAt + 3.4 * T);
+  };
+  rk.step = 0; rkUpdate(); $('#rk-arc').setAttribute('opacity', 0); $('#rk-dot').setAttribute('opacity', 0);
+  cycle(T);
+}
+function renderLoop(){
+  if (rk.built !== rk.mode) {
+    rkStop();
+    const m = RK[rk.mode];
+    rk.val = m.t0; rk.step = -1; rk.done = false;
+    $('#ig-loop').innerHTML = '<div class="chips" style="padding-top:18px" id="rk-modes"><button class="chip" data-m="bp" aria-pressed="' + (rk.mode === 'bp') + '">Beispiel Blutdruck</button><button class="chip" data-m="gen" aria-pressed="' + (rk.mode === 'gen') + '">Allgemein</button></div>' +
+      '<div class="ig-grid"><div class="ig-box"><div class="art">' + rkSVG() + '</div></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--c2)"><div class="ig-joint" id="rk-read"></div><div class="ig-state" id="rk-title" style="font-size:21px"></div><div class="ig-note2" id="rk-text"></div>' +
+      '<div class="ig-moves">' + m.dist.map(([n, d]) => '<button class="chip" data-d="' + d + '" data-n="' + esc(n) + '">' + esc(n) + (d < 0 ? ' ↓' : ' ↑') + '</button>').join('') + '</div></div>' +
+      '<ol class="rk-steps" id="rk-steps"><li>Störgröße verändert die Regelgröße</li><li>Messfühler erfasst den Istwert</li><li>Regler vergleicht Istwert und Sollwert</li><li>Stellglied korrigiert in Richtung Sollwert</li></ol>' +
+      '<p class="ig-hint">Negative Rückkopplung: Jede Änderung wird an den Regler zurückgemeldet. Der Kreis läuft so lange, bis der Sollwert erreicht ist.</p></div></div>';
+    rk.built = rk.mode;
+  }
+  rkUpdate();
+}
+$('#ig-loop').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.m && b.dataset.m !== rk.mode) { rk.mode = b.dataset.m; renderLoop(); }
+  else if (b.dataset.d) rkRun(b.dataset.n, +b.dataset.d);
+});
+
+/* ===================== 4. 3D skeleton ===================== */
+const SK = {
+  cranium:['Schädel','Cranium','Schädel'], orbita:['Augenhöhle','Orbita','Schädel'],
+  wirbel:['Wirbelsäule','Columna vertebralis','Rumpfskelett'], sternum:['Brustbein','Sternum','Rumpfskelett'], costae:['Rippen','Costae','Rumpfskelett'], sacrum:['Kreuzbein','Os sacrum','Rumpfskelett'],
+  clavicula:['Schlüsselbein','Clavicula','Schultergürtel'], scapula:['Schulterblatt','Scapula','Schultergürtel'],
+  ilium:['Darmbein','Os ilium','Beckengürtel'], pubis:['Schambein','Os pubis','Beckengürtel'], ischii:['Sitzbein','Os ischii','Beckengürtel'],
+  humerus:['Oberarmknochen','Humerus','Obere Extremitäten'], ulna:['Elle','Ulna','Obere Extremitäten'], radius:['Speiche','Radius','Obere Extremitäten'], carpus:['Handwurzelknochen','Carpus','Obere Extremitäten'], metacarpus:['Mittelhandknochen','Metacarpus','Obere Extremitäten'], phalh:['Finger','Phalanges','Obere Extremitäten'],
+  femur:['Oberschenkelknochen','Femur','Untere Extremitäten'], patella:['Kniescheibe','Patella','Untere Extremitäten'], tibia:['Schienbein','Tibia','Untere Extremitäten'], fibula:['Wadenbein','Fibula','Untere Extremitäten'], tarsus:['Fußwurzelknochen','Tarsus','Untere Extremitäten'], metatarsus:['Mittelfußknochen','Metatarsus','Untere Extremitäten'], phalf:['Zehen','Phalanges','Untere Extremitäten']
+};
+const SK_TIP = {
+  orbita:'Die Augenhöhle ist eine Vertiefung im Schädel, in der das Auge liegt.',
+  scapula:'Liegt hinten auf dem Rücken. Dreh das Modell, um es zu sehen.',
+  radius:'Merkhilfe: Die Speiche liegt auf der Daumenseite.',
+  ulna:'Merkhilfe: Die Elle liegt auf der Kleinfingerseite.',
+  fibula:'Das Wadenbein ist der dünnere Knochen außen am Unterschenkel.',
+  patella:'Liegt vorne auf dem Kniegelenk.',
+  sacrum:'Ich habe das Kreuzbein hier zum Rumpfskelett gezählt, weil es zur Wirbelsäule gehört. Im Handout steht es bei den Beckenknochen.',
+  phalh:'Finger und Zehen heißen beide Phalanges.', phalf:'Finger und Zehen heißen beide Phalanges.'
+};
+const SKR = {'Schädel':'#FF9F7A','Rumpfskelett':'#7FD3FF','Schultergürtel':'#C7A6FF','Beckengürtel':'#FFD27A','Obere Extremitäten':'#9BE07A','Untere Extremitäten':'#FF8FB6'};
+const SKZOOM = {'Schädel':1.1,'Rumpfskelett':1.7,'Schultergürtel':1.4,'Beckengürtel':1.3,'Obere Extremitäten':1.1,'Untere Extremitäten':1.4};
+const sk = {built:false, api:null, mode:'explore', sel:null, region:null, q:null, opts:[], answered:false, score:0, total:0, pick:null};
+
+function initSkel(){
+  const box = $('#sk-3d');
+  const fail = () => { box.innerHTML = '<p class="ig-hint" style="padding:24px;color:#CFE2FF">3D kann in diesem Browser nicht angezeigt werden. Die Knochenliste daneben funktioniert trotzdem.</p>'; return {sync(){}, focus(){}, view(){}}; };
+  if (!window.THREE) return fail();
+  let renderer; try { renderer = new THREE.WebGLRenderer({antialias:true, alpha:true}); } catch(e) { return fail(); }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); renderer.setClearColor(0x000000, 0);
+  box.prepend(renderer.domElement);
+  const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(30, .75, .05, 50);
+  scene.add(new THREE.HemisphereLight(0xE8F0FF, 0x1A2A44, 1.0));
+  const key = new THREE.DirectionalLight(0xFFF4E0, .85); key.position.set(1.5, 3, 3); scene.add(key);
+  const rim = new THREE.DirectionalLight(0x6FB6FF, .7); rim.position.set(-2, 1.5, -3); scene.add(rim);
+  const V = (x, y, z) => new THREE.Vector3(x, y, z);
+  const IVORY = new THREE.Color('#EDE3CC'), mats = {}, meshes = [];
+  Object.keys(SK).forEach(k => mats[k] = new THREE.MeshStandardMaterial({color: k === 'orbita' ? 0x4A4036 : 0xEDE3CC, roughness:.55, metalness:.04}));
+  mats.scapula.side = THREE.DoubleSide;
+  const dark = new THREE.MeshStandardMaterial({color:0x2A231C, roughness:.9});
+  const root = new THREE.Group(); scene.add(root);
+  const reg = (m, k) => { m.userData.key = k; root.add(m); meshes.push(m); return m; };
+  const add = (k, geo, pos, rot, scl) => { const m = new THREE.Mesh(geo, mats[k]); m.position.set(pos[0], pos[1], pos[2]); if (rot) m.rotation.set(rot[0], rot[1], rot[2]); if (scl) m.scale.set(scl[0], scl[1], scl[2]); return reg(m, k); };
+  const rod = (k, a, b, r) => { const d = b.clone().sub(a), len = d.length(); const m = new THREE.Mesh(new THREE.CapsuleGeometry(r, Math.max(.001, len - 2 * r), 6, 12), mats[k]); m.position.copy(a).add(b).multiplyScalar(.5); m.quaternion.setFromUnitVectors(V(0, 1, 0), d.normalize()); return reg(m, k); };
+  const tube = (k, pts, r) => reg(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 28, r, 7, false), mats[k]), k);
+  const sph = (k, r, pos, scl, rot) => add(k, new THREE.SphereGeometry(r, 18, 14), pos, rot, scl);
+
+  /* skull */
+  sph('cranium', .105, [0, 1.68, -.01], [.86, 1, 1.04]);
+  sph('cranium', .07, [0, 1.60, .045], [1, 1.05, .85]);
+  add('cranium', new THREE.TorusGeometry(.05, .014, 8, 20, Math.PI), [0, 1.535, .03], [Math.PI / 2, 0, 0], [.9, 1, 1]);
+  const nose = new THREE.Mesh(new THREE.ConeGeometry(.013, .03, 3), dark); nose.position.set(0, 1.595, .108); nose.rotation.set(Math.PI, 0, 0); root.add(nose);
+  [-1, 1].forEach(s => sph('orbita', .023, [s * .033, 1.635, .088], [1, .9, .6]));
+  /* spine */
+  const sz = y => -.045 - .025 * Math.sin(Math.PI * (y - 1.0) / .52);
+  for (let i = 0; i < 24; i++) { const y = 1.52 - i * .0215, r = .016 + i * .0007, z = sz(y);
+    add('wirbel', new THREE.CylinderGeometry(r, r, .015, 12), [0, y, z]);
+    add('wirbel', new THREE.BoxGeometry(.008, .012, .03), [0, y - .004, z - r - .014], [-.35, 0, 0]); }
+  add('sacrum', new THREE.CylinderGeometry(.048, .018, .12, 6), [0, .94, -.055], [-.35, 0, 0], [1, 1, .45]);
+  /* ribs + sternum */
+  for (let i = 0; i < 10; i++) {
+    const y = 1.40 - i * .028, w = .075 + .065 * Math.sin(Math.PI * (i + 2) / 13), zb = sz(y) - .005, zf = .085 + .02 * Math.sin(Math.PI * (i + 1) / 11);
+    [-1, 1].forEach(s => { const p = [V(s * .02, y, zb), V(s * w * .75, y - .008, zb - .025), V(s * w, y - .03, 0), V(s * w * .8, y - .06, zf - .025), V(s * .03, y - .075 - i * .004, zf)];
+      tube('costae', i >= 8 ? p.slice(0, 4) : p, .0072); });
+  }
+  add('sternum', new THREE.BoxGeometry(.05, .05, .014), [0, 1.40, .10]);
+  add('sternum', new THREE.BoxGeometry(.032, .17, .014), [0, 1.30, .11], [-.12, 0, 0]);
+  /* shoulder girdle */
+  const scShape = new THREE.Shape(); scShape.moveTo(0, 0); scShape.lineTo(.10, 0); scShape.lineTo(.025, -.16); scShape.lineTo(0, 0);
+  const scGeo = new THREE.ExtrudeGeometry(scShape, {depth:.006, bevelEnabled:true, bevelThickness:.003, bevelSize:.003, bevelSegments:2});
+  [-1, 1].forEach(s => {
+    tube('clavicula', [V(s * .025, 1.41, .10), V(s * .09, 1.425, .085), V(s * .17, 1.435, .01)], .009);
+    const m = add('scapula', scGeo, [s * .06, 1.43, -.10], [0, s * .28, 0], [s, 1, 1]);
+    tube('scapula', [V(s * .07, 1.40, -.105), V(s * .13, 1.42, -.08), V(s * .17, 1.43, -.03)], .007);
+  });
+  /* arms: anatomical position, palms forward, thumbs lateral */
+  [-1, 1].forEach(s => {
+    sph('humerus', .027, [s * .185, 1.405, -.005]);
+    rod('humerus', V(s * .195, 1.39, -.005), V(s * .215, 1.11, 0), .017);
+    sph('humerus', .02, [s * .215, 1.10, 0], [1.8, .6, .9]);
+    rod('radius', V(s * .228, 1.08, .005), V(s * .258, .85, .035), .0095);
+    rod('ulna', V(s * .205, 1.095, -.008), V(s * .226, .85, .03), .009);
+    for (let r = 0; r < 2; r++) for (let c = 0; c < 4; c++) sph('carpus', .0085, [s * (.226 + c * .014), .836 - r * .018, .04]);
+    [.222, .236, .25, .264].forEach((x, k) => {
+      rod('metacarpus', V(s * x, .805, .04), V(s * (x + (k - 1.5) * .002), .735, .042), .0045);
+      const L = k === 2 ? 1.12 : k === 0 ? .85 : 1;
+      let y = .728; [.04, .025, .02].forEach(l => { rod('phalh', V(s * x, y, .043), V(s * x, y - l * L, .045), .0038); y -= l * L + .004; });
+    });
+    rod('metacarpus', V(s * .272, .815, .045), V(s * .295, .775, .06), .005);
+    rod('phalh', V(s * .297, .77, .062), V(s * .312, .745, .07), .0042); rod('phalh', V(s * .314, .741, .071), V(s * .322, .722, .075), .0038);
+  });
+  /* pelvis */
+  [-1, 1].forEach(s => {
+    sph('ilium', .085, [s * .10, 1.0, -.015], [.95, 1.05, .32], [0, s * .55, -s * .18]);
+    rod('ischii', V(s * .07, .905, -.025), V(s * .075, .835, -.01), .016); sph('ischii', .018, [s * .075, .83, -.012]);
+    rod('pubis', V(s * .085, .905, .045), V(s * .012, .875, .07), .013); rod('pubis', V(s * .012, .875, .07), V(s * .07, .84, 0), .009);
+  });
+  /* legs */
+  [-1, 1].forEach(s => {
+    sph('femur', .026, [s * .088, .905, .022]); rod('femur', V(s * .088, .905, .022), V(s * .13, .88, .005), .014); sph('femur', .02, [s * .14, .885, 0]);
+    rod('femur', V(s * .135, .875, 0), V(s * .105, .515, .01), .02); sph('femur', .022, [s * .105, .50, 0], [1.9, .8, 1.3]);
+    sph('patella', .02, [s * .105, .505, .045], [1, 1.2, .5]);
+    sph('tibia', .02, [s * .103, .475, 0], [1.9, .5, 1.3]); rod('tibia', V(s * .1, .47, .005), V(s * .097, .075, 0), .017); sph('tibia', .012, [s * .088, .065, 0]);
+    rod('fibula', V(s * .135, .46, -.012), V(s * .13, .07, -.012), .0085); sph('fibula', .011, [s * .13, .06, -.012]);
+    sph('tarsus', .025, [s * .105, .03, -.035], [.9, .8, 1.5]); sph('tarsus', .02, [s * .1, .05, 0]);
+    [[.085, .035], [.105, .04], [.125, .03], [.095, .025]].forEach(([x, z]) => sph('tarsus', .012, [s * x, .03, z]));
+    [.075, .092, .108, .124, .14].forEach((x, k) => {
+      rod('metatarsus', V(s * (x + .005), .03, .045), V(s * x, .012, .12 - k * .006), k ? .0055 : .008);
+      let z = .126 - k * .006; [.025, .02].forEach(l => { rod('phalf', V(s * x, .01, z), V(s * x, .008, z + l * (k ? .8 : 1)), k ? .0045 : .0065); z += l * (k ? .8 : 1) + .004; });
+    });
+  });
+  const floor = new THREE.Mesh(new THREE.RingGeometry(.25, .27, 64), new THREE.MeshBasicMaterial({color:0x7FD3FF, transparent:true, opacity:.35, side:THREE.DoubleSide})); floor.rotation.x = -Math.PI / 2; scene.add(floor);
+  const disc = new THREE.Mesh(new THREE.CircleGeometry(.25, 64), new THREE.MeshBasicMaterial({color:0x7FD3FF, transparent:true, opacity:.06})); disc.rotation.x = -Math.PI / 2; disc.position.y = -.001; scene.add(disc);
+
+  /* label anchors: centre of the left-side (or only) pieces */
+  root.updateMatrixWorld(true);
+  const anchor = {};
+  Object.keys(SK).forEach(k => { const ms = meshes.filter(m => m.userData.key === k); const left = ms.filter(m => m.position.x > .001); const use = left.length ? left : ms;
+    const b = new THREE.Box3(); use.forEach(m => b.expandByObject(m)); anchor[k] = b.getCenter(V(0, 0, 0)); });
+
+  /* label element */
+  const lbl = document.createElement('div'); lbl.className = 'sk-lbl'; box.appendChild(lbl);
+
+  /* camera */
+  const HOME = {t:V(0, .92, 0), d:3.7};
+  const cam = {yaw:.45, pitch:.12, d:HOME.d, t:HOME.t.clone(), tYaw:.45, tPitch:.12, tD:HOME.d, tT:HOME.t.clone(), auto:true};
+  const VIEWS = {front:[0, .08], back:[Math.PI, .08], side:[Math.PI / 2, .05], iso:[.45, .12]};
+  const cv = renderer.domElement, ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  let drag = null;
+  cv.addEventListener('pointerdown', e => { drag = {x:e.clientX, y:e.clientY, x0:e.clientX, y0:e.clientY, t:e.pointerType}; try { cv.setPointerCapture(e.pointerId); } catch(_) {} });
+  cv.addEventListener('pointermove', e => {
+    if (!drag) { const r = cv.getBoundingClientRect(); ndc.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1); ray.setFromCamera(ndc, camera); cv.style.cursor = ray.intersectObjects(meshes, false).length ? 'pointer' : 'grab'; return; }
+    cam.auto = false;
+    cam.tYaw -= (e.clientX - drag.x) * .01; if (drag.t === 'mouse') cam.tPitch = Math.max(-.6, Math.min(1.2, cam.tPitch + (e.clientY - drag.y) * .008));
+    cam.yaw = cam.tYaw; cam.pitch = cam.tPitch; drag.x = e.clientX; drag.y = e.clientY;
+  });
+  cv.addEventListener('pointerup', e => {
+    if (drag && Math.hypot(e.clientX - drag.x0, e.clientY - drag.y0) < 6) {
+      const r = cv.getBoundingClientRect(); ndc.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
+      ray.setFromCamera(ndc, camera); const hit = ray.intersectObjects(meshes, false)[0];
+      cam.auto = false; if (sk.pick) sk.pick(hit ? hit.object.userData.key : null);
+    }
+    drag = null;
+  });
+  cv.addEventListener('pointercancel', () => drag = null);
+  cv.addEventListener('wheel', e => { e.preventDefault(); cam.tD = Math.max(.7, Math.min(4.5, cam.tD * (e.deltaY > 0 ? 1.1 : .9))); cam.auto = false; }, {passive:false});
+
+  let cw = 0, ch = 0, tm = 0;
+  const pv = V(0, 0, 0), tmp = new THREE.Color();
+  function frame(now){
+    requestAnimationFrame(frame);
+    const w = box.clientWidth, h = box.clientHeight; if (!w || !h) return;
+    if (w !== cw || h !== ch) { cw = w; ch = h; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+    tm = now / 1000;
+    if (cam.auto && !RM) cam.tYaw += .0025;
+    cam.yaw += (cam.tYaw - cam.yaw) * .1; cam.pitch += (cam.tPitch - cam.pitch) * .1; cam.d += (cam.tD - cam.d) * .1; cam.t.lerp(cam.tT, .1);
+    camera.position.set(cam.t.x + cam.d * Math.sin(cam.yaw) * Math.cos(cam.pitch), cam.t.y + cam.d * Math.sin(cam.pitch), cam.t.z + cam.d * Math.cos(cam.yaw) * Math.cos(cam.pitch));
+    camera.lookAt(cam.t);
+    const hl = sk.mode.startsWith('quiz') ? sk.q : sk.sel;
+    Object.keys(SK).forEach(k => {
+      const m = mats[k], regc = SKR[SK[k][2]];
+      const base = k === 'orbita' ? tmp.set(0x4A4036) : IVORY;
+      if (sk.mode === 'regions') { m.color.copy(base).lerp(tmp.set(regc), sk.region && SK[k][2] !== sk.region ? .08 : .62); m.emissive.set(sk.region === SK[k][2] ? regc : 0x000000); m.emissiveIntensity = .25; m.opacity = 1; }
+      else { m.color.copy(base); if (k === hl) { m.emissive.set(sk.mode.startsWith('quiz') ? 0xFF7A1A : 0x3FA8FF); m.emissiveIntensity = sk.mode.startsWith('quiz') && !sk.answered ? .55 + .35 * Math.sin(tm * 5) : .8; } else { m.emissive.set(0x000000); } }
+      const dim = (sk.mode !== 'regions' && hl && k !== hl) || (sk.mode === 'regions' && sk.region && SK[k][2] !== sk.region);
+      m.transparent = dim; m.opacity = dim ? .35 : 1; m.depthWrite = !dim;
+    });
+    renderer.render(scene, camera);
+    const showK = sk.mode === 'explore' ? sk.sel : (sk.mode.startsWith('quiz') && sk.answered ? sk.q : null);
+    if (showK) { pv.copy(anchor[showK]).project(camera); lbl.style.display = 'block'; lbl.textContent = SK[showK][0] + ' · ' + SK[showK][1]; lbl.style.transform = 'translate(' + ((pv.x + 1) / 2 * cw) + 'px,' + ((1 - pv.y) / 2 * ch) + 'px) translate(-50%,-140%)'; }
+    else lbl.style.display = 'none';
+  }
+  requestAnimationFrame(frame);
+  return {
+    view(v){ cam.auto = false; if (v === 'home') { cam.tT.copy(HOME.t); cam.tD = HOME.d; return; } if (v === 'in') { cam.tD = Math.max(.7, cam.tD * .75); return; } if (v === 'out') { cam.tD = Math.min(4.5, cam.tD / .75); return; }
+      const [y, p] = VIEWS[v]; cam.tYaw = y + 2 * Math.PI * Math.round((cam.yaw - y) / (2 * Math.PI)); cam.tPitch = p; },
+    focus(k){ if (!k) return; cam.auto = false; cam.tT.copy(anchor[k]); cam.tD = SKZOOM[SK[k][2]] * (['carpus','metacarpus','phalh','tarsus','metatarsus','phalf','orbita','patella'].includes(k) ? .55 : 1); }
+  };
+}
+function skLabel(k, lang){ return lang === 'la' ? SK[k][1] : SK[k][0]; }
+function skNewQ(){
+  const keys = Object.keys(SK), lang = sk.mode === 'quizLa' ? 'la' : 'de'; let q;
+  do { q = keys[Math.floor(Math.random() * keys.length)]; } while (q === sk.q);
+  sk.q = q; sk.answered = false;
+  const pool = shuffle(keys.filter(k => k !== q && skLabel(k, lang) !== skLabel(q, lang)));
+  const opts = [q]; for (const k of pool) { if (opts.length >= 4) break; if (!opts.some(o => skLabel(o, lang) === skLabel(k, lang))) opts.push(k); }
+  sk.opts = shuffle(opts); if (sk.api) sk.api.focus(q); skCard();
+}
+function skCard(){
+  const c = $('#sk-card'); if (!c) return;
+  document.querySelectorAll('#sk-modes .chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === sk.mode));
+  if (sk.mode.startsWith('quiz')) {
+    const lang = sk.mode === 'quizLa' ? 'la' : 'de', k = sk.q;
+    c.innerHTML = '<div class="ig-joint">Punkte: <b>' + sk.score + ' / ' + sk.total + '</b></div><div class="ig-state" style="color:var(--c1);font-size:21px">' + (lang === 'la' ? 'Wie heißt der leuchtende Knochen auf Latein?' : 'Wie heißt der leuchtende Knochen?') + '</div>' +
+      '<div class="ct-opts">' + sk.opts.map(o => '<button class="opt' + (sk.answered && o === k ? ' ok' : '') + '" data-a="' + o + '"' + (sk.answered ? ' disabled' : '') + '><span>' + esc(skLabel(o, lang)) + '</span></button>').join('') + '</div>' +
+      (sk.answered ? '<div class="ig-note2">' + esc(SK[k][0]) + ' = ' + esc(SK[k][1]) + ' (' + esc(SK[k][2]) + ')</div><div class="ig-moves"><button class="chip" id="sk-next">Nächster Knochen</button></div>' : '<div class="ig-note2">Tipp: Du kannst das Modell drehen.</div>');
+    $('#sk-list').hidden = true; $('#sk-legend').hidden = true; return;
+  }
+  if (sk.mode === 'regions') {
+    c.innerHTML = '<div class="ig-state" style="color:var(--c1);font-size:21px">' + (sk.region ? esc(sk.region) : 'Gliederung des Skeletts') + '</div><div class="ig-note2">' + (sk.region ? Object.keys(SK).filter(k => SK[k][2] === sk.region).map(k => esc(SK[k][0]) + ' (' + esc(SK[k][1]) + ')').join(', ') : 'Das Skelett gliedert sich in Schädel, Rumpfskelett, Schultergürtel, Beckengürtel sowie obere und untere Extremitäten. Tippe einen Bereich an.') + '</div>';
+    $('#sk-legend').innerHTML = Object.entries(SKR).map(([r, col]) => '<button class="chip sk-rg" data-r="' + r + '" aria-pressed="' + (sk.region === r) + '"><i style="background:' + col + '"></i>' + esc(r) + '</button>').join('');
+    $('#sk-list').hidden = true; $('#sk-legend').hidden = false; return;
+  }
+  $('#sk-legend').hidden = true; $('#sk-list').hidden = false;
+  document.querySelectorAll('#sk-list .chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === sk.sel));
+  if (!sk.sel) { c.innerHTML = '<div class="ig-state" style="color:var(--c1);font-size:21px">Tippe einen Knochen an</div><div class="ig-note2">Ziehen zum Drehen. Mausrad oder die Lupen-Knöpfe zum Zoomen. Die kleinen Knochen findest du auch in der Liste.</div>'; return; }
+  const k = sk.sel;
+  c.innerHTML = '<div class="sk-name">' + esc(SK[k][0]) + '</div><div class="sk-latin">' + esc(SK[k][1]) + '</div><div class="ig-joint"><i class="sk-dot" style="background:' + SKR[SK[k][2]] + '"></i> ' + esc(SK[k][2]) + '</div>' +
+    (SK_TIP[k] ? '<div class="ig-note2">' + esc(SK_TIP[k]) + '</div>' : '') + '<div class="ig-moves"><button class="chip" id="sk-focus">Näher ansehen</button></div>';
+}
+function renderSkel(){
+  if (!sk.built) {
+    $('#ig-skel').innerHTML = '<div class="chips" id="sk-modes" style="padding-top:18px"><button class="chip" data-m="explore">Erkunden</button><button class="chip" data-m="regions">Bereiche</button><button class="chip" data-m="quizDe">Quiz Deutsch</button><button class="chip" data-m="quizLa">Quiz Latein</button></div>' +
+      '<div class="ig-grid"><div class="ig-box"><div class="art sk-stage" id="sk-3d" aria-label="3D-Skelett"></div>' +
+      '<div class="ig-ctrl"><button class="chip" data-v="front">Vorne</button><button class="chip" data-v="back">Hinten</button><button class="chip" data-v="side">Seite</button><button class="chip" data-v="iso">3D</button><button class="chip" data-v="in" aria-label="Hineinzoomen">+</button><button class="chip" data-v="out" aria-label="Herauszoomen">−</button><button class="chip" data-v="home">Ganzes Skelett</button></div></div>' +
+      '<div class="ig-panel"><div class="ig-card" id="sk-card" style="--pc:var(--c1)"></div><div class="chips" id="sk-legend" hidden></div>' +
+      '<div class="chips" id="sk-list">' + Object.keys(SK).map(k => '<button class="chip" data-k="' + k + '">' + esc(SK[k][0]) + '</button>').join('') + '</div>' +
+      '<p class="ig-hint">Alle 24 Knochen aus dem Handout. Das Modell ist vereinfacht und steht in der anatomischen Grundstellung: Handflächen nach vorne.</p></div></div>';
+    sk.built = true;
+    sk.pick = k => { if (sk.mode === 'explore') { sk.sel = k; skCard(); } else if (sk.mode === 'regions' && k) { sk.region = sk.region === SK[k][2] ? null : SK[k][2]; skCard(); } };
+    sk.api = initSkel();
+  }
+  skCard();
+}
+$('#ig-skel').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.m) { sk.mode = b.dataset.m; sk.answered = false; if (sk.mode.startsWith('quiz')) { sk.score = 0; sk.total = 0; sk.q = null; skNewQ(); } else { if (sk.api) sk.api.view('home'); skCard(); } return; }
+  if (b.dataset.v) { sk.api && sk.api.view(b.dataset.v); return; }
+  if (b.dataset.k) { sk.sel = sk.sel === b.dataset.k ? null : b.dataset.k; skCard(); return; }
+  if (b.dataset.r) { sk.region = sk.region === b.dataset.r ? null : b.dataset.r; skCard(); return; }
+  if (b.id === 'sk-focus') { sk.api && sk.api.focus(sk.sel); return; }
+  if (b.id === 'sk-next') { skNewQ(); return; }
+  if (b.dataset.a && !sk.answered) { sk.answered = true; sk.total++; const ok = b.dataset.a === sk.q; if (ok) sk.score++; skCard(); if (!ok) { const w = document.querySelector('#sk-card [data-a="' + b.dataset.a + '"]'); if (w) w.classList.add('no'); } }
+});
+
+/* ===================== "Mein erster Tag": Wut im Körper ===================== */
+const WU_SPOTS = [
+  {k:'kopf', x:180, y:96, t:'Kopfschmerzen', d:'Dauerstress kann zu Kopfschmerzen führen.'},
+  {k:'nacken', x:136, y:150, t:'Verspannungen', d:'Muskeln bleiben angespannt, z. B. im Nacken und in den Schultern.'},
+  {k:'herz', x:226, y:166, t:'Herzerkrankungen', d:'Das Herz arbeitet ständig schneller. Das kann auf Dauer zu Herzerkrankungen führen.'},
+  {k:'druck', x:104, y:236, t:'Bluthochdruck', d:'Der Blutdruck bleibt hoch. Daraus kann Bluthochdruck werden.'},
+  {k:'magen', x:184, y:236, t:'Magenprobleme', d:'Stress schlägt auf den Magen.'},
+  {k:'immun', x:248, y:214, t:'Geschwächtes Immunsystem', d:'Der Körper wird anfälliger für Krankheiten.'}
+];
+const wu = {built:false, lvl:.15, target:null, stress:false, spot:null, raf:0, parts:[], paths:[], last:0};
+function wuSVG(){
+  const body = `<g fill="url(#wuB)" stroke="url(#wuB)" stroke-linecap="round" stroke-linejoin="round" transform="translate(-20 28)">
+    <circle cx="200" cy="68" r="28" stroke="none"/><rect x="189" y="92" width="22" height="22" rx="6" stroke="none"/>
+    <path stroke="none" d="M152 116 Q200 104 248 116 Q262 160 258 214 Q254 250 236 262 L164 262 Q146 250 142 214 Q138 160 152 116 Z"/>
+    <path fill="none" stroke-width="20" d="M156 126 Q132 170 120 214 L112 266"/><path fill="none" stroke-width="20" d="M244 126 Q268 170 280 214 L288 266"/>
+    <path fill="none" stroke-width="26" d="M182 256 L176 320 L174 372"/><path fill="none" stroke-width="26" d="M218 256 L224 320 L226 372"/></g>`;
+  const P = ['M190 176 C150 170 130 200 100 236 L92 290','M190 176 C230 170 250 200 260 236 L268 290','M190 186 C180 230 162 290 156 396','M190 186 C200 230 210 290 206 396','M190 172 C186 140 182 120 180 100'];
+  const spots = WU_SPOTS.map(s => `<g class="wu-spot" data-k="${s.k}" transform="translate(${s.x} ${s.y})"><circle r="15" class="wu-sr"/><circle r="15" class="wu-sp"/><path d="M-5 0 H5 M0 -5 V5" stroke="#0A1428" stroke-width="2.6" stroke-linecap="round"/></g>`).join('');
+  return `<svg viewBox="0 0 360 440" id="wu-svg" role="img" aria-label="Körper unter Wut und Stress"><defs>
+    <radialGradient id="wuA"><stop offset="0" stop-color="#FF4D5E" stop-opacity=".75"/><stop offset=".6" stop-color="#FF4D5E" stop-opacity=".18"/><stop offset="1" stop-color="#FF4D5E" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wuB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8D8FF"/><stop offset="1" stop-color="#3E6FC9"/></linearGradient></defs>
+    <ellipse id="wu-aura" cx="180" cy="235" rx="165" ry="225" fill="url(#wuA)" opacity="0"/>${body}
+    ${P.map((d, i) => `<path id="wu-p${i}" d="${d}" fill="none" stroke="#FF8FA0" stroke-opacity=".22" stroke-width="3" stroke-dasharray="2 6"/>`).join('')}
+    <g id="wu-dots"></g>
+    <g transform="translate(176 166)"><g id="wu-heart" class="beat"><path d="M14 26C6 20 1 15 1 10 1 5 4 2 8 2 11 2 13 4 14 6 15 4 17 2 20 2 24 2 27 5 27 10 27 15 22 20 14 26Z" fill="#FF6B7A" stroke="#FFC2CB" stroke-width="1.5"/></g></g>
+    <text id="wu-ff" x="180" y="30" text-anchor="middle" class="wu-ff" opacity="0">Kampf oder Flucht</text>
+    <g id="wu-spots" style="display:none">${spots}</g></svg>`;
+}
+function wuApply(){
+  const L = wu.lvl, svg = $('#wu-svg'); if (!svg) return;
+  $('#wu-aura').setAttribute('opacity', (L * .95).toFixed(2));
+  $('#wu-heart').style.setProperty('--beat', (1.1 - L * .72).toFixed(2) + 's');
+  $('#wu-ff').setAttribute('opacity', L > .62 ? Math.min(1, (L - .62) * 4).toFixed(2) : 0);
+  $('#wu-spots').style.display = wu.stress ? 'inline' : 'none';
+  svg.querySelectorAll('.wu-spot').forEach(g => g.classList.toggle('on', g.dataset.k === wu.spot));
+  const bar = (id, v) => { const e = document.getElementById(id); if (e) e.style.width = (18 + v * 82).toFixed(0) + '%'; };
+  bar('wu-b1', L); bar('wu-b2', L * .92); bar('wu-b3', L);
+  const r = $('#wu-range'); if (r && document.activeElement !== r) r.value = Math.round(L * 100);
+  const st = L < .3 ? ['Ruhig', 'Puls und Blutdruck sind im Ruhezustand.'] : L < .62 ? ['Ärger steigt', 'Wir stehen unter Stress: Puls und Blutdruck steigen.'] : ['Kampf oder Flucht', 'Mehr Sauerstoff geht mit dem Blut in die Muskeln. Der Körper bereitet sich auf Abwehr vor.'];
+  $('#wu-title').textContent = st[0]; $('#wu-text').textContent = st[1];
+  const sp = WU_SPOTS.find(s => s.k === wu.spot);
+  $('#wu-spot').innerHTML = wu.stress ? (sp ? '<b>' + esc(sp.t) + '</b><br>' + esc(sp.d) : 'Tippe auf einen Punkt am Körper. So siehst du, was Dauerstress anrichten kann.') : '';
+  $('#wu-spot').hidden = !wu.stress;
+  document.querySelectorAll('#ig-wut [data-w="stress"]').forEach(b => b.setAttribute('aria-pressed', wu.stress));
+}
+function wuLoop(now){
+  wu.raf = requestAnimationFrame(wuLoop);
+  const svg = $('#wu-svg'); if (!svg || !svg.getBoundingClientRect().width) return;
+  const dt = Math.min(.05, (now - (wu.last || now)) / 1000); wu.last = now;
+  if (wu.target !== null) { wu.lvl += (wu.target - wu.lvl) * Math.min(1, dt * 1.2); if (Math.abs(wu.target - wu.lvl) < .01) { wu.lvl = wu.target; wu.target = null; } wuApply(); }
+  if (!wu.paths.length) { wu.paths = [0,1,2,3,4].map(i => document.getElementById('wu-p' + i)); const g = $('#wu-dots'); let h = ''; for (let i = 0; i < 15; i++) h += '<circle r="3.6" fill="#FFB3BE"/>'; g.innerHTML = h; wu.parts = [...g.children].map((c, i) => ({c, p:i % 5, t:(i / 15) % 1})); }
+  const speed = RM ? 0 : .08 + wu.lvl * .9;
+  wu.parts.forEach(o => { o.t = (o.t + dt * speed) % 1; const path = wu.paths[o.p], len = path.getTotalLength(), pt = path.getPointAtLength(o.t * len); o.c.setAttribute('cx', pt.x.toFixed(1)); o.c.setAttribute('cy', pt.y.toFixed(1)); o.c.setAttribute('opacity', (.25 + wu.lvl * .75) * Math.sin(Math.PI * o.t)); });
+}
+function renderWut(){
+  if (!wu.built) {
+    $('#ig-wut').innerHTML = '<div class="ig-grid"><div class="ig-box"><div class="art">' + wuSVG() + '</div></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--warn)"><label class="ig-slide" for="wu-range"><span>Wie wütend?</span><input type="range" id="wu-range" min="0" max="100" value="15"></label>' +
+      '<div class="ig-state" id="wu-title" style="color:var(--warn);font-size:22px"></div><div class="ig-note2" id="wu-text"></div>' +
+      '<div class="wu-meters"><span>Puls</span><i><b id="wu-b1"></b></i><span>Blutdruck</span><i><b id="wu-b2"></b></i><span>Sauerstoff zu den Muskeln</span><i><b id="wu-b3"></b></i></div>' +
+      '<div class="ig-moves"><button class="chip" data-w="up">Wut steigt</button><button class="chip" data-w="down">Wut abbauen</button><button class="chip" data-w="stress" aria-pressed="false">Dauerstress zeigen</button></div>' +
+      '<div class="ig-note2" id="wu-spot" hidden></div></div>' +
+      '<p class="ig-hint">Wie wir mit Wut umgehen, lernen wir oft als Kinder von unseren Eltern. In der Pflege hilft es, mit einer Vertrauensperson zu sprechen.</p></div></div>';
+    wu.built = true; wu.paths = [];
+  }
+  wuApply(); cancelAnimationFrame(wu.raf); wu.last = 0; wu.raf = requestAnimationFrame(wuLoop);
+}
+$('#ig-wut').addEventListener('click', e => {
+  const s = e.target.closest('.wu-spot'); if (s) { wu.spot = wu.spot === s.dataset.k ? null : s.dataset.k; wuApply(); return; }
+  const b = e.target.closest('[data-w]'); if (!b) return;
+  if (b.dataset.w === 'up') wu.target = 1; else if (b.dataset.w === 'down') wu.target = 0; else { wu.stress = !wu.stress; wu.spot = null; wuApply(); }
+  if (RM && wu.target !== null) { wu.lvl = wu.target; wu.target = null; wuApply(); }
+});
+$('#ig-wut').addEventListener('input', e => { if (e.target.id === 'wu-range') { wu.target = null; wu.lvl = +e.target.value / 100; wuApply(); } });
+
+/* ===================== Demenz-Nebel ===================== */
+const NB_ITEMS = [
+  {t:'Das heutige Datum', thr:.22, x:4, y:6, i:'<rect x="6" y="9" width="28" height="25" rx="3"/><path d="M6 16 H34 M13 5 V12 M27 5 V12"/><path d="M12 22 h4 M19 22 h4 M26 22 h3 M12 28 h4 M19 28 h4"/>'},
+  {t:'Wo ich wohne', thr:.34, x:68, y:6, i:'<path d="M5 19 L20 7 L35 19 M10 16 V34 H30 V16"/><path d="M17 34 V25 H23 V34"/>'},
+  {t:'Die Namen meiner Angehörigen', thr:.44, x:4, y:36, i:'<circle cx="14" cy="13" r="5"/><circle cx="27" cy="13" r="5"/><path d="M5 33 C5 24 23 24 23 33 M18 33 C18 24 36 24 36 33"/>'},
+  {t:'Wie man sich anzieht', thr:.5, x:68, y:36, i:'<path d="M13 6 L5 12 L9 18 L13 15 V34 H27 V15 L31 18 L35 12 L27 6 C25 10 15 10 13 6 Z"/>'},
+  {t:'Dass ich Kinder habe', thr:.58, x:4, y:66, i:'<circle cx="20" cy="11" r="6"/><path d="M9 34 C9 22 31 22 31 34"/><path d="M20 3 c2 0 3 2 2 3"/>'},
+  {t:'Dass ich verheiratet bin', thr:.64, x:68, y:66, i:'<circle cx="15" cy="22" r="9"/><circle cx="25" cy="22" r="9"/><path d="M12 9 L15 5 L18 9"/>'},
+  {t:'Mein eigener Name', thr:.74, x:36, y:36, i:'<rect x="5" y="10" width="30" height="21" rx="3"/><circle cx="14" cy="20" r="4"/><path d="M21 17 H30 M21 23 H28"/>'},
+  {t:'Essen und Trinken', thr:.84, x:36, y:66, i:'<path d="M9 9 H27 V24 C27 30 22 33 18 33 C14 33 9 30 9 24 Z M27 14 C33 14 33 22 27 22"/>'}
+];
+const nb = {built:false, lvl:.15, day:NB_ITEMS.map(() => 0), dayFog:0, raf:0, blobs:[], last:0};
+function nbApply(){
+  const L = nb.lvl; let clear = 0;
+  NB_ITEMS.forEach((it, i) => {
+    const el = document.getElementById('nb-i' + i); if (!el) return;
+    const v = Math.max(0, Math.min(1, (it.thr - (L + nb.day[i])) / .16 + .5));
+    if (v > .5) clear++;
+    el.style.opacity = (.12 + v * .88).toFixed(2); el.style.filter = 'blur(' + ((1 - v) * 6).toFixed(1) + 'px)';
+  });
+  $('#nb-count').textContent = clear + ' von ' + NB_ITEMS.length + ' Erinnerungen sind klar';
+  const r = $('#nb-range'); if (r && document.activeElement !== r) r.value = Math.round(L * 100);
+  $('#nb-day').textContent = nb.dayFog > .04 ? 'Heute: ein Tag mit mehr Nebel' : nb.dayFog < -.04 ? 'Heute: ein Tag mit weniger Nebel' : 'Heute: ein gewöhnlicher Tag';
+}
+function nbNewDay(){ nb.day = NB_ITEMS.map(() => (Math.random() - .5) * .3); nb.dayFog = nb.day.reduce((a, b) => a + b, 0) / nb.day.length; nbApply(); }
+function nbLoop(now){
+  nb.raf = requestAnimationFrame(nbLoop);
+  const cv = $('#nb-cv'); if (!cv) return; const w = cv.clientWidth, h = cv.clientHeight; if (!w) return;
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  const ctx = cv.getContext('2d'), dt = Math.min(.05, (now - (nb.last || now)) / 1000); nb.last = now;
+  if (!nb.blobs.length) for (let i = 0; i < 16; i++) nb.blobs.push({x:Math.random(), y:Math.random(), r:.18 + Math.random() * .25, vx:(Math.random() - .5) * .03, vy:(Math.random() - .5) * .02});
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
+  const a = Math.max(0, Math.min(.9, .05 + (nb.lvl + nb.dayFog) * .85));
+  nb.blobs.forEach(b => {
+    if (!RM) { b.x += b.vx * dt; b.y += b.vy * dt; if (b.x < -.2) b.x = 1.2; if (b.x > 1.2) b.x = -.2; if (b.y < -.2) b.y = 1.2; if (b.y > 1.2) b.y = -.2; }
+    const R = b.r * Math.max(w, h), g = ctx.createRadialGradient(b.x * w, b.y * h, 0, b.x * w, b.y * h, R);
+    g.addColorStop(0, 'rgba(226,236,248,' + (a * .55).toFixed(3) + ')'); g.addColorStop(1, 'rgba(226,236,248,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  });
+}
+function renderNebel(){
+  if (!nb.built) {
+    $('#ig-nebel').innerHTML = '<div class="ig-grid"><div class="ig-box"><div class="art nb-stage">' +
+      NB_ITEMS.map((it, i) => '<div class="nb-item" id="nb-i' + i + '" style="left:' + it.x + '%;top:' + it.y + '%"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + it.i + '</g></svg><span>' + esc(it.t) + '</span></div>').join('') +
+      '<canvas id="nb-cv" aria-hidden="true"></canvas></div></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--c1)"><div class="ig-state" style="color:var(--c1);font-size:22px">Demenz ist wie ein dichter Nebel</div>' +
+      '<div class="ig-note2">Manche Dinge sieht man nicht mehr oder nur ganz schlecht. Es gibt Tage mit mehr und mit weniger Nebel. Mit der Zeit wird der Nebel immer dichter.</div>' +
+      '<label class="ig-slide" for="nb-range"><span>Verlauf der Krankheit</span><input type="range" id="nb-range" min="0" max="100" value="15"></label>' +
+      '<div class="zr-ends"><span>Beginn</span><span>Später</span></div>' +
+      '<div class="ig-joint" id="nb-day"></div><div class="ig-joint"><b id="nb-count"></b></div>' +
+      '<div class="ig-moves"><button class="chip" id="nb-new">Neuer Tag</button></div></div>' +
+      '<div class="ig-card" style="--pc:var(--c2)"><div class="ig-joint"><b>So unterstützen Pflegekräfte</b></div><div class="nb-tips">' +
+      ['Humor haben','Musik spielen oder zusammen singen','Geduld haben','freundlich sein','Berührung','Lächeln'].map(t => '<span>' + esc(t) + '</span>').join('') + '</div>' +
+      '<div class="ig-note2">Menschen mit Demenz merken, wenn Pflegekräfte Stress haben.</div></div>' +
+      '<p class="ig-hint">Welche Erinnerung wann verschwindet, ist hier nur ein Beispiel. Das ist bei jedem Menschen anders.</p></div></div>';
+    nb.built = true;
+  }
+  nbApply(); cancelAnimationFrame(nb.raf); nb.last = 0; nb.raf = requestAnimationFrame(nbLoop);
+}
+$('#ig-nebel').addEventListener('click', e => { if (e.target.id === 'nb-new') nbNewDay(); });
+$('#ig-nebel').addEventListener('input', e => { if (e.target.id === 'nb-range') { nb.lvl = +e.target.value / 100; nbApply(); } });
+
+/* ===================== Stuhlinkontinenz ===================== */
+const IK = {
+  gesund:{t:'Gesund', d:'Nerven steuern den Schließmuskel. Er hält den Stuhl zurück, bis man auf der Toilette ist.', src:''},
+  muskel:{t:'Geschwächter Schließmuskel', d:'Durch Alter, Verletzungen oder Operationen im Bereich von Darm oder Beckenboden. Der Muskel schließt nicht mehr richtig.'},
+  geburt:{t:'Nach einer Geburt', d:'Frauen können Probleme mit dem Schließmuskel bekommen, vor allem nach Verletzungen bei der Geburt.'},
+  nerven:{t:'Nervenschäden', d:'Z. B. durch Diabetes, Multiple Sklerose oder Rückenmarksverletzungen. Die Nerven steuern die Muskeln, die den Stuhl zurückhalten. Ist die Steuerung gestört, fehlt die Kontrolle.'},
+  darm:{t:'Darmerkrankungen', d:'Chronischer Durchfall, Reizdarmsyndrom, Morbus Crohn oder Colitis ulcerosa. Der Darm funktioniert nicht mehr richtig.'},
+  durchfall:{t:'Durchfall', d:'Der Darm gibt zu viel Flüssigkeit in den Stuhl ab. Ursachen: Infektionen (Viren, Bakterien, Parasiten), Unverträglichkeiten wie Laktoseintoleranz, Antibiotika, Stress. Wichtig: genug Flüssigkeit und Elektrolyte.'}
+};
+const ik = {built:false, mode:'gesund', raf:0, parts:[], path:null, len:0, last:0};
+function ikSVG(){
+  const colon = 'M92 40 C88 120 86 190 138 214 C196 240 262 214 300 226 C336 238 336 282 300 300 C262 320 226 316 216 346 L216 384';
+  return `<svg viewBox="0 0 420 470" id="ik-svg" role="img" aria-label="Schema von Darm, Schließmuskel und Nerven"><defs><filter id="ikg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter></defs>
+    <path d="${colon}" fill="none" stroke="#E07A6F" stroke-width="50" stroke-linecap="round" id="ik-wall" class="ik-wall"/>
+    <path d="${colon}" fill="none" stroke="#FF5A5A" stroke-width="58" stroke-linecap="round" id="ik-inflam" opacity="0" filter="url(#ikg)"/>
+    <path d="${colon}" fill="none" stroke="#5A2230" stroke-width="32" stroke-linecap="round"/>
+    <path d="${colon}" id="ik-path" fill="none" stroke="none"/>
+    <g id="ik-parts"></g>
+    <path d="M118 404 Q216 448 314 404" fill="none" stroke="#D98B6B" stroke-width="12" stroke-linecap="round" id="ik-floor"/>
+    <ellipse cx="216" cy="392" rx="30" ry="10" fill="none" stroke="#C2453B" stroke-width="11" id="ik-sph"/>
+    <path d="M372 30 V330" stroke="#FFD27A" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+    <path id="ik-n1" d="M372 300 C330 326 280 368 244 390" fill="none" stroke="#FFD27A" stroke-width="3.5" stroke-linecap="round"/>
+    <path id="ik-n2" d="M372 262 C330 290 282 318 240 344" fill="none" stroke="#FFD27A" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="ik-lbl"><text x="128" y="50" text-anchor="start">Dickdarm</text><text x="372" y="20" text-anchor="middle">Rückenmark</text><text x="330" y="350" text-anchor="start">Nerven</text>
+      <text x="262" y="396" text-anchor="start">Schließmuskel</text><text x="216" y="462" text-anchor="middle">Beckenboden</text></g></svg>`;
+}
+function ikApply(){
+  const m = ik.mode, svg = $('#ik-svg'); if (!svg) return;
+  const sph = $('#ik-sph'), fl = $('#ik-floor');
+  sph.setAttribute('stroke-width', m === 'muskel' ? 4 : m === 'geburt' ? 7 : m === 'nerven' ? 7 : 11);
+  sph.setAttribute('stroke-dasharray', m === 'geburt' ? '10 7' : m === 'muskel' ? '6 6' : 'none');
+  sph.classList.toggle('ik-hot', ['muskel', 'geburt'].includes(m));
+  fl.setAttribute('stroke-dasharray', m === 'geburt' ? '14 8' : 'none'); fl.classList.toggle('ik-hot', m === 'geburt');
+  ['ik-n1', 'ik-n2'].forEach(id => { const n = document.getElementById(id); n.setAttribute('stroke-dasharray', m === 'nerven' ? '5 9' : 'none'); n.classList.toggle('ik-flick', m === 'nerven'); });
+  $('#ik-inflam').setAttribute('opacity', m === 'darm' ? .55 : 0);
+  document.querySelectorAll('#ik-modes .chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === m));
+  $('#ik-title').textContent = IK[m].t; $('#ik-text').textContent = IK[m].d;
+  ik.parts.forEach(o => { o.fall = 0; });
+}
+function ikLoop(now){
+  ik.raf = requestAnimationFrame(ikLoop);
+  const svg = $('#ik-svg'); if (!svg || !svg.getBoundingClientRect().width) return;
+  const dt = Math.min(.05, (now - (ik.last || now)) / 1000); ik.last = now;
+  if (!ik.path) { ik.path = $('#ik-path'); ik.len = ik.path.getTotalLength(); const g = $('#ik-parts'); let h = ''; for (let i = 0; i < 16; i++) h += '<circle r="7"/>'; g.innerHTML = h; ik.parts = [...g.children].map((c, i) => ({c, t:i / 16 * .9, fall:0})); }
+  const m = ik.mode, wet = m === 'durchfall' || m === 'darm', leak = m !== 'gesund';
+  const speed = RM ? 0 : (wet ? .16 : .06);
+  const sorted = [...ik.parts].sort((a, b) => b.t - a.t);
+  sorted.forEach((o, rank) => {
+    if (o.fall > 0) { o.fall += dt * 120; o.c.setAttribute('cy', (392 + o.fall).toFixed(1)); o.c.setAttribute('opacity', Math.max(0, 1 - o.fall / 70).toFixed(2)); if (o.fall > 70) { o.fall = 0; o.t = 0; } return; }
+    const cap = leak ? 1 : .985 - rank * .028;
+    o.t = Math.min(cap, o.t + dt * speed * (leak ? 1 : 1));
+    if (leak && o.t >= 1) { o.fall = .01; o.c.setAttribute('cx', 216); return; }
+    if (!leak && o.t >= cap && rank >= 9) o.t = 0;
+    const p = ik.path.getPointAtLength(o.t * ik.len);
+    o.c.setAttribute('cx', p.x.toFixed(1)); o.c.setAttribute('cy', p.y.toFixed(1)); o.c.setAttribute('opacity', 1);
+    o.c.setAttribute('fill', wet ? '#7FB7E8' : '#9A6236'); o.c.setAttribute('r', wet ? 6 : 7.5);
+  });
+}
+function renderInko(){
+  if (!ik.built) {
+    $('#ig-inko').innerHTML = '<div class="chips" id="ik-modes" style="padding-top:18px">' + Object.entries(IK).map(([k, o]) => '<button class="chip" data-k="' + k + '">' + esc(o.t) + '</button>').join('') + '</div>' +
+      '<div class="ig-grid"><div class="ig-box"><div class="art">' + ikSVG() + '</div></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--c1)"><div class="ig-state" id="ik-title" style="color:var(--c1);font-size:22px"></div><div id="ik-text"></div></div>' +
+      '<div class="ig-card" style="--pc:var(--c3)"><div class="ig-joint"><b>Auswirkungen auf die Betroffenen</b></div><div class="nb-tips"><span>Scham</span><span>soziale Isolation</span><span>Rückzug aus dem sozialen Leben</span></div>' +
+      '<div class="ig-note2">Wichtig: ärztliche Hilfe holen. Es gibt Behandlungsmöglichkeiten, die die Lebensqualität verbessern. Und: Betroffene können nichts dafür.</div></div>' +
+      '<p class="ig-hint">Vereinfachtes Schema, nicht maßstabsgetreu.</p></div></div>';
+    ik.built = true; ik.path = null;
+  }
+  ikApply(); cancelAnimationFrame(ik.raf); ik.last = 0; ik.raf = requestAnimationFrame(ikLoop);
+}
+$('#ig-inko').addEventListener('click', e => { const b = e.target.closest('#ik-modes .chip'); if (b) { ik.mode = b.dataset.k; ikApply(); } });
+
+/* ===================== "Bewegungsapparat schützen" ===================== */
+/* --- A. Wirbelsäule & Bandscheibe --- */
+const WS_REG = [
+  {k:'hws', n:'Halswirbelsäule (HWS)', c:'#7FD3FF', d:'7 Halswirbel. Nach vorne gebogen.', from:0, to:.2, cnt:7, w:16, h:8},
+  {k:'bws', n:'Brustwirbelsäule (BWS)', c:'#C7A6FF', d:'12 Brustwirbel. Nach hinten gebogen.', from:.21, to:.62, cnt:12, w:20, h:10},
+  {k:'lws', n:'Lendenwirbelsäule (LWS)', c:'#FF8FA0', d:'5 Lendenwirbel. Am stärksten belastet. Hier passieren die meisten Bandscheibenvorfälle.', from:.635, to:.84, cnt:5, w:27, h:13},
+  {k:'kreuz', n:'Kreuzbein und Steißbein', c:'#FFD27A', d:'Liegen unter der Lendenwirbelsäule.', from:.86, to:1, cnt:0}
+];
+const ws = {built:false, reg:null, mode:'wechsel', p:0, t:0, raf:0, last:0};
+function crPath(P){ let d = 'M' + P[0][0] + ' ' + P[0][1];
+  for (let i = 0; i < P.length - 1; i++) { const p0 = P[i - 1] || P[i], p1 = P[i], p2 = P[i + 1], p3 = P[i + 2] || p2;
+    d += ' C' + (p1[0] + (p2[0] - p0[0]) / 6).toFixed(1) + ' ' + (p1[1] + (p2[1] - p0[1]) / 6).toFixed(1) + ' ' + (p2[0] - (p3[0] - p1[0]) / 6).toFixed(1) + ' ' + (p2[1] - (p3[1] - p1[1]) / 6).toFixed(1) + ' ' + p2[0] + ' ' + p2[1]; }
+  return d; }
+function wsBuildSpine(){
+  const path = $('#ws-curve'), L = path.getTotalLength(), g = $('#ws-verts'); let h = '';
+  const at = u => path.getPointAtLength(u * L), ang = u => { const a = at(Math.max(0, u - .01)), b = at(Math.min(1, u + .01)); return Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI - 90; };
+  WS_REG.forEach(r => {
+    let s = '';
+    if (r.cnt) for (let i = 0; i < r.cnt; i++) { const u = r.from + (r.to - r.from) * (i + .5) / r.cnt, p = at(u), a = ang(u);
+      s += `<g transform="translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) rotate(${a.toFixed(1)})"><rect x="${-r.w / 2}" y="${-r.h / 2}" width="${r.w}" height="${r.h}" rx="3" fill="${r.c}"/></g>`; }
+    else { const p1 = at(.86), p2 = at(.95), p3 = at(1);
+      s += `<path d="M${(p1.x - 16).toFixed(1)} ${p1.y.toFixed(1)} L${(p1.x + 14).toFixed(1)} ${(p1.y + 4).toFixed(1)} L${(p2.x + 4).toFixed(1)} ${p2.y.toFixed(1)} L${(p2.x - 8).toFixed(1)} ${(p2.y - 2).toFixed(1)} Z" fill="${r.c}"/><path d="M${p2.x.toFixed(1)} ${p2.y.toFixed(1)} Q${(p3.x + 4).toFixed(1)} ${(p3.y - 6).toFixed(1)} ${p3.x.toFixed(1)} ${p3.y.toFixed(1)}" stroke="${r.c}" stroke-width="5" fill="none" stroke-linecap="round"/>`; }
+    h += `<g class="ws-r" data-r="${r.k}">${s}</g>`;
+  });
+  g.innerHTML = h;
+}
+function wsSVG(){
+  const pts = [[118,26],[128,62],[121,100],[104,150],[98,200],[106,248],[124,290],[126,325],[112,358],[104,384]];
+  const labels = [['hws',150,64],['bws',62,170],['lws',150,290],['kreuz',132,392]];
+  return `<svg viewBox="0 0 520 410" role="img" aria-label="Wirbelsäule von der Seite und Bandscheibe">
+    <path id="ws-curve" d="${crPath(pts)}" fill="none" stroke="#8FB4E8" stroke-opacity=".25" stroke-width="2" stroke-dasharray="3 5"/>
+    <g id="ws-verts"></g>
+    ${labels.map(([k, x, y]) => `<text class="ws-lbl" data-r="${k}" x="${x}" y="${y}" text-anchor="${x < 100 ? 'end' : 'start'}" fill="${WS_REG.find(r => r.k === k).c}">${k === 'kreuz' ? 'Kreuz- & Steißbein' : k.toUpperCase()}</text>`).join('')}
+    <text x="20" y="404" class="ws-sm">hinten</text><text x="214" y="404" class="ws-sm" text-anchor="end">vorne</text>
+    <line x1="240" y1="20" x2="240" y2="395" stroke="#8FB4E8" stroke-opacity=".15"/>
+    <g transform="translate(250 50)">
+      <text x="135" y="0" text-anchor="middle" class="ws-h">Bandscheibe zwischen zwei Wirbeln</text>
+      <path id="ws-nerve" d="M18 20 C30 120 14 190 26 300" stroke="#FFD27A" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <g id="ws-top"><rect x="60" y="40" width="170" height="78" rx="16" fill="url(#wsBone)"/><text x="145" y="84" text-anchor="middle" class="ws-sm2">Wirbelkörper</text></g>
+      <g id="ws-disc"><rect x="62" y="120" width="166" height="40" rx="18" fill="#2F6FA8" stroke="#9FD3FF" stroke-width="3"/>
+        <path d="M74 140 H216 M80 130 H210 M80 150 H210" stroke="#9FD3FF" stroke-width="1.5" opacity=".6"/>
+        <ellipse id="ws-nuc" cx="145" cy="140" rx="34" ry="12" fill="#FFE38A"/></g>
+      <path id="ws-crack" d="M64 132 L72 140 L64 148" stroke="#0A1428" stroke-width="5" fill="none" opacity="0"/>
+      <ellipse id="ws-bulge" cx="64" cy="140" rx="0" ry="0" fill="#FFE38A"/>
+      <g id="ws-bot"><rect x="60" y="162" width="170" height="78" rx="16" fill="url(#wsBone)"/></g>
+      <g id="ws-drops"></g>
+      <line x1="214" y1="152" x2="214" y2="252" stroke="#9FD3FF" stroke-width="1.5" stroke-dasharray="3 3"/><text x="228" y="266" text-anchor="end" class="ws-sm">Faserring</text><text x="145" y="144" text-anchor="middle" class="ws-nuc" id="ws-l2">Gallertkern</text>
+      <text x="0" y="330" class="ws-sm">Nerv</text>
+      <text x="145" y="290" text-anchor="middle" class="ws-state" id="ws-state"></text>
+    </g>
+    <defs><linearGradient id="wsBone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E9D2"/><stop offset="1" stop-color="#CDBF9F"/></linearGradient></defs></svg>`;
+}
+function wsApply(){
+  const p = ws.p, top = $('#ws-top'); if (!top) return;
+  top.setAttribute('transform', 'translate(0 ' + (p * 12).toFixed(1) + ')');
+  $('#ws-disc').setAttribute('transform', 'translate(0 160) scale(1 ' + (1 - p * .3).toFixed(3) + ') translate(0 -160)');
+  const hern = ws.mode === 'vorfall';
+  $('#ws-crack').setAttribute('opacity', hern ? 1 : 0);
+  $('#ws-bulge').setAttribute('rx', hern ? (6 + p * 16).toFixed(1) : 0); $('#ws-bulge').setAttribute('ry', hern ? (6 + p * 8).toFixed(1) : 0);
+  $('#ws-bulge').setAttribute('cx', (64 - p * 14).toFixed(1));
+  $('#ws-nerve').setAttribute('stroke', hern && p > .5 ? '#FF5A5A' : '#FFD27A');
+  const drops = [...$('#ws-drops').children];
+  drops.forEach((c, i) => { const side = i % 2 ? 1 : -1, j = Math.floor(i / 2), out = hern ? 0 : p;
+    const x = 145 + side * (40 + out * 105 + j * 6), y = 128 + j * 8 + (i % 3) * 3;
+    c.setAttribute('cx', x.toFixed(1)); c.setAttribute('cy', y.toFixed(1)); c.setAttribute('opacity', hern ? 0 : (.35 + .65 * Math.abs(out - .0)).toFixed(2));
+    c.setAttribute('fill', ws.dir < 0 ? '#8BE08A' : '#7FC8FF'); });
+  const st = hern ? (p > .5 ? 'Der Gallertkern drückt auf den Nerv' : 'Faserring gerissen') : ws.dir > 0 ? 'Druck: Flüssigkeit wird herausgepresst' : ws.dir < 0 ? 'Entlastung: Flüssigkeit mit Nährstoffen strömt hinein' : 'Ruhe';
+  $('#ws-state').textContent = st;
+}
+function wsLoop(now){
+  ws.raf = requestAnimationFrame(wsLoop);
+  const top = $('#ws-top'); if (!top || !top.getBoundingClientRect().width) return;
+  const dt = Math.min(.05, (now - (ws.last || now)) / 1000); ws.last = now;
+  const prev = ws.p;
+  if (ws.mode === 'wechsel' || ws.mode === 'vorfall') { ws.t += dt * (RM ? 0 : 1); ws.p = (1 - Math.cos(ws.t * 1.6)) / 2; }
+  else { const target = ws.mode === 'druck' ? 1 : 0; ws.p += (target - ws.p) * Math.min(1, dt * 2.5); }
+  ws.dir = Math.abs(ws.p - prev) < .0008 ? 0 : (ws.p > prev ? 1 : -1);
+  wsApply();
+}
+function wsCard(){
+  const r = WS_REG.find(x => x.k === ws.reg);
+  $('#ws-reg').innerHTML = r ? '<b style="color:' + r.c + '">' + esc(r.n) + '</b><br>' + esc(r.d) : 'Tippe auf einen Abschnitt der Wirbelsäule. Von der Seite sieht sie aus wie ein doppeltes S. Das federt Erschütterungen ab.';
+  document.querySelectorAll('#ig-spine .ws-r').forEach(g => g.style.opacity = ws.reg && g.dataset.r !== ws.reg ? .3 : 1);
+  document.querySelectorAll('#ws-modes .chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === ws.mode));
+  const T = {wechsel:'Bandscheiben haben keine eigenen Blutgefäße. Sie bekommen Nährstoffe nur durch Bewegung: bei Druck wird Flüssigkeit herausgepresst, bei Entlastung saugt die Bandscheibe Flüssigkeit mit Nährstoffen auf.', druck:'Bei Druck wird Flüssigkeit aus der Bandscheibe herausgepresst.', entlast:'Bei Entlastung saugt die Bandscheibe wieder Flüssigkeit mit Nährstoffen auf.', vorfall:'Bandscheibenvorfall: Der Faserring reißt, der Gallertkern drückt nach außen und kann auf Nerven drücken. Am häufigsten in der Lendenwirbelsäule.'};
+  $('#ws-text').textContent = T[ws.mode];
+}
+function renderSpine(){
+  if (!ws.built) {
+    $('#ig-spine').innerHTML = '<div class="chips" id="ws-modes" style="padding-top:18px"><button class="chip" data-m="wechsel">Bewegung im Wechsel</button><button class="chip" data-m="druck">Belasten</button><button class="chip" data-m="entlast">Entlasten</button><button class="chip" data-m="vorfall">Bandscheibenvorfall</button></div>' +
+      '<div class="ig-grid ws-grid"><div class="ig-box"><div class="art">' + wsSVG() + '</div></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--c1)"><div class="ig-joint">Wirbelsäule</div><div id="ws-reg"></div></div>' +
+      '<div class="ig-card" style="--pc:var(--c2)"><div class="ig-joint">Bandscheibe</div><div id="ws-text"></div></div>' +
+      '<p class="ig-hint">Rücken- und Bauchmuskeln halten die Wirbelsäule stabil wie ein Korsett. Vereinfachte Darstellung.</p></div></div>';
+    let d = ''; for (let i = 0; i < 12; i++) d += '<circle r="4.5"/>'; $('#ws-drops').innerHTML = d;
+    wsBuildSpine(); ws.built = true;
+  }
+  wsCard(); wsApply(); cancelAnimationFrame(ws.raf); ws.last = 0; ws.raf = requestAnimationFrame(wsLoop);
+}
+$('#ig-spine').addEventListener('click', e => {
+  const r = e.target.closest('[data-r]'); if (r) { ws.reg = ws.reg === r.dataset.r ? null : r.dataset.r; wsCard(); return; }
+  const m = e.target.closest('#ws-modes .chip'); if (m) { ws.mode = m.dataset.m; ws.t = 0; wsCard(); }
+});
+
+/* --- B. Rückenbelastung --- */
+const pb = {built:false, th:20, kb:0, load:false, far:false, twist:false, tTh:null, tKb:null, raf:0, last:0};
+function pbSVG(){
+  return `<svg viewBox="0 0 400 420" id="pb-svg" role="img" aria-label="Pflegekraft beim Heben, Seitenansicht"><defs><radialGradient id="pbG"><stop offset="0" stop-color="#FF4D5E" stop-opacity=".9"/><stop offset="1" stop-color="#FF4D5E" stop-opacity="0"/></radialGradient></defs>
+    <line x1="20" y1="392" x2="380" y2="392" stroke="#8FB4E8" stroke-opacity=".35" stroke-width="2"/>
+    <g id="pb-fig" stroke="url(#pbB)" stroke-linecap="round" stroke-linejoin="round" fill="none"></g>
+    <circle id="pb-lws" r="26" fill="url(#pbG)"/>
+    <g id="pb-twist" opacity="0"><path d="M-30 0 A30 10 0 1 0 30 0" fill="none" stroke="#FFD27A" stroke-width="3"/><path d="M24 -6 L32 1 L22 5" fill="none" stroke="#FFD27A" stroke-width="3" stroke-linecap="round"/></g>
+    <rect id="pb-box" width="44" height="34" rx="5" fill="#FFB15C" stroke="#FFD9A8" stroke-width="2" opacity="0"/>
+    <defs><linearGradient id="pbB" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="420"><stop offset="0" stop-color="#A8D8FF"/><stop offset="1" stop-color="#3E6FC9"/></linearGradient></defs></svg>`;
+}
+function pbScore(){ const t = pb.th / 60; return 1 + t * (1 - .55 * pb.kb) + (pb.load ? (.8 + (pb.far ? .9 : 0)) * (.5 + .5 * t) : 0) + (pb.twist ? .9 : 0); }
+function pbApply(){
+  const fig = $('#pb-fig'); if (!fig) return;
+  const th = pb.th * Math.PI / 180, kb = pb.kb;
+  const A = [150, 388], H = [150 - 14 * kb, 238 + 62 * kb], K = [150 + 44 * kb, 314 + 6 * kb];
+  const ux = Math.sin(th), uy = -Math.cos(th), S = [H[0] + 120 * ux, H[1] + 120 * uy], N = [S[0] + 16 * ux, S[1] + 16 * uy], Hd = [S[0] + 34 * ux, S[1] + 34 * uy];
+  let hand;
+  if (pb.load && pb.far) hand = [S[0] + 82, S[1] + 24]; else if (pb.load) hand = [S[0] + 26, S[1] + 64]; else hand = [S[0] + 6 * ux + 4, S[1] + 80];
+  const elbow = [(S[0] + hand[0]) / 2 + (pb.far ? 0 : 10), (S[1] + hand[1]) / 2 + (pb.far ? 4 : 0)];
+  const P = (a, b) => 'M' + a[0].toFixed(1) + ' ' + a[1].toFixed(1) + ' L' + b[0].toFixed(1) + ' ' + b[1].toFixed(1);
+  fig.innerHTML = `<path d="${P(A, K)} L${H[0].toFixed(1)} ${H[1].toFixed(1)}" stroke-width="22"/><path d="M${A[0] - 4} ${A[1]} H${A[0] + 26}" stroke-width="12"/>
+    <path d="${P(H, S)}" stroke-width="40"/><path d="${P(S, N)}" stroke-width="14"/><circle cx="${Hd[0].toFixed(1)}" cy="${Hd[1].toFixed(1)}" r="20" fill="url(#pbB)" stroke="none"/>
+    <path d="${P(S, elbow)} L${hand[0].toFixed(1)} ${hand[1].toFixed(1)}" stroke-width="14"/>`;
+  const lw = [H[0] + 30 * ux - 18 * Math.cos(th), H[1] + 30 * uy - 18 * Math.sin(th)];
+  const sc = pbScore(), risk = Math.min(1, (sc - 1) / 2.6);
+  const lws = $('#pb-lws'); lws.setAttribute('cx', lw[0].toFixed(1)); lws.setAttribute('cy', lw[1].toFixed(1)); lws.setAttribute('opacity', (.1 + risk * .9).toFixed(2)); lws.setAttribute('r', (16 + risk * 22).toFixed(1));
+  const tw = $('#pb-twist'); tw.setAttribute('opacity', pb.twist ? 1 : 0); tw.setAttribute('transform', 'translate(' + ((H[0] + S[0]) / 2).toFixed(1) + ' ' + ((H[1] + S[1]) / 2).toFixed(1) + ') rotate(' + (pb.th).toFixed(1) + ')');
+  const bx = $('#pb-box'); bx.setAttribute('opacity', pb.load ? 1 : 0); bx.setAttribute('x', (hand[0] - 10).toFixed(1)); bx.setAttribute('y', (hand[1] - 4).toFixed(1));
+  const m = $('#pb-meter'); m.style.width = (8 + risk * 92).toFixed(0) + '%'; m.style.background = risk < .25 ? 'var(--accent)' : risk < .6 ? '#E0A030' : 'var(--warn)';
+  const combo = pb.load && pb.twist && pb.th > 30;
+  let lab = risk < .12 ? ['Gering', 'Ungefähr wie im aufrechten Stehen.'] : risk < .35 ? ['Erhöht', 'Mehr Druck auf die Bandscheiben als im Stehen.'] : risk < .7 ? ['Hoch', 'Die Lendenwirbelsäule wird stark belastet.'] : ['Sehr hoch', 'Das kann auf Dauer Rücken und Bandscheiben schädigen.'];
+  if (!pb.load && !pb.twist && pb.th >= 50 && pb.kb < .15) lab = ['Etwa doppelt so hoch', 'Schon beim Vorbeugen ohne Last ist der Druck auf die Bandscheiben etwa doppelt so hoch wie im Stehen.'];
+  if (combo) lab = ['Am gefährlichsten', 'Vorbeugen, Verdrehen und gleichzeitig eine Last heben. Diese Kombination passiert oft beim Transfer vom Bett in den Stuhl.'];
+  $('#pb-lab').textContent = lab[0]; $('#pb-txt').textContent = lab[1];
+  const tips = [];
+  if (pb.th > 30) tips.push(pb.kb < .5 ? 'In die Knie gehen statt den Rücken rund zu machen.' : 'Rücken gerader halten, Bett auf Hüfthöhe stellen.');
+  if (pb.load && pb.far) tips.push('Körpernah arbeiten: näher an die Last herangehen.');
+  if (pb.twist) tips.push('Nicht verdrehen: mit den Füßen drehen, Oberkörper und Füße zeigen in dieselbe Richtung.');
+  if (pb.load) tips.push('Hilfsmittel nutzen oder eine zweite Person holen.');
+  $('#pb-tips').innerHTML = tips.length ? tips.map(t => '<li>' + esc(t) + '</li>').join('') : '<li>Gut so. Haltung trotzdem oft wechseln.</li>';
+  const r1 = $('#pb-th'), r2 = $('#pb-kb'); if (document.activeElement !== r1) r1.value = Math.round(pb.th); if (document.activeElement !== r2) r2.value = Math.round(pb.kb * 100);
+  document.querySelectorAll('#ig-posture [data-t]').forEach(b => b.setAttribute('aria-pressed', !!pb[b.dataset.t]));
+}
+function pbLoop(now){
+  pb.raf = requestAnimationFrame(pbLoop);
+  const dt = Math.min(.05, (now - (pb.last || now)) / 1000); pb.last = now;
+  let ch = false;
+  if (pb.tTh !== null) { pb.th += (pb.tTh - pb.th) * Math.min(1, dt * 4); if (Math.abs(pb.tTh - pb.th) < .3) { pb.th = pb.tTh; pb.tTh = null; } ch = true; }
+  if (pb.tKb !== null) { pb.kb += (pb.tKb - pb.kb) * Math.min(1, dt * 4); if (Math.abs(pb.tKb - pb.kb) < .01) { pb.kb = pb.tKb; pb.tKb = null; } ch = true; }
+  if (ch) pbApply();
+}
+function renderPosture(){
+  if (!pb.built) {
+    $('#ig-posture').innerHTML = '<div class="chips" style="padding-top:18px"><button class="chip" data-p="bad">Typischer Fehler</button><button class="chip" data-p="good">Rückengerecht</button></div>' +
+      '<div class="ig-grid"><div class="ig-box"><div class="art">' + pbSVG() + '</div></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--warn)"><div class="ig-joint">Druck auf die Bandscheiben</div><div class="pb-bar"><i id="pb-meter"></i></div><div class="ig-state" id="pb-lab" style="color:var(--warn);font-size:22px"></div><div class="ig-note2" id="pb-txt"></div>' +
+      '<label class="ig-slide" for="pb-th"><span>Vorbeugen</span><input type="range" id="pb-th" min="0" max="60" value="20"></label>' +
+      '<label class="ig-slide" for="pb-kb"><span>In die Knie gehen</span><input type="range" id="pb-kb" min="0" max="100" value="0"></label>' +
+      '<div class="ig-moves"><button class="chip" data-t="load">Last heben</button><button class="chip" data-t="far">Last körperfern</button><button class="chip" data-t="twist">Oberkörper verdrehen</button></div></div>' +
+      '<div class="ig-card" style="--pc:var(--c2)"><div class="ig-joint"><b>Besser so</b></div><ul class="pb-tips" id="pb-tips"></ul></div>' +
+      '<p class="ig-hint">Die Anzeige ist ein Modell und kein Messwert. Fest steht aus dem Skript: Vorbeugen verdoppelt etwa den Druck, die Kombination mit Verdrehen und Heben ist am gefährlichsten.</p></div></div>';
+    pb.built = true;
+  }
+  pbApply(); cancelAnimationFrame(pb.raf); pb.last = 0; pb.raf = requestAnimationFrame(pbLoop);
+}
+$('#ig-posture').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.t) { pb[b.dataset.t] = !pb[b.dataset.t]; if (b.dataset.t === 'far' && pb.far) pb.load = true; if (b.dataset.t === 'load' && !pb.load) pb.far = false; pbApply(); }
+  if (b.dataset.p === 'bad') { pb.tTh = 55; pb.tKb = 0; pb.load = true; pb.far = true; pb.twist = true; pbApply(); }
+  if (b.dataset.p === 'good') { pb.tTh = 12; pb.tKb = 1; pb.load = true; pb.far = false; pb.twist = false; pbApply(); }
+  if (RM) { if (pb.tTh !== null) pb.th = pb.tTh; if (pb.tKb !== null) pb.kb = pb.tKb; pb.tTh = pb.tKb = null; pbApply(); }
+});
+$('#ig-posture').addEventListener('input', e => { if (e.target.id === 'pb-th') { pb.tTh = null; pb.th = +e.target.value; pbApply(); } if (e.target.id === 'pb-kb') { pb.tKb = null; pb.kb = +e.target.value / 100; pbApply(); } });
+
+/* --- C. STOP-Prinzip --- */
+const STOP = [
+  {l:'S', n:'Substitution', d:'Die Gefahrenquelle wird ersetzt.', c:'#FF8FA0', ex:['hautschonendes Desinfektionsmittel statt eines aggressiven','Sicherheitskanülen statt normaler Kanülen']},
+  {l:'T', n:'Technisch', d:'Technische Schutzeinrichtungen werden eingesetzt.', c:'#FFB15C', ex:['höhenverstellbares Pflegebett','Lifter','Kanülenabwurfbehälter']},
+  {l:'O', n:'Organisatorisch', d:'Arbeitsabläufe werden angepasst.', c:'#7FD3FF', ex:['schwere Transfers zu zweit einplanen','Unterweisungen','Hilfsmittel griffbereit lagern','Pausen im Dienstplan']},
+  {l:'P', n:'Personenbezogen', d:'Die Person schützt sich selbst.', c:'#9BE07A', ex:['Handschuhe','Schutzkittel','Maske','feste Schuhe','rückengerechte Arbeitsweise lernen','Hautschutzplan']}
+];
+const sp = {built:false, sel:0, q:null, score:0, total:0, ans:null};
+function spNewQ(){ const all = []; STOP.forEach((s, i) => s.ex.forEach(x => all.push([x, i]))); let q; do { q = all[Math.floor(Math.random() * all.length)]; } while (sp.q && q[0] === sp.q[0]); sp.q = q; sp.ans = null; spApply(); }
+function spApply(){
+  document.querySelectorAll('#sp-steps .sp-step').forEach((b, i) => b.setAttribute('aria-pressed', i === sp.sel));
+  const s = STOP[sp.sel];
+  $('#sp-info').innerHTML = '<div class="ig-state" style="color:var(--ink);font-size:21px"><span class="sp-badge" style="background:' + s.c + '">' + s.l + '</span> ' + esc(s.n) + '</div><div>' + esc(s.d) + '</div><div class="nb-tips" style="--pc:var(--c1)">' + s.ex.map(x => '<span>' + esc(x) + '</span>').join('') + '</div>';
+  const q = sp.q;
+  $('#sp-game').innerHTML = '<div class="ig-joint">Punkte: <b>' + sp.score + ' / ' + sp.total + '</b></div><div class="ig-state" style="color:var(--c1);font-size:19px">Welche Stufe ist das?</div><div class="sp-q">„' + esc(q[0]) + '“</div>' +
+    '<div class="sp-ans">' + STOP.map((s, i) => '<button class="opt' + (sp.ans !== null ? (i === q[1] ? ' ok' : i === sp.ans ? ' no' : '') : '') + '" data-a="' + i + '"' + (sp.ans !== null ? ' disabled' : '') + '><b>' + s.l + '</b> ' + esc(s.n) + '</button>').join('') + '</div>' +
+    (sp.ans !== null ? '<div class="ig-moves"><button class="chip" id="sp-next">Nächstes Beispiel</button></div>' : '');
+}
+function renderStop(){
+  if (!sp.built) {
+    $('#ig-stop').innerHTML = '<div class="ig-grid"><div class="ig-box"><div class="art sp-art"><div class="sp-arrow"><span>Reihenfolge</span></div><div id="sp-steps">' +
+      STOP.map((s, i) => '<button class="sp-step" data-s="' + i + '" style="--w:' + (100 - i * 12) + '%;--sc:' + s.c + '"><em>' + (i + 1) + '.</em><b>' + s.l + '</b><span>' + esc(s.n) + '</span></button>').join('') + '</div>' +
+      '<p class="sp-note">Von oben nach unten: zuerst S, zuletzt P. Maßnahmen weiter oben haben Vorrang.</p></div></div>' +
+      '<div class="ig-panel"><div class="ig-card" id="sp-info" style="--pc:var(--c1)"></div><div class="ig-card" id="sp-game" style="--pc:var(--c2)"></div></div></div>';
+    sp.built = true; spNewQ();
+  }
+  spApply();
+}
+$('#ig-stop').addEventListener('click', e => {
+  const s = e.target.closest('.sp-step'); if (s) { sp.sel = +s.dataset.s; spApply(); return; }
+  const a = e.target.closest('[data-a]'); if (a && sp.ans === null) { sp.ans = +a.dataset.a; sp.total++; if (sp.ans === sp.q[1]) sp.score++; sp.sel = sp.q[1]; spApply(); return; }
+  if (e.target.id === 'sp-next') spNewQ();
+});
+
+/* --- D. Ampel-Check --- */
+const AMP = [
+  {k:'g', n:'Grün', c:'#3FD27A', e:'Ich fühle mich leistungsfähig. Leichte Beschwerden verschwinden nach einer Pause.', t:'Weiter so. Ausgleich und Bewegung beibehalten.'},
+  {k:'y', n:'Gelb', c:'#FFC23A', e:'Ich habe wiederholt Beschwerden und bin häufig erschöpft.', t:'Arbeitsweise prüfen, Hilfsmittel konsequent nutzen, mit Praxisanleitung sprechen, Pausen einhalten.'},
+  {k:'r', n:'Rot', c:'#FF4D4D', e:'Ich habe starke oder anhaltende Schmerzen, Taubheit oder Kribbeln im Bein. Ich kann nicht mehr abschalten.', t:'Sofort ärztlich abklären lassen. Leitung informieren. Arbeitsweise nicht unverändert fortsetzen.'}
+];
+const WARN = {k:['Ziehen oder Schmerz im Rücken','verspannter Nacken, Schultern','Kribbeln oder Taubheit in Armen oder Beinen','Kopfschmerzen, Schwindel','Schlafstörungen'], p:['anhaltende Müdigkeit trotz Schlaf','Konzentrationsstörungen, Fehler häufen sich','Gereiztheit, Stimmungsschwankungen','Lustlosigkeit, innere Distanz zur Arbeit','Gefühl der Überforderung („ich schaffe das nicht mehr“)']};
+const am = {built:false, sel:null};
+function amApply(){
+  AMP.forEach((a, i) => { const c = document.getElementById('am-' + a.k); c.setAttribute('fill', am.sel === i ? a.c : '#1B2638'); c.style.filter = am.sel === i ? 'drop-shadow(0 0 18px ' + a.c + ')' : 'none'; });
+  document.querySelectorAll('#am-btns .chip').forEach((b, i) => b.setAttribute('aria-pressed', i === am.sel));
+  const a = AMP[am.sel];
+  $('#am-card').innerHTML = a ? '<div class="ig-state" style="color:' + a.c + ';font-size:24px;text-shadow:0 0 1px #0004">' + a.n + '</div><dl class="ct-dl"><dt>So geht es mir</dt><dd>' + esc(a.e) + '</dd><dt>Was tun?</dt><dd>' + esc(a.t) + '</dd></dl>' : '<div class="ig-state" style="color:var(--c1);font-size:21px">Wie geht es mir gerade?</div><div class="ig-note2">Tippe auf eine Farbe der Ampel.</div>';
+  const n = document.querySelectorAll('#am-warn input:checked').length;
+  $('#am-count').textContent = n ? n + ' Warnsignal' + (n > 1 ? 'e' : '') + ' angekreuzt. Warnsignale ernst nehmen: Sie sind kein Zeichen von Schwäche.' : 'Kreuze an, was du gerade bei dir bemerkst. Das bleibt nur auf deinem Gerät.';
+}
+function renderAmpel(){
+  if (!am.built) {
+    $('#ig-ampel').innerHTML = '<div class="ig-grid"><div class="ig-box"><div class="art am-art"><svg viewBox="0 0 200 420" role="img" aria-label="Ampel"><rect x="50" y="20" width="100" height="300" rx="30" fill="#0B1220" stroke="#2A3A55" stroke-width="4"/><rect x="92" y="320" width="16" height="90" fill="#2A3A55"/>' +
+      AMP.map((a, i) => '<circle id="am-' + a.k + '" class="am-l" data-i="' + i + '" cx="100" cy="' + (75 + i * 95) + '" r="36" fill="#1B2638" stroke="#2A3A55" stroke-width="3"/>').join('') + '</svg>' +
+      '<div class="chips" id="am-btns" style="justify-content:center;padding:8px 0 14px">' + AMP.map((a, i) => '<button class="chip" data-i="' + i + '">' + a.n + '</button>').join('') + '</div></div></div>' +
+      '<div class="ig-panel"><div class="ig-card" id="am-card" style="--pc:var(--c1)"></div>' +
+      '<div class="ig-card" style="--pc:var(--warn)"><div class="ig-joint"><b>Warnsignale des Körpers</b></div><div class="am-warn" id="am-warn"><div><b>körperlich</b>' + WARN.k.map((w, i) => '<label><input type="checkbox" id="am-k' + i + '"> ' + esc(w) + '</label>').join('') + '</div><div><b>psychisch</b>' + WARN.p.map((w, i) => '<label><input type="checkbox" id="am-p' + i + '"> ' + esc(w) + '</label>').join('') + '</div></div><div class="ig-note2" id="am-count"></div></div>' +
+      '<p class="ig-hint">Ein Selbst-Check aus dem Skript, keine Diagnose. Bei Rot: ärztlich abklären lassen.</p></div></div>';
+    am.built = true;
+  }
+  amApply();
+}
+$('#ig-ampel').addEventListener('click', e => { const t = e.target.closest('[data-i]'); if (t) { const i = +t.dataset.i; am.sel = am.sel === i ? null : i; amApply(); } });
+$('#ig-ampel').addEventListener('change', e => { if (e.target.type === 'checkbox') amApply(); });
+
 /* directions */
 const FRONT = '<g class="fig"><circle cx="200" cy="82" r="30"/><rect x="160" y="120" width="80" height="150" rx="26"/><path d="M168 137 L112 247"/><path d="M232 137 L288 247"/><path d="M182 267 L176 502"/><path d="M218 267 L224 502"/></g>';
 const SIDE = '<g class="fig"><circle cx="200" cy="82" r="30"/><polygon points="228,76 242,86 228,92"/><rect x="172" y="120" width="56" height="150" rx="26"/><path d="M200 137 L206 247" style="stroke-width:20"/><path d="M200 267 L200 502" style="stroke-width:34"/><path d="M200 506 L236 506" style="stroke-width:20"/></g>';
@@ -800,12 +2177,15 @@ const DIRS = [
   {label:'Mitte und seitlich', view:FRONT + '<line x1="200" y1="20" x2="200" y2="540" stroke="var(--c3)" stroke-width="2" stroke-dasharray="6 5"/>' + tx(208,34,'Medianebene') + ln(350,400,226,400) + ln(226,450,350,450) + tx(392,392,'medial','end') + tx(392,470,'lateral','end'),
    terms:[['medial','zur Medianebene hin'],['lateral','von der Mitte weg, seitwärts']]},
   {label:'Nah und fern vom Rumpf', view:FRONT + ln(262,110,322,228) + tx(392,92,'proximal','end') + tx(392,108,'zum Rumpf hin','end') + tx(392,258,'distal','end') + tx(392,274,'vom Rumpf entfernt','end'),
-   terms:[['distal','vom Rumpf entfernt'],['proximal','zum Rumpf hin']]}
+   terms:[['distal','vom Rumpf entfernt'],['proximal','zum Rumpf hin']]},
+  {only:'grund', label:'Oberfläche und Tiefe', view:FRONT + ln(50,200,196,200) + tx(8,186,'superfiziell (oberflächlich)') + tx(60,226,'profund (tief)'),
+   terms:[['superfiziell','oberflächlich, näher an der Körperoberfläche'],['profund','tief, weiter im Körperinneren gelegen']]}
 ];
 let dsel = 0;
 function renderDir(){
-  const d = DIRS[dsel];
-  $('#dchips').innerHTML = DIRS.map((x, i) => '<button class="chip" data-i="' + i + '" aria-pressed="' + (i === dsel) + '">' + esc(x.label) + '</button>').join('');
+  const L = DIRS.filter(x => !x.only || x.only === H); if (dsel >= L.length) dsel = 0;
+  const d = L[dsel];
+  $('#dchips').innerHTML = L.map((x, i) => '<button class="chip" data-i="' + i + '" aria-pressed="' + (i === dsel) + '">' + esc(x.label) + '</button>').join('');
   $('#dsvg').innerHTML = d.view;
   $('#dpanel').innerHTML = '<div class="ig-terms">' + d.terms.map(t => '<div class="ig-term"><b>' + esc(t[0]) + '</b><span>' + esc(t[1]) + '</span></div>').join('') + '</div>' + (d.note ? '<p class="ig-note">' + esc(d.note) + '</p>' : '');
 }
@@ -827,7 +2207,25 @@ $('#dchips').addEventListener('click', e => { const b = e.target.closest('.chip'
   }).join('') + '<div class="ig-axis">' + [0,50,100,150,200,250,300,350,400,450].map(n => '<span>' + n + '</span>').join('') + '</div>';
 })();
 
+function applyHandout(){
+  const h = HANDOUTS[H];
+  $('#kick').textContent = h.kicker; $('#htitle').textContent = h.title;
+  document.querySelectorAll('#h-switch button').forEach(b => b.setAttribute('aria-pressed', b.dataset.h === H));
+}
+function setHandout(h){
+  if (h === H) return;
+  H = h; DATA = HANDOUTS[h].data; status = store.get(SKEY[h]) || {}; store.set('bb-handout', h);
+  openSet.clear(); openSet.add(0); query = ''; $('#search').value = ''; coverOn = false; $('#cover').checked = false; revealed.clear();
+  Object.assign(fc, {mode:'topics', branch:'all', unknown:false, i:0, flip:false});
+  document.querySelectorAll('#fc-mode button').forEach(x => x.setAttribute('aria-pressed', x.dataset.m === 'topics'));
+  $('#fc-unknown').checked = false;
+  qz.branch = 'all'; qz.list = null;
+  buildTerms(); applyHandout(); updateProgress(); igView = IG_VIEWS[h][0][0]; dsel = 0; showTab(tab);
+}
+$('#h-switch').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setHandout(b.dataset.h); });
+
 renderPairs(); renderDir();
+applyHandout();
 updateProgress();
 renderMap();
 </script>
