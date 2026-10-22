@@ -233,7 +233,20 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 .ig-axis{display:flex;justify-content:space-between;font:500 12px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:520px){.tab{padding:9px 11px;font-size:14px}.card{padding:22px}}
-#h-switch{flex-wrap:wrap;justify-self:start}
+
+.topics{padding-block:18px 14px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.topics-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.brand{font:700 15px var(--display);color:var(--ink)}
+.topics-lab{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#h-switch{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:8px}
+#h-switch button{display:grid;gap:2px;text-align:left;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;min-width:0}
+#h-switch button small{font:500 10.5px var(--mono);letter-spacing:.06em;color:var(--muted)}
+#h-switch button span{font:600 14px/1.25 var(--body)}
+#h-switch button:hover{border-color:var(--blue)}
+#h-switch button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+#h-switch button[aria-pressed="true"] small{color:var(--bg);opacity:.75}
+@media (max-width:520px){#h-switch{grid-template-columns:repeat(2,minmax(0,1fr))}}
+header{padding-block:20px 18px}
 #ig-nav button{white-space:nowrap;flex:none}
 #ig-nav{max-width:100%}
 .sk-stage{aspect-ratio:3/4;max-height:680px;width:100%;touch-action:pan-y;cursor:grab}
@@ -303,6 +316,47 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 #sp-steps{padding-left:30px}
 .ws-nuc{font:700 10.5px var(--body);fill:#6B4A00;pointer-events:none}
 .card .hint{margin-top:6px}
+#wg-list{display:grid;gap:6px}
+.wg-r{display:flex;gap:10px;align-items:center;text-align:left;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 15px var(--body);cursor:pointer}
+.wg-r[aria-pressed="true"]{border-color:var(--lc);box-shadow:0 0 0 1px var(--lc)}
+.wg-dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex:none;vertical-align:-1px}
+.wg-leg{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted)}
+.wg-leg span{display:flex;gap:6px;align-items:center}
+.wg-q{display:flex;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.wg-q.cur{font-weight:600}
+.wg-n{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--c2);color:var(--bg);font:700 13px var(--body);flex:none}
+.wg-y{color:var(--accent)}.wg-n2{color:var(--warn)}
+.wg-res{padding:10px 14px;border-radius:10px;font-size:15px}
+.wg-res.ok{background:var(--accent-soft)}.wg-res.bad{background:var(--warn-soft);color:var(--warn)}
+.ic-link{stroke:#FF8FA0;stroke-width:4;stroke-dasharray:8 6;opacity:.8}
+.ic-link.dead{stroke:#5B7DB4;opacity:.35}
+.ic-n{cursor:pointer}
+.ic-c{fill:#13233D;stroke:#7FD3FF;stroke-width:2.5;transition:all .25s}
+.ic-n:hover .ic-c{fill:#1D3A5E}
+.ic-n.cut .ic-c{fill:#3B1E26;stroke:#FF6B6B}
+.ic-t{font:700 14px var(--body);fill:#F2F7FF}
+.ic-s{font:500 12px var(--body);fill:#9FB8DC}
+.ic-mid{font:800 30px var(--display)}
+.ic-x{opacity:0;stroke:#FF6B6B;stroke-width:5;stroke-linecap:round;transition:opacity .2s}
+.ic-n.cut .ic-x{opacity:.9}
+.hd-art{display:grid;justify-items:center;padding-top:12px}
+.hd-art svg{width:min(320px,90%);height:auto}
+.hd-sec{font:800 26px var(--display);fill:#F2F7FF}
+.hd-cap{display:grid;gap:2px;text-align:center;color:#E8F1FF;padding:4px 16px 10px;max-width:420px}
+.hd-cap b{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#4FD1A1}
+.hd-cap span{font:600 17px var(--body)}
+@keyframes rubA{0%,100%{transform:translate(-6px,4px)}50%{transform:translate(6px,-4px)}}
+@keyframes rubB{0%,100%{transform:translate(6px,-4px)}50%{transform:translate(-6px,4px)}}
+.hd-a{animation:rubA .7s ease-in-out infinite}.hd-b{animation:rubB .7s ease-in-out infinite}
+.hd-mom{margin:0;padding-left:22px;display:grid;gap:6px;font-size:14.5px}
+.hd-mom span{display:block;color:var(--muted);font-size:13.5px}
+.hd-ans{display:grid;gap:6px}
+.hd-ans .opt{font-size:14.5px;padding:9px 12px}
+@media (prefers-reduced-motion:reduce){.hd-a,.hd-b{animation:none}}
+.card .ans{font:600 21px/1.35 var(--body)}
+.fc-more{font-size:16px;line-height:1.45}
+.fc-ex{font-size:14.5px;color:var(--muted);border-top:1px solid color-mix(in srgb,var(--ink) 15%,transparent);padding-top:8px}
+.card .front{overflow-wrap:anywhere}
 </style>
 
 </head>
@@ -310,10 +364,13 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 <div class="wrap">
 <noscript><div style="padding:16px;margin:12px 0;border:2px solid #B1432A;border-radius:12px;background:#fff;color:#14262B;font:16px/1.5 sans-serif"><b>Diese Lernhilfe braucht JavaScript.</b><br>Bitte die Datei direkt im Browser öffnen (Chrome, Safari, Edge oder Firefox), nicht in einer Vorschau von WhatsApp, E-Mail oder Cloud-Ordner.</div></noscript>
 
+  <div class="topics">
+    <div class="topics-head"><span class="brand">PFK Lernhilfe</span><span class="topics-lab">Thema wählen</span></div>
+    <div id="h-switch" role="group" aria-label="Thema wählen"><button data-h="bew" aria-pressed="true"><small>KB I</small><span>Bewegung beobachten</span></button><button data-h="grund" aria-pressed="false"><small>KB I</small><span>Grundstrukturen des Körpers</span></button><button data-h="tag" aria-pressed="false"><small>KB I</small><span>Mein erster Tag</span></button><button data-h="ruecken" aria-pressed="false"><small>KB I</small><span>Bewegungsapparat schützen</span></button><button data-h="schweig" aria-pressed="false"><small>KB IV</small><span>Schweigepflicht & DSGVO</span></button><button data-h="hyg" aria-pressed="false"><small>KB I</small><span>Hygienisches Handeln</span></button></div>
+  </div>
   <header>
     <div class="kicker" id="kick">PFK 4 FFM · Theorieblock 1</div>
     <h1 id="htitle">Bewegung beobachten, beschreiben und verstehen</h1>
-    <div class="seg" id="h-switch" role="group" aria-label="Handout wählen"><button data-h="bew" aria-pressed="true">Bewegung beobachten</button><button data-h="grund" aria-pressed="false">Grundstrukturen</button><button data-h="tag" aria-pressed="false">Mein erster Tag</button><button data-h="ruecken" aria-pressed="false">Bewegungsapparat schützen</button></div>
     <div class="progress"><div class="bar"><i id="pbar"></i></div><span><b id="pnum">0</b> von <span id="ptot">0</span> Themen gelernt</span></div>
   </header>
 
@@ -335,7 +392,7 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
 
     <section id="p-cards" role="tabpanel" aria-labelledby="t-cards" hidden>
       <div class="tools">
-        <div class="seg" id="fc-mode"><button data-m="topics" aria-pressed="true">Whole topics</button><button data-m="terms" aria-pressed="false">Single terms</button></div>
+        <div class="seg" id="fc-mode"><button data-m="terms" aria-pressed="true">Begriffe</button><button data-m="quest" aria-pressed="false">Fragen</button><button data-m="topics" aria-pressed="false">Überblick</button></div>
         <label class="switch"><input type="checkbox" id="fc-unknown"> Only cards I don't know yet</label>
         <button class="chip" id="fc-shuffle">Shuffle</button>
       </div>
@@ -408,6 +465,9 @@ mark{background:var(--accent-soft);color:inherit;border-radius:3px}
       <div id="ig-posture" hidden></div>
       <div id="ig-stop" hidden></div>
       <div id="ig-ampel" hidden></div>
+      <div id="ig-weiter" hidden></div>
+      <div id="ig-kette" hidden></div>
+      <div id="ig-haende" hidden></div>
 
       <div id="ig-who" hidden>
         <div class="ig-who">
@@ -850,13 +910,196 @@ QB.ruecken = [
 ];
 FCX.ruecken = (DATA_RUECKEN[8] ? DATA_RUECKEN[8].subs.flatMap(s => s.items.map(it => { const i = it.indexOf(': '); return [8, it.slice(0, i), it.slice(i + 2)]; })) : []);
 
+const DATA_SCHWEIG = [
+ {t:"Schweigepflicht – Grundlagen", s:"Schweigepflicht", subs:[
+  {t:"Was ist die Schweigepflicht?", items:["Schweigepflicht: verbietet, Geheimnisse von Patienten und Bewohnern unbefugt an Dritte weiterzugeben. Ein Verstoß kann strafbar sein","Warum es sie gibt: sie schützt die Menschen, die Sie pflegen, und ihr Vertrauen in Sie"]},
+  {t:"Was ist ein Geheimnis?", items:["Geheimnis: eine Tatsache, die nur wenigen Menschen bekannt ist und deren Geheimhaltung die Person ein berechtigtes Interesse hat","Was dazu gehört: alles, was Sie bei der Arbeit anvertraut bekommen oder nebenbei erfahren","Beispiele: Diagnosen, Medikamente, Pflegegrad, Verhalten (z. B. Demenz, Sucht)","Auch geschützt: Name, Anschrift, Geburtsdatum und sogar die Tatsache, dass jemand überhaupt Patient oder Bewohner ist","Ebenso: Familien-, Wohn- und Vermögensverhältnisse, Religion, Lebensgeschichte, Gespräche, Pflegedokumentation, Fotos"]},
+  {t:"Offenbaren", items:["Offenbaren: einer anderen Person das Geheimnis mitteilen, mündlich, schriftlich, per Foto oder Nachricht","Ohne Namen: auch „die Dame aus Zimmer 12 …“ reicht schon, wenn die Person erkennbar ist"]},
+  {t:"Folgen bei einem Verstoß", items:["Strafrecht: Freiheitsstrafe oder Geldstrafe möglich. Verfolgt wird meist nur auf Antrag der verletzten Person","Arbeits- und Ausbildungsvertrag: Abmahnung, Kündigung, Schadenersatz","Vertrag mit der Einrichtung: die Einrichtung schuldet den Menschen Vertraulichkeit, sonst z. B. Schmerzensgeld","Datenschutzrecht: Bußgeld, Schadenersatz"]},
+  {t:"Wer ist gebunden – gegenüber wem?", items:["Wer gebunden ist: alle, die mitarbeiten: Pflegefachpersonen, Pflegeassistenz, Auszubildende, Praktikanten, FSJ/BFD, Betreuungskräfte, Hauswirtschaft, Reinigung, Verwaltung, Haustechnik, Ehrenamtliche","Gegenüber wem: allen, die nicht an der Versorgung beteiligt sind: Angehörige, Freunde, Partner, Nachbarn, Presse, Kollegen ohne Bezug zur Versorgung, Arbeitgeber, Behörden","Im Team: Informationen austauschen ist erlaubt, aber nur so weit, wie sie für die Versorgung nötig sind","Merke: auch wenn es „eh schon alle wissen“, ohne Namen oder nach Feierabend bleibt die Schweigepflicht bestehen"]}]},
+
+ {t:"Wann darf ich etwas weitergeben?", s:"Ausnahmen", subs:[
+  {t:"Ende der Schweigepflicht", items:["Die Schweigepflicht endet nie von selbst: sie gilt nach Dienstschluss, nach Ende des Arbeitsverhältnisses und über den Tod der Person hinaus","Offenbarungsbefugnis: in klar geregelten Ausnahmen ist die Weitergabe „befugt“ und damit nicht strafbar"]},
+  {t:"Die wichtigsten Ausnahmen", items:["Einwilligung: die Person (oder bei Einwilligungsunfähigkeit Betreuer oder Bevollmächtigte) stimmt zu. Beispiel: Herr Y. erlaubt, seiner Tochter den Pflegeplan zu erklären","Mutmaßliche Einwilligung: die Person kann nicht entscheiden (z. B. bewusstlos). Man handelt so, wie sie wahrscheinlich entscheiden würde. Beispiel: Diagnosen an den Rettungsdienst","Gesetzliche Pflicht oder Befugnis: ein Gesetz verlangt oder erlaubt die Mitteilung, meist über Leitung oder Ärzte. Beispiel: Meldung ansteckender Krankheiten ans Gesundheitsamt, Abrechnung mit der Pflegekasse","Rechtfertigender Notstand: eine akute Gefahr für Leben, Gesundheit oder Freiheit, die nicht anders abwendbar ist, und der Schutz ist deutlich wichtiger als das Geheimnis. Beispiel: ein Bewohner kündigt glaubhaft an, einer Mitbewohnerin etwas anzutun","Aussage bei Gericht: bei einer Vorladung als Zeuge klären Leitung oder Rechtsberatung vorher, ob man aussagen muss"]},
+  {t:"Einwilligung – worauf es ankommt", items:["Einwilligungsfähig: wer Bedeutung und Folgen seiner Entscheidung versteht. Das ist nicht dasselbe wie geschäftsfähig. Auch Menschen mit Demenz können bei einfachen Fragen einwilligungsfähig sein","Freiwillig: es darf kein Druck entstehen (z. B. „Sonst können wir Sie nicht aufnehmen“)","Informiert: die Person weiß, wer welche Informationen wozu erhält","Zweckgebunden: die Einwilligung gilt nur für den genannten Zweck und die genannte Person","Widerruflich: die Person kann jederzeit „Nein“ sagen, auch für die Zukunft","Dokumentiert: am besten schriftlich in der Akte, z. B. auf dem Aufnahmebogen: wer darf informiert werden?"]},
+  {t:"Besondere Situationen", items:["Nach dem Tod: die Schweigepflicht bleibt. Angehörige haben nicht automatisch Anspruch auf Auskunft. Entscheidend ist der mutmaßliche Wille der verstorbenen Person. Ob Erben Einsicht bekommen, prüft die Leitung oder der Arzt","Gewalt oder Vernachlässigung: Sie müssen nicht allein entscheiden. Mit der Leitung sprechen, Beobachtungen sachlich dokumentieren, interne Meldewege nutzen. Bei Kindern: Beratung durch eine erfahrene Fachkraft, das Jugendamt darf informiert werden","Geplante schwere Straftaten: es gelten Sonderregeln. Sofort die Leitung informieren","Polizei, Staatsanwaltschaft, Anwälte: keine Auskunft am Telefon. Nur mit Einwilligung, gesetzlicher Grundlage oder Gerichtsbeschluss, die Leitung prüft das","Faustregel bei Unsicherheit: nichts weitergeben, Leitung fragen, Gespräch und Entscheidung dokumentieren"]}]},
+
+ {t:"Datenschutz (DSGVO)", s:"Datenschutz", subs:[
+  {t:"Worum geht es?", items:["Datenschutz: schützt nicht die Daten, sondern die Menschen hinter den Daten","Wo er gilt: bei jedem Umgang mit Daten über Menschen, auch auf Papier, in der Pflegedokumentation oder im Gespräch","DSGVO: die EU-Datenschutz-Grundverordnung, gilt in allen EU-Staaten. In Deutschland ergänzt durch weitere Gesetze, kirchliche Träger haben teils eigene"]},
+  {t:"Wichtige Begriffe", items:["Personenbezogene Daten: alle Informationen über eine erkennbare Person, z. B. Name, Anschrift, Geburtsdatum, Foto, „Zimmer 14 auf Station 2“","Gesundheitsdaten: Daten zur körperlichen oder psychischen Gesundheit und Pflegebedürftigkeit, z. B. Diagnosen, Medikamente, Vitalwerte, Pflegegrad, Wundfotos, Pflegedokumentation","Besondere Kategorien: besonders geschützte Daten: Gesundheit, Religion, Herkunft, sexuelle Orientierung, politische Meinung, genetische und biometrische Daten. Beispiel: Konfession, HIV-Status, Demenzdiagnose","Verarbeitung: jeder Umgang mit Daten: erheben, speichern, nutzen, weitergeben, löschen. Z. B. dokumentieren, Übergabe, Foto, E-Mail","Verantwortliche Stelle: wer über Zweck und Mittel entscheidet, z. B. der Träger der Einrichtung","Datenschutzbeauftragte: berät die Einrichtung, überwacht den Datenschutz, Ansprechperson für Mitarbeitende und Betroffene","Einwilligung: freiwillige, informierte und eindeutige Zustimmung, jederzeit widerrufbar. Z. B. Foto für die Hauszeitung"]},
+  {t:"Gesundheitsdaten in der Pflege", items:["Für die eigentliche Pflege: Gesundheitsdaten dürfen verarbeitet werden, wenn es für Versorgung, Behandlung und Pflege nötig ist und das Personal der Schweigepflicht unterliegt. Dafür braucht es keine extra Einwilligung","Darüber hinaus braucht es meist eine Einwilligung: z. B. Fotos für Social Media, Hauszeitung oder Schulungen, Namen an Zimmertür oder Klingel (je nach Hausregel), Daten an Seelsorge, Fußpflege, Friseur oder Angehörige"]},
+  {t:"Die Grundsätze", items:["Rechtmäßigkeit und Transparenz: es gibt eine Rechtsgrundlage und die Menschen werden informiert. Z. B. Informationsblatt bei der Aufnahme","Zweckbindung: Daten nur für den Zweck nutzen, für den sie erhoben wurden. Z. B. nicht aus Neugier in Akten schauen","Datenminimierung: nur so viele Daten wie nötig. Z. B. in der Übergabe nur Pflegerelevantes","Richtigkeit: Daten sind korrekt und aktuell. Z. B. sachlich und zeitnah dokumentieren","Speicherbegrenzung: nur so lange speichern wie nötig oder vorgeschrieben, danach sicher vernichten","Integrität und Vertraulichkeit: Schutz vor unbefugtem Zugriff, Verlust und Veränderung. Z. B. Bildschirm sperren, Akten wegschließen","Rechenschaftspflicht: die Einrichtung muss nachweisen können, dass sie sich an den Datenschutz hält. Z. B. Schulungen, dokumentierte Einwilligungen"]},
+  {t:"Rechte der Patienten und Bewohner", items:["Auskunft: welche Daten sind gespeichert? Auf Wunsch gibt es eine Kopie","Berichtigung: falsche Daten müssen korrigiert werden","Löschung: gilt nicht, solange es Aufbewahrungspflichten gibt, z. B. für die Dokumentation","Einschränkung und Widerspruch: die Person kann die Verarbeitung einschränken lassen oder ihr widersprechen","Widerruf: eine Einwilligung kann jederzeit zurückgenommen werden","Beschwerde: bei der Datenschutzaufsicht des Landes"]}]},
+
+ {t:"Wer darf was erfahren?", s:"Weitergabe", subs:[
+  {t:"Die vier Fragen vor jeder Weitergabe", items:["Frage 1: Ist die Person am Pflege- und Behandlungsprozess beteiligt?","Frage 2: Braucht sie genau diese Information für ihre Aufgabe?","Frage 3: Liegt eine Einwilligung oder eine gesetzliche Grundlage vor?","Frage 4: Habe ich Identität und Berechtigung der Person geprüft?","Regel: wenn Sie bei Frage 1 bis 3 nicht dreimal „Ja“ sagen können, nichts weitergeben und die Leitung fragen"]},
+  {t:"Übersicht nach Empfänger", items:["Pflege- und Behandlungsteam: alles, was für die Versorgung nötig ist. Kein Zugriff aus Neugier","Ärzte, Krankenhaus bei Verlegung: was für die Weiterbehandlung nötig ist, z. B. Überleitungsbogen. Im Zweifel Einwilligung einholen","Angehörige: nur das, was die Person erlaubt hat. Ohne Einwilligung keine Auskunft","Betreuer, Bevollmächtigte: Informationen im Rahmen ihrer Aufgabe, vor allem Gesundheitssorge. Nachweis prüfen (Betreuerausweis, Vollmacht)","Pflegekasse, Medizinischer Dienst: Daten im gesetzlichen Umfang, z. B. für Abrechnung und Begutachtung, über Leitung oder Verwaltung","Gesundheitsamt, Heimaufsicht: nur was eine Vorschrift verlangt, z. B. Meldung bestimmter Infektionskrankheiten, über die Leitung","Polizei, Staatsanwaltschaft, Gericht: nur mit Einwilligung, gesetzlicher Grundlage oder Beschluss. Keine Auskunft am Telefon, Leitung einschalten","Seelsorge, Fußpflege, Friseur, Ehrenamtliche: nur das Nötigste für ihre Leistung und nur mit Einwilligung. Religion ist besonders geschützt","Versicherungen, Arbeitgeber, Vermieter: nichts, außer mit ausdrücklicher Einwilligung","Besucher, Mitbewohner, Nachbarn, Presse: nichts, auch nicht, ob jemand überhaupt hier wohnt"]}]},
+
+ {t:"Datenschutz im Pflegealltag", s:"Pflegealltag", subs:[
+  {t:"Das sollten Sie tun", items:["Unterlagen: Pflegedokumentation, Medikamentenlisten und Übergabezettel nicht offen liegen lassen","Computer: Bildschirm sperren, wenn Sie den Platz verlassen. Eigene Zugangsdaten niemals weitergeben","Übergaben: in geschlossenen Räumen führen, nicht im Flur oder Speisesaal","Telefon: Identität prüfen und bei Unsicherheit zurückrufen","Papier entsorgen: im Aktenvernichter oder in der Datentonne","Praxisberichte und Hausarbeiten: vollständig anonymisieren: keine Namen, Initialen, Geburtsdaten, Zimmernummern, Stationen oder Einrichtungsnamen"]},
+  {t:"Das sollten Sie nicht tun", items:["Messenger: keine Gesundheitsdaten oder Fotos über private Messenger (z. B. WhatsApp) oder private E-Mail","Privates Handy: keine Fotos von Patienten, Wunden oder Dokumenten","Öffentlich: nicht über Bewohner in sozialen Medien, in Bus und Bahn oder im Freundeskreis sprechen","Kollegen: keine Daten an Kollegen, die nicht an der Versorgung beteiligt sind","Druck: keine Auskunft, nur weil jemand „dringend“ drängt oder sich als Angehöriger, Polizist oder Arzt ausgibt"]},
+  {t:"Freundlich ablehnen – Beispielsätze", nq:true, items:["„Ich darf Ihnen am Telefon leider keine Auskunft geben, weil ich der Schweigepflicht unterliege.“","„Wenn Frau S. damit einverstanden ist, kann ich Ihnen gern Auskunft geben. Ich frage sie.“","„Ich gebe Ihre Nachricht gern an die Pflegedienstleitung weiter, sie meldet sich bei Ihnen.“","„Ich kann weder bestätigen noch verneinen, dass die Person bei uns ist. Bitte wenden Sie sich an die Einrichtungsleitung.“"]}]}
+];
+QB.schweig = [
+ [0,'Was verbietet die Schweigepflicht?','Geheimnisse von Patienten unbefugt an Dritte weiterzugeben',['Mit Kollegen im Team über die Pflege zu sprechen','Die Pflege in der Akte zu dokumentieren','Patienten nach ihren Wünschen zu fragen'],'Ein Verstoß kann strafbar sein.'],
+ [0,'Was zählt als Geheimnis?','Alles, was Sie bei der Arbeit über einen Menschen erfahren',['Nur Diagnosen, die ein Arzt gestellt hat','Nur Dinge, die der Patient „geheim“ nennt','Nur Informationen, die schriftlich in der Akte stehen'],'Auch was Sie nebenbei hören, z. B. Familienkonflikte oder Geldsorgen.'],
+ [0,'Ist schon die Tatsache geschützt, dass jemand bei Ihnen wohnt?','Ja, auch das ist ein Geheimnis',['Nein, das darf jeder wissen','Nur wenn die Person das ausdrücklich verlangt','Nur bei bekannten Persönlichkeiten'],'Deshalb: „Ich kann weder bestätigen noch verneinen, dass die Person bei uns ist.“'],
+ [0,'Sie erzählen einer Freundin von „der Dame aus Zimmer 12“, ohne Namen. Ist das erlaubt?','Nein, wenn man die Person erkennen kann, ist das schon ein Verstoß',['Ja, ohne Namen ist es immer erlaubt','Ja, wenn die Freundin nicht in der Pflege arbeitet','Ja, wenn es nach Feierabend ist'],'„Offenbaren“ heißt auch: so beschreiben, dass die Person erkennbar ist.'],
+ [0,'Wer ist an die Schweigepflicht gebunden?','Alle Mitarbeitenden, auch Azubis, Reinigung und Ehrenamtliche',['Nur examinierte Pflegefachkräfte und die Ärzte im Haus','Nur die Pflegedienstleitung und die Einrichtungsleitung','Nur wer einen unbefristeten Arbeitsvertrag hat'],'Wer etwas über Bewohner erfährt, muss schweigen.'],
+ [0,'Mit wem dürfen Sie Informationen über einen Bewohner austauschen?','Mit dem Behandlungs- und Pflegeteam, soweit es für die Versorgung nötig ist',['Mit allen Kollegen im Haus, egal welche Station','Mit den Angehörigen, ohne zu fragen','Mit niemandem, auch nicht im Team'],'Kollegen ohne Bezug zur Versorgung gehören nicht dazu.'],
+ [0,'Ein Kollege sagt: „Das wissen doch eh schon alle.“ Gilt die Schweigepflicht trotzdem?','Ja, sie bleibt bestehen',['Nein, was alle wissen, ist kein Geheimnis mehr','Nur wenn die Leitung es sagt','Nur während der Dienstzeit'],'Auch ohne Namen und nach Feierabend gilt sie.'],
+ [0,'Welche Folge kann ein Verstoß im Arbeitsverhältnis haben?','Abmahnung oder Kündigung',['Eine Beförderung','Gar keine, nur das Gericht entscheidet','Nur ein Gespräch ohne Folgen'],'Dazu kommen mögliche Strafe, Schadenersatz und Bußgeld.'],
+ [1,'Wann endet die Schweigepflicht?','Nie von selbst, auch nicht nach Dienstende oder dem Tod der Person',['Mit dem Ende des Arbeitsverhältnisses','Mit dem Tod der Patientin oder des Patienten','Nach zehn Jahren'],'Sie gilt auch nach dem Ende der Ausbildung.'],
+ [1,'Was bedeutet „Offenbarungsbefugnis“?','In geregelten Ausnahmen ist die Weitergabe erlaubt',['Man darf alles weitergeben, was man für richtig hält','Man muss Geheimnisse immer allen offenlegen','Nur Ärzte dürfen überhaupt Informationen weitergeben'],'Z. B. bei Einwilligung oder gesetzlicher Pflicht.'],
+ [1,'Eine Bewohnerin ist bewusstlos. Sie geben dem Rettungsdienst ihre Diagnosen und Medikamente. Auf welcher Grundlage?','Mutmaßliche Einwilligung',['Ausdrückliche schriftliche Einwilligung','Aussagepflicht bei Gericht','Gar keine, das ist ein Verstoß'],'Sie handeln so, wie die Person wahrscheinlich entscheiden würde.'],
+ [1,'Ein Bewohner kündigt glaubhaft an, einer Mitbewohnerin etwas anzutun. Was erlaubt die Weitergabe?','Der rechtfertigende Notstand',['Die Zweckbindung','Die mutmaßliche Einwilligung','Das Recht auf Auskunft'],'Eine akute Gefahr für Leib oder Leben wiegt schwerer als das Geheimnis.'],
+ [1,'Die Meldung einer ansteckenden Krankheit an das Gesundheitsamt ist erlaubt. Warum?','Ein Gesetz verlangt diese Mitteilung',['Weil die Person einverstanden sein muss','Weil Behörden immer alles erfahren dürfen','Weil es ein rechtfertigender Notstand ist'],'Die Meldung läuft meist über Leitung oder Ärzte.'],
+ [1,'Was bedeutet „einwilligungsfähig“?','Die Person versteht Bedeutung und Folgen ihrer Entscheidung',['Die Person ist volljährig und geschäftsfähig','Die Person hat keine Demenz','Die Person hat einen Betreuer'],'Auch Menschen mit Demenz können bei einfachen Fragen einwilligungsfähig sein.'],
+ [1,'Wann ist eine Einwilligung nicht freiwillig?','Wenn Druck entsteht, z. B. „Sonst können wir Sie nicht aufnehmen“',['Wenn die Person in Ruhe darüber nachdenkt','Wenn sie schriftlich unterschreibt','Wenn sie vorher informiert wurde'],'Eine Einwilligung muss ohne Druck entstehen.'],
+ [1,'Eine Bewohnerin hat erlaubt, ihre Tochter zu informieren. Darf ihr Sohn dieselben Infos bekommen?','Nein, sie gilt nur für die genannte Person',['Ja, Familie gehört zusammen','Ja, wenn er freundlich fragt','Ja, wenn die Tochter zustimmt'],'Die Einwilligung ist zweckgebunden: für einen Zweck und einen Empfänger.'],
+ [1,'Kann eine Einwilligung zurückgenommen werden?','Ja, jederzeit, für die Zukunft',['Nein, unterschrieben ist unterschrieben','Nur mit Zustimmung der Leitung','Nur innerhalb von 14 Tagen'],'Sie ist widerruflich.'],
+ [1,'Wo dokumentiert man am besten, wer informiert werden darf?','Schriftlich in der Akte, z. B. auf dem Aufnahmebogen',['Nur im Kopf der Bezugspflegekraft','Auf einem Zettel an der Zimmertür','In der Team-WhatsApp-Gruppe'],'So weiß jeder im Team Bescheid.'],
+ [1,'Ein Bewohner ist gestorben. Hat die Ehefrau automatisch Anspruch auf alle Infos?','Nein, entscheidend ist der mutmaßliche Wille des Verstorbenen',['Ja, nach dem Tod endet die Schweigepflicht','Ja, Ehepartner dürfen immer alles wissen','Ja, aber nur am Telefon'],'Ob jemand Einsicht bekommt, prüft die Leitung oder der Arzt.'],
+ [1,'Eine Pflegebedürftige zeigt Ihnen blaue Flecken und sagt, ihr Sohn schlägt sie. Was tun Sie?','Mit der Leitung sprechen, sachlich dokumentieren, interne Meldewege nutzen',['Sofort selbst die Polizei anrufen, ohne jemandem Bescheid zu sagen','Schweigen, weil sie es so möchte','Den Sohn direkt zur Rede stellen'],'Sie müssen das nicht allein entscheiden.'],
+ [1,'Die Polizei ruft an und fragt, ob Herr W. bei Ihnen wohnt. Was tun Sie?','Keine Auskunft am Telefon geben und die Leitung einschalten',['Die Frage beantworten, es ist ja die Polizei','Nur sagen, ob er da ist, nicht mehr','Seine Zimmernummer nennen'],'Auskunft nur mit Einwilligung, gesetzlicher Grundlage oder Beschluss.'],
+ [1,'Was ist die Faustregel, wenn Sie unsicher sind?','Nichts weitergeben, Leitung fragen, dokumentieren',['Lieber zu viel sagen als zu wenig','Selbst entscheiden und niemandem erzählen','Die Kollegen in der WhatsApp-Gruppe fragen'],'So sind Sie und die Person geschützt.'],
+ [2,'Was schützt der Datenschutz eigentlich?','Die Menschen hinter den Daten',['Die Computer der Einrichtung','Die Daten vor dem Löschen','Die Einrichtung vor Kritik'],'Es geht um die Rechte der Person.'],
+ [2,'Gilt der Datenschutz auch für Papier und Gespräche?','Ja, für jeden Umgang mit Daten über Menschen',['Nein, nur für Computer und Internet','Nur für E-Mails','Nur für Fotos'],'Z. B. Pflegedokumentation auf Papier oder die Übergabe.'],
+ [2,'Was sind personenbezogene Daten?','Alle Informationen über eine erkennbare Person',['Nur der Name und die Adresse einer Person','Nur Gesundheitsdaten wie Diagnosen','Nur Daten, die auf dem Computer gespeichert sind'],'Auch „Zimmer 14 auf Station 2“ gehört dazu.'],
+ [2,'Welche Daten gehören zu den besonders geschützten Kategorien?','Gesundheit, Religion und Herkunft',['Name und Telefonnummer','Lieblingsessen und Hobbys','Zimmernummer und Station'],'Auch sexuelle Orientierung, politische Meinung, genetische und biometrische Daten.'],
+ [2,'Was ist mit „Verarbeitung“ von Daten gemeint?','Jeder Umgang mit Daten, vom Erheben bis zum Löschen',['Nur das Speichern auf dem Computer','Nur das Weitergeben an Behörden und Kassen','Nur das Löschen von alten Daten'],'Auch die Übergabe oder ein Foto ist Verarbeitung.'],
+ [2,'Was macht die oder der Datenschutzbeauftragte?','Berät die Einrichtung und überwacht den Datenschutz',['Entscheidet allein über alle Daten','Pflegt die Bewohner','Repariert die Computer'],'Ansprechperson für Mitarbeitende und Betroffene.'],
+ [2,'Brauchen Sie für die normale Pflege eine extra Einwilligung, um Gesundheitsdaten zu nutzen?','Nein, wenn es für die Versorgung nötig ist',['Ja, für jede einzelne Information','Ja, und zwar jeden Tag neu','Nur bei Menschen mit Demenz'],'Für alles darüber hinaus braucht es meist eine Einwilligung.'],
+ [2,'Wofür braucht man in der Regel eine Einwilligung?','Für ein Foto des Bewohners in der Hauszeitung',['Für die Dokumentation der Pflege','Für die Übergabe im Team','Für die Gabe der Medikamente'],'Auch für Social Media, Namen an der Tür oder Daten an den Friseur.'],
+ [2,'Sie schauen in die Akte einer Bewohnerin, die Sie nicht pflegen, aus Neugier. Gegen welchen Grundsatz verstoßen Sie?','Zweckbindung',['Richtigkeit','Speicherbegrenzung','Rechenschaftspflicht'],'Daten nur für den Zweck nutzen, für den sie erhoben wurden.'],
+ [2,'In der Übergabe nur pflegerelevante Informationen nennen: Welcher Grundsatz ist das?','Datenminimierung',['Transparenz','Zweckbindung','Integrität'],'Nur so viele Daten wie nötig.'],
+ [2,'Den Bildschirm sperren und Akten wegschließen: Welcher Grundsatz ist das?','Vertraulichkeit',['Datenminimierung','Richtigkeit','Rechtmäßigkeit'],'Schutz vor unbefugtem Zugriff, Verlust und Veränderung.'],
+ [2,'Was bedeutet der Grundsatz „Richtigkeit“?','Daten sind korrekt und aktuell',['Daten werden schnell gelöscht','Daten werden nur einmal gespeichert','Daten werden nie weitergegeben'],'Z. B. sachlich und zeitnah dokumentieren.'],
+ [2,'Ein Bewohner möchte wissen, welche Daten über ihn gespeichert sind. Darf er das?','Ja, er hat ein Recht auf Auskunft und auf Wunsch eine Kopie',['Nein, die Daten gehören der Einrichtung','Nur mit Zustimmung des Arztes','Nur über einen Anwalt'],'Falsche Daten muss man außerdem korrigieren.'],
+ [2,'Eine Bewohnerin will, dass ihre Pflegedokumentation sofort gelöscht wird. Geht das?','Nicht, solange sie aufbewahrt werden muss',['Ja, sofort und vollständig','Nein, Daten werden niemals gelöscht','Ja, wenn sie es schriftlich verlangt'],'Danach werden die Daten datenschutzgerecht vernichtet.'],
+ [3,'Was ist die erste der vier Fragen vor einer Weitergabe?','Ist die Person an der Versorgung beteiligt?',['Ist die Person freundlich und höflich?','Hat die Person einen guten Grund?','Kenne ich die Person schon länger?'],'Danach: Braucht sie die Info? Gibt es Einwilligung oder Gesetz? Ist die Identität geprüft?'],
+ [3,'Was tun Sie, wenn Sie bei den ersten drei Fragen nicht dreimal „Ja“ sagen können?','Nichts weitergeben und die Leitung fragen',['Trotzdem weitergeben, wenn es eilig ist','Nur die Hälfte weitergeben','Den Anrufer selbst entscheiden lassen'],'Lieber einmal mehr nachfragen.'],
+ [3,'Was dürfen Angehörige ohne Einwilligung der Person erfahren?','Nichts',['Alles über die Gesundheit','Nur die Diagnosen','Nur den Pflegegrad'],'Nur das, was die Person erlaubt hat.'],
+ [3,'Ein Betreuer möchte Informationen. Was müssen Sie vorher prüfen?','Seinen Nachweis, z. B. den Betreuerausweis',['Nichts, Betreuer dürfen immer alles wissen','Nur ob sein Name richtig geschrieben ist','Ob er mit dem Bewohner verwandt ist'],'Informationen nur im Rahmen seiner Aufgabe.'],
+ [3,'Was dürfen Sie dem Arbeitgeber oder der Versicherung eines Bewohners mitteilen?','Nichts, außer mit ausdrücklicher Einwilligung',['Alles, wenn sie höflich fragen','Nur die Diagnose','Nur, ob er krank ist'],'Auch Vermieter bekommen ohne Einwilligung nichts.'],
+ [3,'Der Friseur im Haus fragt nach der Diagnose einer Bewohnerin. Was gilt?','Nur das Nötigste für seine Leistung und nur mit Einwilligung',['Er darf alles wissen, er arbeitet ja im Haus','Er darf nur die Diagnose wissen','Er darf die ganze Akte lesen'],'Das gilt auch für Fußpflege, Seelsorge und Ehrenamtliche.'],
+ [3,'Ein Arzt im Krankenhaus braucht bei einer Verlegung Infos. Was gilt?','Was für die Weiterbehandlung nötig ist',['Gar nichts, das Krankenhaus fragt selbst','Die ganze Akte mit Lebensgeschichte','Nur der Name und das Geburtsdatum'],'Im Zweifel Einwilligung einholen.'],
+ [4,'Wo führen Sie Übergaben?','In einem geschlossenen Raum',['Im Flur, damit es schnell geht','Im Speisesaal beim Mittagessen','Am Telefon in der Straßenbahn'],'So hört niemand mit, der es nicht soll.'],
+ [4,'Eine Kollegin schickt ein Wundfoto in die private WhatsApp-Gruppe des Teams. Ist das erlaubt?','Nein, Gesundheitsdaten nicht über private Messenger',['Ja, wenn alle Kollegen in der Gruppe sind','Ja, wenn kein Name dabei steht','Ja, wenn es um eine Frage zur Pflege geht'],'Auch keine Fotos mit dem privaten Handy.'],
+ [4,'Ein Anrufer sagt, er sei der Sohn. Sie sind unsicher. Was tun Sie?','Identität prüfen und bei Unsicherheit zurückrufen',['Ihm glauben und alles erzählen','Ihm sagen, er soll nicht mehr anrufen','Seine Fragen per WhatsApp beantworten'],'Sich als Angehöriger ausgeben ist ein bekannter Trick.'],
+ [4,'Wohin kommt ein Übergabezettel mit Patientendaten am Ende?','In den Aktenvernichter oder die Datentonne',['In den normalen Papiermüll','In die Kitteltasche zum Mitnehmen','Ans schwarze Brett'],'So kann niemand die Daten lesen.'],
+ [4,'Was muss in einem Praxisbericht für die Schule fehlen?','Alles, woran man die Person erkennen kann',['Nur der Nachname der Person','Nur die Diagnose der Person','Nichts, die Schule hat ja auch Schweigepflicht'],'Praxisberichte vollständig anonymisieren.'],
+ [4,'Sie verlassen kurz den Computerplatz. Was tun Sie?','Den Bildschirm sperren',['Nichts, ich bin ja gleich zurück','Den Computer ausschalten und die Daten löschen','Einer Kollegin mein Passwort geben'],'Eigene Zugangsdaten niemals weitergeben.']
+];
+FCX.schweig = [
+ [0,'das Geheimnis','Eine Tatsache, die nur wenige kennen und die die Person geheim halten möchte'],[0,'offenbaren','Ein Geheimnis an andere mitteilen, mündlich, schriftlich, per Foto oder Nachricht'],[0,'unbefugt','Ohne Erlaubnis, also ohne Einwilligung oder gesetzliche Grundlage'],
+ [1,'die Einwilligung','Freiwillige, informierte Zustimmung, jederzeit widerrufbar'],[1,'einwilligungsfähig','Versteht Bedeutung und Folgen der eigenen Entscheidung'],[1,'die mutmaßliche Einwilligung','Handeln, wie die Person wahrscheinlich entscheiden würde, wenn sie es nicht kann'],[1,'der rechtfertigende Notstand','Weitergabe erlaubt, weil eine akute Gefahr für Leben oder Gesundheit droht'],[1,'widerruflich','Man kann es jederzeit zurücknehmen'],
+ [2,'personenbezogene Daten','Alle Informationen über eine erkennbare Person'],[2,'die Gesundheitsdaten','Daten zur körperlichen oder psychischen Gesundheit'],[2,'die Verarbeitung','Jeder Umgang mit Daten: erheben, speichern, nutzen, weitergeben, löschen'],[2,'die Zweckbindung','Daten nur für den Zweck nutzen, für den sie erhoben wurden'],[2,'die Datenminimierung','Nur so viele Daten wie nötig'],[2,'der/die Datenschutzbeauftragte','Berät und überwacht den Datenschutz in der Einrichtung'],[2,'die DSGVO','Datenschutz-Grundverordnung der EU'],
+ [4,'anonymisieren','Alle Angaben entfernen, durch die man die Person erkennen kann']
+];
+
+const DATA_HYG = [
+ {t:"Grundbegriffe", s:"Grundbegriffe", subs:[
+  {t:"Erreger und Infektion", items:["Erreger: Mikroorganismus, der eine Krankheit auslösen kann: Bakterien, Viren, Pilze, Parasiten. Z. B. Norovirus, Staphylococcus aureus","Kontamination: Verunreinigung einer Fläche, eines Gegenstands oder der Haut mit Erregern. Z. B. Hände nach Kontakt mit Urin","Kolonisation: Erreger siedeln auf Haut oder Schleimhaut, ohne krank zu machen. Z. B. jemand trägt MRSA in der Nase, ist aber nicht krank","Infektion: Erreger dringen in den Körper ein, vermehren sich und lösen Krankheitszeichen aus. Z. B. Wundinfektion mit Rötung, Schwellung, Fieber","Nosokomiale Infektion: Infektion, die durch eine medizinische oder pflegerische Versorgung entsteht. Z. B. Harnwegsinfektion durch einen Dauerkatheter","Inkubationszeit: Zeit zwischen Ansteckung und ersten Krankheitszeichen. Z. B. Norovirus: wenige Stunden bis zwei Tage"]},
+  {t:"Resistenz und Abwehr", items:["Resistenz: Erreger sind gegen bestimmte Antibiotika unempfindlich, das Antibiotikum wirkt nicht mehr","Multiresistenter Erreger (MRE): Erreger mit Resistenz gegen mehrere Antibiotikagruppen. Z. B. MRSA, VRE, 3MRGN, 4MRGN","Immunsuppression: das Immunsystem ist geschwächt, die Abwehr ist vermindert. Z. B. bei Chemotherapie"]}]},
+
+ {t:"Infektionskette und Übertragungswege", s:"Infektionskette", subs:[
+  {t:"Die Infektionskette", items:["Infektionskette: die Glieder, die zu einer Ansteckung führen: Erreger, Reservoir, Austrittspforte, Übertragungsweg, Eintrittspforte, empfänglicher Wirt","Wichtigste Regel: wird ein Glied unterbrochen, entsteht keine Infektion","Reservoir: Ort, an dem Erreger leben und sich vermehren. Z. B. Mensch, Wasser, Oberflächen","Eintritts- und Austrittspforte: Stelle, an der Erreger in den Körper hinein- oder aus ihm herauskommen. Z. B. Wunde, Schleimhaut, Darm","Empfänglicher Wirt: ein Mensch, der sich anstecken kann, z. B. weil seine Abwehr geschwächt ist"]},
+  {t:"Übertragungswege", items:["Kontaktübertragung: durch direkten oder indirekten Kontakt. Z. B. Hände, Pflegematerial, Türklinken","Schmierinfektion: Kontaktübertragung, meist von Stuhl oder Körperflüssigkeiten über die Hände zum Mund (fäkal-oral). Z. B. Noroviren","Tröpfcheninfektion: Übertragung über größere Tröpfchen beim Husten, Niesen, Sprechen, kurze Reichweite. Z. B. Influenza","Aerogene Übertragung: Übertragung über sehr kleine Partikel, die lange in der Luft bleiben. Z. B. Tuberkulose, Masern, Windpocken","Über Blut: Kontakt mit Blut oder bluthaltigen Sekreten, z. B. durch Nadelstich oder Geschlechtsverkehr. Z. B. Hepatitis B und C, HIV"]}]},
+
+ {t:"Maßnahmen und Verfahren", s:"Maßnahmen", subs:[
+  {t:"Reinigen, desinfizieren, sterilisieren", items:["Hygiene: Oberbegriff für alle Maßnahmen zur Verhütung von Krankheiten und zur Erhaltung der Gesundheit","Reinigung: Entfernen von sichtbarem Schmutz, meist mit Wasser und Reinigungsmittel. Reduziert Erreger, tötet sie aber nicht sicher ab","Desinfektion: Verringerung der Zahl von Erregern, sodass keine Infektionsgefahr mehr besteht. Z. B. Hände- oder Flächendesinfektion","Sterilisation: Abtöten oder Entfernen aller Mikroorganismen, auch von Sporen. Z. B. chirurgische Instrumente","Antiseptik: Desinfektion von lebendem Gewebe: Haut, Schleimhaut, Wunden. Z. B. Hautantiseptik vor einer Injektion"]},
+  {t:"Weitere Verfahren", items:["Asepsis: keimfreies Arbeiten, um jede Kontamination zu vermeiden. Z. B. Verbandwechsel, Katheterisieren","Aufbereitung: Reinigung, Desinfektion und ggf. Sterilisation von Medizinprodukten zur Wiederverwendung. Z. B. Instrumente, Endoskope","Einwirkzeit: Zeit, die ein Desinfektionsmittel auf Fläche oder Haut bleiben muss, um zu wirken. Bei der Händedesinfektion meist 30 Sekunden","Wischdesinfektion: Desinfektion von Flächen durch Abwischen mit einem getränkten Tuch. Z. B. Nachttisch, Pflegebett","Rein und unrein: saubere und verschmutzte Bereiche oder Arbeitsschritte trennen. Z. B. saubere Wäsche und Schmutzwäsche getrennt lagern"]}]},
+
+ {t:"Händehygiene", s:"Händehygiene", subs:[
+  {t:"Hygienische Händedesinfektion", items:["Warum Händehygiene: die Hände sind die häufigsten Überträger von Krankheitskeimen. Händehygiene ist die wichtigste Maßnahme zur Infektionsprävention","Hygienische Händedesinfektion: Desinfektion der Hände mit alkoholischem Mittel, um Erreger zu verringern. Sie dient vor allem dem Schutz des Patienten","Einwirkzeit: meist 30 Sekunden. Die Hände müssen die ganze Zeit feucht sein"]},
+  {t:"Die 5 Momente der Händedesinfektion", items:["Moment 1: vor Patientenkontakt","Moment 2: vor aseptischen Tätigkeiten, z. B. vor Injektionen, vor dem Legen von Kathetern, vor Medikamentengabe","Moment 3: nach Kontakt mit potenziell infektiösem Material, z. B. Körperflüssigkeiten","Moment 4: nach Patientenkontakt","Moment 5: nach Kontakt mit der unmittelbaren Patientenumgebung","Weitere typische Situationen: vor und nach Verbänden, vor und nach Maßnahmen an Kathetern und Drainagen, nach unreinen Arbeiten wie Bettwäsche abziehen, nach dem Ablegen von Handschuhen"]},
+  {t:"Die 6 Schritte der Händedesinfektion", nq:true, items:["1. Handfläche auf Handfläche","2. Rechte Handfläche auf linkem Handrücken und umgekehrt","3. Handfläche auf Handfläche mit verschränkten Fingern","4. Fingeraußenseiten auf der gegenüberliegenden Handfläche und umgekehrt","5. Linke Handfläche umschließt den rechten Daumen und umgekehrt","6. Geschlossene Fingerkuppen in der rechten Handfläche und umgekehrt"]},
+  {t:"Händewaschen und Hautpflege", items:["Händewaschen: tötet deutlich weniger Keime ab als die Desinfektion und strapaziert die Haut. Deshalb auf ein Minimum reduzieren","Wann Händewaschen: vor Arbeitsbeginn, bei sichtbarer Verschmutzung, nach Arbeitsende, nach dem Toilettengang, vor und nach der persönlichen Pause","Clostridioides difficile: bildet Sporen. Desinfektion allein reicht nicht, danach müssen die Hände zusätzlich gründlich gewaschen werden","Hautpflege: in kleinsten Rissen der Haut können sich Keime ansiedeln, dann lässt sich die Haut nicht mehr sicher desinfizieren","Wann Hautpflege: vor Arbeitsbeginn, nach dem Händewaschen, vor Arbeitspausen, nach Arbeitsende"]}]},
+
+ {t:"Schutzhandschuhe und PSA", s:"Handschuhe & PSA", subs:[
+  {t:"Schutzhandschuhe", items:["Wozu Schutzhandschuhe: sie verringern die Keimlast auf den Händen des Personals. Sie dienen vor allem dem Schutz des Personals","Wann anziehen: bei vorhersehbarem Erregerkontakt und möglicher Verunreinigung mit Ausscheidungen, Sekreten und Exkreten","Beispiele: Blutentnahme, Verbände und Drainagen entfernen, Absaugen, Tracheostomapflege, Pflege inkontinenter Patienten, Pflege bei MRSA","Danach: Handschuhe ausziehen und eine hygienische Händedesinfektion durchführen","Wechseln: wenn man beim gleichen Patienten von einem kontaminierten zu einem sauberen Bereich wechselt","Wichtig: Handschuhe ersetzen nicht die Händedesinfektion. Diese muss immer durchgeführt werden"]},
+  {t:"Wann keine Handschuhe?", items:["Nicht nötig: wenn kein Kontakt mit Blut oder Körperflüssigkeiten zu erwarten ist","Beispiele direkter Kontakt: Blutdruck, Temperatur und Puls messen, Injektionen s.c. und i.m., Baden und Anziehen, Patiententransport","Beispiele indirekter Kontakt: Tabletten geben, Essenstabletts verteilen, Bett beziehen","Warum nicht zu oft: zu häufiges oder zu langes Tragen schadet der Haut"]},
+  {t:"Handschuhe richtig ausziehen", nq:true, items:["1. Mit der linken Hand die Stulpe des rechten Handschuhs fassen und abstreifen","2. Die linke Hand hält den rechten Handschuh, die rechte Hand fasst in die Innenseite der Stulpe des linken Handschuhs","3. Beim Abstreifen zeigen die kontaminierten Außenseiten nach innen und berühren die Hände nicht"]},
+  {t:"Persönliche Schutzausrüstung (PSA)", items:["PSA: Handschuhe, Schutzkittel, Mund-Nasen-Schutz, FFP2-Maske, Schutzbrille. Schützt Pflegende und verhindert Weiterverbreitung","Standardhygiene (Basishygiene): Maßnahmen, die bei allen Patienten immer gelten: Händehygiene, PSA nach Bedarf, Flächendesinfektion"]}]},
+
+ {t:"Organisation und Isolierung", s:"Organisation", subs:[
+  {t:"Isolierung", items:["Isolierung: räumliche und organisatorische Trennung von Patienten mit ansteckenden Erkrankungen. Z. B. Einzelzimmer mit Schleuse","Schutzisolierung (Umkehrisolierung): Schutz besonders gefährdeter Patienten vor Erregern von außen. Z. B. bei Immunschwäche","Screening: gezielte Untersuchung auf bestimmte Erreger, oft bei der Aufnahme. Z. B. MRSA-Abstrich"]},
+  {t:"Regeln und Zuständigkeiten", items:["Hygieneplan: schriftliche Regeln einer Einrichtung zu Hygienemaßnahmen, Pflicht nach dem Infektionsschutzgesetz","Hygienefachkraft: spezialisierte Pflegefachperson für Infektionsprävention, berät und schult das Team","Meldepflicht: bestimmte Krankheiten oder Erreger müssen dem Gesundheitsamt gemeldet werden","Infektionsschutzgesetz (IfSG): Bundesgesetz zur Verhütung und Bekämpfung von Infektionskrankheiten","KRINKO: Kommission für Krankenhaushygiene am Robert Koch-Institut, gibt fachliche Empfehlungen"]}]},
+
+ {t:"Häufige Erreger und Krankheiten", s:"Erreger", subs:[
+  {t:"Abkürzungen", items:["MRSA: Methicillin-resistenter Staphylococcus aureus","VRE: Vancomycin-resistente Enterokokken","ESBL: Bakterien mit Enzymen, die viele Antibiotika unwirksam machen","3MRGN / 4MRGN: multiresistente gramnegative Stäbchen, resistent gegen drei bzw. vier Antibiotikagruppen"]},
+  {t:"Magen-Darm-Erreger", items:["Norovirus: Magen-Darm-Infektion mit Erbrechen und Durchfall, sehr ansteckend. Schmierinfektion und Aerosole beim Erbrechen. Isolation, viruswirksames Desinfektionsmittel, Mund-Nasen-Schutz bei Erbrechen","Clostridioides difficile: Durchfall, bildet widerstandsfähige Sporen. Schmierinfektion. Isolation, nach der Händedesinfektion zusätzlich Hände waschen","Salmonellen: über Lebensmittel wie Geflügel, rohe Eier, Softeis. Meist reicht eine eigene Toilette","Hepatitis A und EHEC: Schmierinfektion, auch über verunreinigte Lebensmittel oder Wasser. Isolation"]},
+  {t:"Über Blut übertragen", items:["Hepatitis B und C: Kontakt mit Blut, z. B. Nadelstich. Keine Isolation nötig, Schutzbrille und Mund-Nasen-Schutz bei Spritzgefahr","HIV: Kontakt mit Blut und Körperflüssigkeiten. Keine Isolation nötig, Schutzbrille und Mund-Nasen-Schutz bei Spritzgefahr"]},
+  {t:"Über die Luft übertragen", items:["Influenza: Tröpfcheninfektion. Isolation schon bei Verdacht, FFP2- oder FFP3-Maske vor Betreten des Zimmers","Meningokokken: Tröpfcheninfektion bei sehr engem Kontakt. Isolation, Maske in den ersten 24 Stunden nach Antibiotikagabe","Masern und Windpocken: aerogen. Isolation. Nur Personal mit sicherem Schutz durch Impfung oder durchgemachte Erkrankung pflegt. Beim Lüften Fenster der Nachbarzimmer schließen","Tuberkulose: aerogen über Sprechen, Husten, Niesen. Isolation, meldepflichtig"]}]}
+];
+QB.hyg = [
+ [0,'Was ist ein Erreger?','Ein Mikroorganismus, der eine Krankheit auslösen kann',['Ein Mittel, das Bakterien zuverlässig abtötet','Eine Zelle des eigenen Immunsystems','Ein Gerät zum Sterilisieren von Instrumenten'],'Z. B. Bakterien, Viren, Pilze, Parasiten.'],
+ [0,'Eine Person trägt MRSA in der Nase, ist aber nicht krank. Wie nennt man das?','Kolonisation',['Infektion','Kontamination','Resistenz'],'Erreger siedeln, ohne Krankheitszeichen zu machen.'],
+ [0,'Ihre Hände sind nach Kontakt mit Urin verunreinigt. Wie nennt man das?','Kontamination',['Kolonisation','Infektion','Immunsuppression'],'Verunreinigung von Haut, Fläche oder Gegenstand mit Erregern.'],
+ [0,'Was unterscheidet eine Infektion von einer Kolonisation?','Bei einer Infektion vermehren sich Erreger und machen krank',['Bei einer Infektion sind keine Erreger beteiligt','Eine Kolonisation ist immer schwerer','Es gibt keinen Unterschied'],'Kolonisation: Erreger sind da, aber man ist nicht krank.'],
+ [0,'Was ist eine nosokomiale Infektion?','Eine Infektion durch medizinische oder pflegerische Versorgung',['Eine Infektion, die man sich im Urlaub holt','Eine angeborene Erkrankung des Immunsystems','Eine Infektion, die nur bei Kindern vorkommt'],'Z. B. Harnwegsinfektion durch einen Dauerkatheter.'],
+ [0,'Was ist die Inkubationszeit?','Die Zeit zwischen Ansteckung und ersten Krankheitszeichen',['Die Zeit, die ein Desinfektionsmittel wirken muss','Die Dauer einer Isolation','Die Zeit bis zur vollständigen Heilung'],'Beim Norovirus nur wenige Stunden bis zwei Tage.'],
+ [0,'Was bedeutet Resistenz?','Ein Erreger ist gegen bestimmte Antibiotika unempfindlich',['Ein Mensch kann sich nicht mehr anstecken','Ein Desinfektionsmittel wirkt besonders gut','Ein Erreger stirbt außerhalb des Körpers schnell'],'Das Antibiotikum wirkt dann nicht mehr.'],
+ [0,'Was bedeutet Immunsuppression?','Das Immunsystem ist geschwächt',['Das Immunsystem ist besonders stark','Man ist gegen eine Krankheit geimpft','Man ist mit MRSA kolonisiert'],'Z. B. bei Chemotherapie. Diese Menschen sind besonders gefährdet.'],
+ [1,'Was passiert, wenn ein Glied der Infektionskette unterbrochen wird?','Es entsteht keine Infektion',['Die Infektion wird schlimmer','Der Erreger wird resistent','Nichts, die Kette läuft weiter'],'Darum wirken Hygienemaßnahmen: sie unterbrechen die Kette.'],
+ [1,'Was ist ein Reservoir in der Infektionskette?','Ein Ort, an dem Erreger leben und sich vermehren',['Der Weg, auf dem Erreger übertragen werden','Die Stelle, an der Erreger in den Körper gelangen','Ein Behälter für gebrauchte Kanülen'],'Z. B. Mensch, Wasser, Oberflächen.'],
+ [1,'Welches Glied der Infektionskette unterbrechen Sie mit der Händedesinfektion?','Den Übertragungsweg',['Das Reservoir','Den empfänglichen Wirt','Den Erreger selbst im Körper'],'Die Hände sind der häufigste Übertragungsweg.'],
+ [1,'Was ist eine Eintrittspforte?','Eine Stelle, an der Erreger in den Körper gelangen',['Der Eingang zum Isolierzimmer','Ein Ort, an dem Erreger sich vermehren','Ein Mensch, der sich anstecken kann'],'Z. B. Wunde oder Schleimhaut.'],
+ [1,'Wie wird das Norovirus vor allem übertragen?','Als Schmierinfektion über die Hände zum Mund',['Über Blut bei einer Nadelstichverletzung','Über Insektenstiche im Sommer','Über eine Bluttransfusion im Krankenhaus'],'Beim Erbrechen auch über Aerosole.'],
+ [1,'Wie wird Influenza vor allem übertragen?','Über Tröpfchen beim Husten und Niesen',['Über Blut bei einer Nadelstichverletzung','Über verdorbene Lebensmittel und Wasser','Über Insektenstiche im Sommer'],'Tröpfchen haben eine kurze Reichweite.'],
+ [1,'Was ist typisch für die aerogene Übertragung?','Sehr kleine Partikel bleiben lange in der Luft',['Große Tröpfchen fallen schnell zu Boden','Erreger werden nur über Blut übertragen','Erreger kommen über Lebensmittel'],'Z. B. Tuberkulose, Masern, Windpocken.'],
+ [1,'Wie werden Hepatitis B und HIV übertragen?','Über Blut und bestimmte Körperflüssigkeiten',['Über Tröpfchen beim Sprechen','Über Händeschütteln','Über die Luft im Zimmer'],'Z. B. bei einer Nadelstichverletzung.'],
+ [2,'Was ist der Unterschied zwischen Reinigung und Desinfektion?','Reinigung entfernt Schmutz, Desinfektion verringert Erreger sicher',['Es gibt keinen Unterschied','Reinigung tötet alle Erreger, Desinfektion nicht','Desinfektion entfernt nur sichtbaren Schmutz'],'Reinigung reduziert Erreger, tötet sie aber nicht sicher ab.'],
+ [2,'Was erreicht nur die Sterilisation?','Das Abtöten aller Mikroorganismen, auch von Sporen',['Das Entfernen von sichtbarem Schmutz','Die Desinfektion der Haut','Die Trennung von rein und unrein'],'Z. B. für chirurgische Instrumente.'],
+ [2,'Was ist Antiseptik?','Desinfektion von Haut, Schleimhaut und Wunden',['Sterilisation von chirurgischen Instrumenten','Reinigung von Fußböden und Flächen','Ein Antibiotikum gegen Bakterien'],'Z. B. Hautantiseptik vor einer Injektion.'],
+ [2,'Was bedeutet Asepsis?','Keimfreies Arbeiten, um jede Kontamination zu vermeiden',['Ein Patient ist mit Erregern besiedelt','Ein Desinfektionsmittel wirkt nicht','Eine Isolation wird aufgehoben'],'Z. B. beim Verbandwechsel oder Katheterisieren.'],
+ [2,'Was ist die Einwirkzeit?','Die Zeit, die ein Desinfektionsmittel braucht, um zu wirken',['Die Zeit bis zum Ausbruch einer Krankheit','Die Dauer einer Schicht','Die Zeit zum Händewaschen'],'Bei der Händedesinfektion meist 30 Sekunden.'],
+ [2,'Wie lagern Sie saubere Wäsche und Schmutzwäsche?','Getrennt voneinander',['Zusammen im selben Schrank','Schmutzwäsche über der sauberen Wäsche','Im Zimmer des Patienten'],'Das Prinzip heißt „rein und unrein“.'],
+ [3,'Was ist die wichtigste Maßnahme zur Infektionsprävention?','Die Händehygiene',['Das Tragen von Handschuhen','Das Lüften der Zimmer','Die Gabe von Antibiotika'],'Die Hände sind die häufigsten Überträger von Keimen.'],
+ [3,'Wen schützt die hygienische Händedesinfektion vor allem?','Den Patienten',['Nur die Pflegekraft','Nur die Angehörigen','Niemanden, sie pflegt nur die Haut'],'Handschuhe dagegen schützen vor allem das Personal.'],
+ [3,'Wie lange dauert die Händedesinfektion meist?','30 Sekunden',['5 Sekunden','2 Minuten','10 Minuten'],'Die Hände müssen die ganze Zeit feucht sein.'],
+ [3,'Welcher ist einer der 5 Momente der Händedesinfektion?','Vor aseptischen Tätigkeiten',['Vor dem Essen in der Pause','Nach dem Telefonieren','Vor dem Schreiben der Dokumentation'],'Z. B. vor einer Injektion oder vor dem Legen eines Katheters.'],
+ [3,'Sie haben das Bett eines Patienten berührt, aber nicht den Patienten. Müssen Sie desinfizieren?','Ja, nach Kontakt mit der Patientenumgebung',['Nein, nur nach direktem Hautkontakt','Nur wenn das Bett schmutzig aussah','Nur wenn der Patient MRSA hat'],'Das ist Moment 5.'],
+ [3,'Sie ziehen Handschuhe aus. Was folgt?','Eine hygienische Händedesinfektion',['Nichts, die Hände waren ja geschützt','Sofort neue Handschuhe ohne Desinfektion','Nur kurz die Hände abtrocknen'],'Handschuhe ersetzen die Händedesinfektion nicht.'],
+ [3,'Warum soll Händewaschen auf ein Minimum reduziert werden?','Es tötet weniger Keime ab und strapaziert die Haut',['Weil Seife im Krankenhaus verboten ist','Weil Wasser die Keime weiterverbreitet','Weil es viel zu lange dauert'],'Desinfektion ist wirksamer und hautschonender.'],
+ [3,'Wann waschen Sie die Hände statt nur zu desinfizieren?','Bei sichtbarem Schmutz und nach der Toilette',['Vor jedem einzelnen Patientenkontakt','Nach jedem Blutdruckmessen','Nie, Desinfektion reicht immer aus'],'Auch vor Arbeitsbeginn und nach Arbeitsende.'],
+ [3,'Warum reicht bei Clostridioides difficile die Desinfektion allein nicht?','Weil es Sporen bildet, die das Mittel nicht sicher abtötet',['Weil es ein Virus ist','Weil es nur über die Luft übertragen wird','Weil es harmlos ist'],'Darum nach der Desinfektion zusätzlich gründlich Hände waschen.'],
+ [3,'Warum ist Hautpflege Teil der Händehygiene?','In Hautrissen setzen sich Keime fest',['Weil gepflegte Hände schöner aussehen','Weil Handcreme Keime abtötet','Weil Handschuhe dann besser passen'],'Hautpflege z. B. vor Arbeitsbeginn und nach dem Händewaschen.'],
+ [4,'Wen schützen Schutzhandschuhe vor allem?','Das Personal',['Nur den Patienten','Nur die Angehörigen','Niemanden, sie sind nur Vorschrift'],'Sie verringern die Keimlast auf den Händen des Personals.'],
+ [4,'Wann ziehen Sie Schutzhandschuhe an?','Bei möglichem Kontakt mit Blut oder Ausscheidungen',['Bei jedem Kontakt mit einem Patienten','Beim Blutdruck- und Pulsmessen','Beim Verteilen der Essenstabletts'],'Z. B. bei Blutentnahme, Absaugen, Pflege inkontinenter Patienten.'],
+ [4,'Brauchen Sie Handschuhe zum Puls- und Blutdruckmessen?','Nein, kein Kontakt mit Körperflüssigkeit',['Ja, immer bei Hautkontakt','Nur bei älteren Patienten','Nur in der Nachtschicht'],'Zu häufiges Tragen schadet der Haut.'],
+ [4,'Wann müssen Sie Handschuhe beim gleichen Patienten wechseln?','Wenn Sie von unrein zu rein wechseln',['Nie, ein Paar reicht pro Patient','Nur nach genau einer Stunde','Nur wenn sie sichtbar reißen'],'Sonst tragen Sie Keime in saubere Bereiche.'],
+ [4,'Worauf achten Sie beim Ausziehen der Handschuhe?','Die Außenseite nach innen stülpen',['Die Handschuhe schnell abreißen','Die Handschuhe vorher abwaschen','Die Handschuhe für später aufheben'],'Danach Hände desinfizieren.'],
+ [4,'Was ist Standardhygiene (Basishygiene)?','Maßnahmen, die bei allen Patienten gelten',['Maßnahmen nur bei MRSA-Patienten','Maßnahmen nur im Operationssaal','Maßnahmen nur während einer Grippewelle'],'Z. B. Händehygiene, PSA nach Bedarf, Flächendesinfektion.'],
+ [5,'Was ist eine Schutzisolierung (Umkehrisolierung)?','Schutz besonders gefährdeter Patienten vor Erregern von außen',['Schutz des Personals vor ansteckenden Patienten','Ein Zimmer für Patienten mit Tuberkulose','Eine Isolierung nach dem Tod'],'Z. B. bei Immunschwäche.'],
+ [5,'Was ist ein Screening?','Eine gezielte Untersuchung auf Erreger',['Eine gründliche Reinigung des Zimmers','Der Hygieneplan der Einrichtung','Eine Impfung gegen Grippe'],'Z. B. ein MRSA-Abstrich.'],
+ [5,'Was ist ein Hygieneplan?','Schriftliche Hygieneregeln einer Einrichtung',['Ein Plan für das Mittagessen','Ein Dienstplan für die Hygienefachkraft','Eine Liste mit Erregern'],'Er ist nach dem Infektionsschutzgesetz Pflicht.'],
+ [5,'Was bedeutet Meldepflicht?','Bestimmte Krankheiten ans Gesundheitsamt melden',['Jeder Patient muss sich anmelden','Pflegekräfte melden sich krank','Angehörige müssen informiert werden'],'Grundlage ist das Infektionsschutzgesetz.'],
+ [5,'Was macht eine Hygienefachkraft?','Sie berät und schult das Team',['Sie reinigt die Patientenzimmer','Sie stellt die ärztlichen Diagnosen','Sie verteilt die Medikamente'],'Sie ist eine spezialisierte Pflegefachperson.'],
+ [6,'Was bedeutet MRE?','Multiresistenter Erreger',['Mikroorganismus-reiche Erde','Medizinische Reinigungseinheit','Meldepflichtige Rote Erkrankung'],'Resistent gegen mehrere Antibiotikagruppen, z. B. MRSA, VRE, 3MRGN.'],
+ [6,'Was ist das Problem bei ESBL-Bakterien?','Ihre Enzyme machen viele Antibiotika unwirksam',['Sie sind nur in Lebensmitteln','Sie bilden Sporen','Sie werden nur über die Luft übertragen'],'Sie gehören zu den multiresistenten Erregern.'],
+ [6,'Bei welcher Erkrankung ist trotz Ansteckungsgefahr keine Isolation nötig?','Hepatitis B',['Norovirus','Influenza','Tuberkulose'],'Sie wird über Blut übertragen. Schutzbrille und Maske nur bei Spritzgefahr.'],
+ [6,'Wer darf Patienten mit Masern oder Windpocken pflegen?','Nur Personal mit sicherem Immunschutz',['Jede Pflegekraft mit FFP2-Maske','Nur die Auszubildenden','Nur die Hygienefachkraft'],'Dann ist auch keine FFP2-Maske nötig.'],
+ [6,'Was ist beim Norovirus besonders wichtig?','Viruswirksames Desinfektionsmittel und Isolation',['Nur Händewaschen ohne Desinfektion','Keine besonderen Maßnahmen','Nur eine FFP2-Maske'],'Mund-Nasen-Schutz, wenn der Patient erbricht.'],
+ [6,'Wann wird bei Influenza isoliert?','Schon bei Verdacht',['Erst nach einem positiven Test','Nur bei Fieber über 40 Grad','Gar nicht'],'FFP2- oder FFP3-Maske vor Betreten des Zimmers.']
+];
+FCX.hyg = [[0,'Erreger','Mikroorganismus, der eine Krankheit auslösen kann'],[0,'Kontamination','Verunreinigung mit Erregern'],[0,'Kolonisation','Erreger siedeln, ohne krank zu machen'],[0,'Infektion','Erreger vermehren sich im Körper und machen krank'],[0,'nosokomial','Durch medizinische oder pflegerische Versorgung entstanden'],[0,'Inkubationszeit','Zeit zwischen Ansteckung und ersten Krankheitszeichen'],[0,'Resistenz','Unempfindlichkeit gegen Antibiotika'],[0,'Immunsuppression','Geschwächtes Immunsystem'],
+ [1,'Reservoir','Ort, an dem Erreger leben und sich vermehren'],[1,'Schmierinfektion','Von Stuhl oder Körperflüssigkeit über die Hände zum Mund'],[1,'aerogen','Über sehr kleine Partikel in der Luft'],
+ [2,'Desinfektion','Erreger so verringern, dass keine Infektionsgefahr mehr besteht'],[2,'Sterilisation','Alle Mikroorganismen abtöten, auch Sporen'],[2,'Antiseptik','Desinfektion von lebendem Gewebe'],[2,'Asepsis','Keimfreies Arbeiten'],[2,'Aufbereitung','Medizinprodukte reinigen, desinfizieren, ggf. sterilisieren'],[2,'Einwirkzeit','Zeit, die ein Desinfektionsmittel zum Wirken braucht'],
+ [4,'PSA','Persönliche Schutzausrüstung: Handschuhe, Kittel, Maske, Brille'],[4,'Standardhygiene','Maßnahmen, die bei allen Patienten immer gelten'],
+ [5,'Umkehrisolierung','Schutz gefährdeter Patienten vor Erregern von außen'],[5,'Screening','Gezielte Untersuchung auf bestimmte Erreger'],[5,'IfSG','Infektionsschutzgesetz'],[5,'KRINKO','Kommission für Krankenhaushygiene am RKI'],
+ [6,'MRSA','Methicillin-resistenter Staphylococcus aureus'],[6,'VRE','Vancomycin-resistente Enterokokken'],[6,'ESBL','Bakterien mit Enzymen, die viele Antibiotika unwirksam machen'],[6,'3MRGN / 4MRGN','Multiresistente gramnegative Stäbchen (3 bzw. 4 Antibiotikagruppen)']];
+
 const HANDOUTS = {
   bew:   {label:'Bewegung beobachten', kicker:'PFK 4 FFM · Theorieblock 1', title:'Bewegung beobachten, beschreiben und verstehen', data:DATA_BEW},
   grund: {label:'Grundstrukturen des Körpers', kicker:'PFK · Kompetenzbereich I', title:'Grundstrukturen des menschlichen Körpers', data:DATA_GRUND},
   tag:   {label:'Mein erster Tag', kicker:'PFK · Kompetenzbereich I', title:'Mein erster Tag', data:DATA_TAG},
-  ruecken:{label:'Bewegungsapparat schützen', kicker:'PFK · Block 1', title:'Den eigenen Bewegungsapparat schützen', data:DATA_RUECKEN}
+  ruecken:{label:'Bewegungsapparat schützen', kicker:'PFK · Block 1', title:'Den eigenen Bewegungsapparat schützen', data:DATA_RUECKEN},
+  schweig:{label:'Schweigepflicht & DSGVO', kicker:'PFK · KB IV', title:'Schweigepflicht und DSGVO', data:DATA_SCHWEIG},
+  hyg:{label:'Hygienisches Handeln', kicker:'PFK · KB I', title:'Grundlagen hygienischen Handelns', data:DATA_HYG}
 };
-const SKEY = {bew:'bb-status', grund:'bb-status-grund', tag:'bb-status-tag', ruecken:'bb-status-ruecken'};
+const SKEY = {bew:'bb-status', grund:'bb-status-grund', tag:'bb-status-tag', ruecken:'bb-status-ruecken', schweig:'bb-status-schweig', hyg:'bb-status-hyg'};
 
 /* ---------- helpers ---------- */
 const $ = s => document.querySelector(s);
@@ -954,30 +1197,50 @@ $('#search').addEventListener('input', e => { query = e.target.value; renderMap(
 $('#cover').addEventListener('change', e => { coverOn = e.target.checked; revealed.clear(); renderMap(); });
 
 /* ---------- flashcards ---------- */
-const fc = {mode:'topics', branch:'all', unknown:false, deck:[], i:0, flip:false};
+const fc = {mode:'terms', branch:'all', unknown:false, deck:[], i:0, flip:false};
+const GENERIC = /^(aufgabe|bestandteile|zusammenarbeit|beispiele?|organe|folge|nutzen|risiko|auslöser|verlauf|definition|warum|wann|wo|was|ursachen|regel|danach|wichtig|merke|im team|nicht nötig|wechseln|vorbeugen)$/i;
+function splitDef(def){
+  let main = def, ex = '', more = '';
+  const zi = def.search(/[.,]? ?(z\. ?B\.|Z\. ?B\.|Beispiel)/);
+  if (zi > 15) { main = def.slice(0, zi).replace(/[.,]\s*$/, ''); ex = def.slice(zi).replace(/^[.,]\s*/, ''); }
+  const si = main.search(/\. [A-ZÄÖÜ]/);
+  if (si > 20) { more = main.slice(si + 2); main = main.slice(0, si); }
+  return {main, more, ex};
+}
+function termBack(def){
+  const p = splitDef(def);
+  return '<div class="ans">' + esc(p.main) + '</div>' + (p.more ? '<div class="fc-more">' + esc(p.more) + '</div>' : '') + (p.ex ? '<div class="fc-ex">' + esc(p.ex.replace(/^z\. ?B\.\s*/i, 'Beispiel: ').replace(/^Z\. ?B\.\s*/, 'Beispiel: ')) + '</div>' : '');
+}
 function buildDeck(){
-  if (fc.mode === 'terms' && QB[H]) {
-    const inB = b => fc.branch === 'all' || +fc.branch === b;
-    const d2 = QB[H].map((x, i) => [x, i]).filter(([x]) => inB(x[0])).map(([[b, q, a, w, e], i]) => ({id:'q' + i, ctx:DATA[b].t, front:q, back:'<div class="ans">' + esc(a) + '</div><div class="hint">' + esc(e) + '</div>'}))
-      .concat((FCX[H] || []).map((x, i) => [x, i]).filter(([x]) => inB(x[0])).map(([[b, f, k], i]) => ({id:'x' + i, ctx:'Wortschatz · ' + DATA[b].t, front:f, back:'<div class="ans">' + esc(k) + '</div>'})));
-    fc.deck = fc.unknown ? d2.filter(c => status[c.id] !== 'known') : d2; fc.i = 0; fc.flip = false; return;
-  }
-  const d = [];
-  DATA.forEach((b, bi) => {
-    if (fc.branch !== 'all' && +fc.branch !== bi) return;
-    b.subs.forEach((s, si) => {
-      if (fc.mode === 'topics') {
+  const inB = b => fc.branch === 'all' || +fc.branch === b;
+  let d = [];
+  if (fc.mode === 'quest' && QB[H]) {
+    d = QB[H].map((x, i) => [x, i]).filter(([x]) => inB(x[0])).map(([[b, q, a, w, e], i]) => ({id:'q' + i, ctx:DATA[b].t, front:q, back:'<div class="ans">' + esc(a) + '</div><div class="fc-more">' + esc(e) + '</div>'}));
+  } else if (fc.mode === 'terms') {
+    const cnt = {}; DATA.forEach(b => b.subs.forEach(s => { if (s.nq) return; s.items.forEach(it => { const [t] = split(text(it)); if (t) cnt[t.toLowerCase()] = (cnt[t.toLowerCase()] || 0) + 1; }); }));
+    const seen = new Set(), norm = t => t.toLowerCase().replace(/^(der|die|das)\s+/, '').replace(/\s*\(.*?\)\s*/g, ' ').trim();
+    (FCX[H] || []).forEach(([b, f, k], i) => { if (!inB(b)) return; seen.add(norm(f)); d.push({id:'x' + i, ctx:DATA[b].t, front:f, back:termBack(k)}); });
+    DATA.forEach((b, bi) => {
+      if (!inB(bi)) return;
+      b.subs.forEach((s, si) => { if (s.nq) return; s.items.forEach((it, ii) => {
+        const [term, def] = split(text(it)); if (!term || isChk(it)) return;
+        const generic = GENERIC.test(term.trim()) || cnt[term.toLowerCase()] > 1 || /^(frage|schritt|moment|arbeitsunfall schritt|nadelstich schritt)\b/i.test(term);
+        const front = generic && !/^(frage|moment|arbeitsunfall|nadelstich)/i.test(term) ? s.t + ': ' + term : term;
+        if (seen.has(norm(front))) return; seen.add(norm(front));
+        d.push({id:'w' + bi + '.' + si + '.' + ii, ctx:b.t + ' · ' + s.t, front, back:termBack(def)});
+      }); });
+    });
+    d.sort((x, y) => 0);
+  } else {
+    DATA.forEach((b, bi) => {
+      if (!inB(bi)) return;
+      b.subs.forEach((s, si) => {
         const n = Math.ceil(s.items.length / 7), per = Math.ceil(s.items.length / n);
         for (let p = 0; p < n; p++) d.push({id:'t' + bi + '.' + si + (n > 1 ? '.' + p : ''), ctx:b.t, front:s.t + (n > 1 ? ' (' + (p + 1) + '/' + n + ')' : ''),
           back:'<ul>' + s.items.slice(p * per, (p + 1) * per).map(it => '<li>' + esc(text(it)) + (isChk(it) ? ' <span class="chk">check</span>' : '') + '</li>').join('') + '</ul>'});
-      } else {
-        s.items.forEach((it, ii) => {
-          const [term, def] = split(text(it)); if (!term || isChk(it)) return;
-          d.push({id:'w' + bi + '.' + si + '.' + ii, ctx:s.t, front:term, back:'<div class="ans">' + esc(def) + '</div>'});
-        });
-      }
+      });
     });
-  });
+  }
   fc.deck = fc.unknown ? d.filter(c => status[c.id] !== 'known') : d;
   fc.i = 0; fc.flip = false;
 }
@@ -1117,7 +1380,7 @@ function showInfo(){
   const views = IG_VIEWS[H];
   if (!views.some(v => v[0] === igView)) igView = views[0][0];
   $('#ig-nav').innerHTML = views.map(v => '<button data-v="' + v[0] + '" aria-pressed="' + (v[0] === igView) + '">' + esc(v[1]) + '</button>').join('');
-  ['pl','dir','who','org','city','loop','skel','wut','nebel','inko','spine','posture','stop','ampel'].forEach(v => $('#ig-' + v).hidden = v !== igView);
+  ['pl','dir','who','org','city','loop','skel','wut','nebel','inko','spine','posture','stop','ampel','weiter','kette','haende'].forEach(v => $('#ig-' + v).hidden = v !== igView);
   stopArt(igView);
   if (igView === 'pl' && !ig3d) { ig3d = init3D(); ig3d.set(igSel, findMove()); }
   if (igView === 'dir') renderDir();
@@ -1132,6 +1395,9 @@ function showInfo(){
   if (igView === 'posture') renderPosture();
   if (igView === 'stop') renderStop();
   if (igView === 'ampel') renderAmpel();
+  if (igView === 'weiter') renderWeiter();
+  if (igView === 'kette') renderKette();
+  if (igView === 'haende') renderHaende();
 }
 $('#ig-nav').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { igView = b.dataset.v; showInfo(); } });
 
@@ -1362,7 +1628,9 @@ const IG_VIEWS = {
   bew:   [['pl','Ebenen & Achsen'], ['dir','Richtungen'], ['who','WHO']],
   grund: [['org','Zoom-Reise'], ['city','Zelle als Stadt'], ['loop','Regelkreis'], ['skel','Skelett 3D'], ['dir','Richtungen']],
   tag:   [['nebel','Demenz-Nebel']],
-  ruecken: [['spine','Wirbelsäule & Bandscheibe'], ['posture','Rückenbelastung'], ['stop','STOP-Prinzip'], ['ampel','Ampel-Check']]
+  ruecken: [['spine','Wirbelsäule & Bandscheibe'], ['posture','Rückenbelastung'], ['stop','STOP-Prinzip'], ['ampel','Ampel-Check']],
+  schweig: [['weiter','Wer darf was erfahren?']],
+  hyg: [['kette','Infektionskette'], ['haende','Händedesinfektion']]
 };
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function rnd(seed){ let x = seed; return () => (x = (x * 16807) % 2147483647) / 2147483647; }
@@ -1374,6 +1642,8 @@ function stopArt(view){
   if (view !== 'inko') cancelAnimationFrame(ik.raf);
   if (view !== 'spine') cancelAnimationFrame(ws.raf);
   if (view !== 'posture') cancelAnimationFrame(pb.raf);
+  if (view !== 'kette') cancelAnimationFrame(ic.raf);
+  if (view !== 'haende') { cancelAnimationFrame(hd.raf); hd.run = false; }
 }
 
 /* ===================== 1. Zoom journey ===================== */
@@ -2420,6 +2690,165 @@ function renderAmpel(){
 $('#ig-ampel').addEventListener('click', e => { const t = e.target.closest('[data-i]'); if (t) { const i = +t.dataset.i; am.sel = am.sel === i ? null : i; amApply(); } });
 $('#ig-ampel').addEventListener('change', e => { if (e.target.type === 'checkbox') amApply(); });
 
+/* ===================== Schweigepflicht: Weitergabe-Check ===================== */
+const WG = [
+ {n:'Pflege- und Behandlungsteam', ic:'👥', lv:2, w:'Alles, was für die Versorgung nötig ist.', v:'Kein Zugriff aus Neugier. Zugriffsrechte beachten.'},
+ {n:'Ärzte, Krankenhaus bei Verlegung', ic:'🏥', lv:2, w:'Was für die Weiterbehandlung nötig ist, z. B. Überleitungsbogen.', v:'Behandlungszusammenhang. Im Zweifel Einwilligung einholen.'},
+ {n:'Betreuer, Bevollmächtigte', ic:'📄', lv:1, w:'Informationen im Rahmen ihrer Aufgabe, vor allem Gesundheitssorge.', v:'Nachweis prüfen: Betreuerausweis oder Vollmacht.'},
+ {n:'Angehörige', ic:'👪', lv:1, w:'Nur das, was die Person erlaubt hat.', v:'Einwilligung, am besten bei der Aufnahme erfragt und dokumentiert.'},
+ {n:'Pflegekasse, Medizinischer Dienst', ic:'🏛️', lv:1, w:'Daten im gesetzlichen Umfang, z. B. für Abrechnung und Begutachtung.', v:'Gesetzliche Grundlage. Weitergabe über Leitung oder Verwaltung.'},
+ {n:'Gesundheitsamt, Heimaufsicht', ic:'🏛️', lv:1, w:'Nur was eine Vorschrift verlangt, z. B. Meldung bestimmter Infektionskrankheiten.', v:'Gesetzliche Grundlage, über die Leitung.'},
+ {n:'Seelsorge, Fußpflege, Friseur, Ehrenamtliche', ic:'✂️', lv:1, w:'Nur das Nötigste für ihre Leistung.', v:'Einwilligung der Person. Religion ist besonders geschützt.'},
+ {n:'Polizei, Staatsanwaltschaft, Gericht', ic:'🚓', lv:1, w:'Nur mit Einwilligung, gesetzlicher Grundlage oder Beschluss.', v:'Keine Auskunft am Telefon. Leitung einschalten.'},
+ {n:'Versicherungen, Arbeitgeber, Vermieter', ic:'💼', lv:0, w:'Nichts.', v:'Nur mit ausdrücklicher Einwilligung der Person.'},
+ {n:'Besucher, Mitbewohner, Nachbarn, Presse', ic:'🚫', lv:0, w:'Nichts, auch nicht, ob jemand überhaupt hier wohnt.', v:'Nur mit Einwilligung der Person.'}
+];
+const WG_LV = [['Nichts ohne Einwilligung','#FF6B6B'],['Nur mit Bedingung','#FFC23A'],['Was die Versorgung braucht','#3FD27A']];
+const WQ = ['Ist die Person am Pflege- und Behandlungsprozess beteiligt?','Braucht sie genau diese Information für ihre Aufgabe?','Liegt eine Einwilligung oder eine gesetzliche Grundlage vor?','Habe ich Identität und Berechtigung der Person geprüft?'];
+const wg = {built:false, sel:null, ans:[]};
+function wgApply(){
+  document.querySelectorAll('#wg-list .wg-r').forEach((b, i) => b.setAttribute('aria-pressed', i === wg.sel));
+  const r = WG[wg.sel];
+  $('#wg-card').innerHTML = r ? '<div class="ig-joint"><i class="wg-dot" style="background:' + WG_LV[r.lv][1] + '"></i> ' + WG_LV[r.lv][0] + '</div><div class="ig-state" style="color:var(--c1);font-size:21px">' + esc(r.n) + '</div><dl class="ct-dl"><dt>Was darf ich sagen?</dt><dd>' + esc(r.w) + '</dd><dt>Voraussetzung</dt><dd>' + esc(r.v) + '</dd></dl>' : '<div class="ig-state" style="color:var(--c1);font-size:21px">Wer fragt?</div><div class="ig-note2">Tippe links auf eine Person oder Stelle.</div>';
+  let h = '', stop = false;
+  WQ.forEach((q, i) => {
+    if (stop) return;
+    const a = wg.ans[i];
+    h += '<div class="wg-q' + (a === undefined ? ' cur' : '') + '"><span class="wg-n">' + (i + 1) + '</span><div><div>' + esc(q) + '</div>' +
+      (a === undefined ? '<div class="ig-moves"><button class="chip" data-a="' + i + ':1">Ja</button><button class="chip" data-a="' + i + ':0">Nein</button></div>' : '<b class="' + (a ? 'wg-y' : 'wg-n2') + '">' + (a ? 'Ja' : 'Nein') + '</b>') + '</div></div>';
+    if (a === 0) stop = true;
+    if (a === undefined) stop = true;
+  });
+  const done = wg.ans.length === 4 && wg.ans.every(x => x === 1), no = wg.ans.includes(0);
+  if (no) h += '<div class="wg-res bad"><b>Nicht weitergeben.</b> Leitung fragen und dokumentieren.</div>';
+  else if (done) h += '<div class="wg-res ok"><b>Weitergabe erlaubt</b>, aber nur so viel wie nötig.</div>';
+  h += (wg.ans.length ? '<div class="ig-moves"><button class="chip" id="wg-reset">Neu prüfen</button></div>' : '');
+  $('#wg-check').innerHTML = h;
+}
+function renderWeiter(){
+  if (!wg.built) {
+    $('#ig-weiter').innerHTML = '<div class="ig-grid"><div class="ig-panel"><div class="ig-joint" style="padding-top:18px"><b>Wer darf was erfahren?</b></div><div id="wg-list">' +
+      WG.map((r, i) => '<button class="wg-r" data-i="' + i + '" style="--lc:' + WG_LV[r.lv][1] + '"><i class="wg-dot" style="background:' + WG_LV[r.lv][1] + '"></i>' + esc(r.n) + '</button>').join('') + '</div>' +
+      '<div class="wg-leg">' + WG_LV.map(([t, c]) => '<span><i class="wg-dot" style="background:' + c + '"></i>' + t + '</span>').join('') + '</div></div>' +
+      '<div class="ig-panel" style="padding-top:18px"><div class="ig-card" id="wg-card" style="--pc:var(--c1)"></div>' +
+      '<div class="ig-card" style="--pc:var(--c2)"><div class="ig-joint"><b>Die 4 Fragen vor jeder Weitergabe</b></div><div id="wg-check"></div></div>' +
+      '<p class="ig-hint">Faustregel bei Unsicherheit: nichts weitergeben, Leitung fragen, Entscheidung dokumentieren.</p></div></div>';
+    wg.built = true;
+  }
+  wgApply();
+}
+$('#ig-weiter').addEventListener('click', e => {
+  const r = e.target.closest('.wg-r'); if (r) { wg.sel = +r.dataset.i; wg.ans = []; wgApply(); return; }
+  const a = e.target.closest('[data-a]'); if (a) { const [i, v] = a.dataset.a.split(':').map(Number); wg.ans[i] = v; wgApply(); return; }
+  if (e.target.id === 'wg-reset') { wg.ans = []; wgApply(); }
+});
+
+/* ===================== Hygiene: Infektionskette ===================== */
+const IK6 = [
+ {n:'Erreger', d:'Mikroorganismus, der krank machen kann.', ex:'Norovirus, MRSA', cut:'Desinfektion und Sterilisation töten Erreger ab.'},
+ {n:'Reservoir', d:'Ort, an dem Erreger leben und sich vermehren.', ex:'Mensch, Wasser, Oberflächen', cut:'Flächendesinfektion, Reinigung, Isolierung des erkrankten Menschen.'},
+ {n:'Austrittspforte', d:'Stelle, an der Erreger den Körper verlassen.', ex:'Darm, Wunde, Atemwege', cut:'Wunden abdecken, Mund-Nasen-Schutz beim Erkrankten, Husten in die Armbeuge.'},
+ {n:'Übertragungsweg', d:'Weg vom Reservoir zum nächsten Menschen.', ex:'Hände, Tröpfchen, Luft, Blut', cut:'Händedesinfektion, Handschuhe, Masken, rein und unrein trennen.'},
+ {n:'Eintrittspforte', d:'Stelle, an der Erreger in den Körper gelangen.', ex:'Wunde, Schleimhaut, Katheter', cut:'Aseptisch arbeiten, Antiseptik vor Injektionen, Verbände steril wechseln.'},
+ {n:'Empfänglicher Wirt', d:'Ein Mensch, der sich anstecken kann.', ex:'Patient mit Immunschwäche', cut:'Impfungen, Schutzisolierung, gute Abwehr und Ernährung.'}
+];
+const ic = {built:false, cut:null, raf:0, t:0, last:0};
+function icSVG(){
+  const W = 640, R = 210, C = [320, 250];
+  const pos = IK6.map((_, i) => { const a = -Math.PI / 2 + i * Math.PI * 2 / 6; return [C[0] + R * Math.cos(a) * 1.2, C[1] + R * Math.sin(a) * .95]; });
+  let links = '';
+  pos.forEach((p, i) => { const q = pos[(i + 1) % 6]; links += `<line class="ic-link" data-l="${i}" x1="${p[0].toFixed(1)}" y1="${p[1].toFixed(1)}" x2="${q[0].toFixed(1)}" y2="${q[1].toFixed(1)}"/>`; });
+  const nodes = pos.map((p, i) => `<g class="ic-n" data-i="${i}" transform="translate(${p[0].toFixed(1)} ${p[1].toFixed(1)})"><ellipse rx="80" ry="34" class="ic-c"/><text y="-2" text-anchor="middle" class="ic-t">${IK6[i].n}</text><text y="16" text-anchor="middle" class="ic-s">${i + 1}</text><g class="ic-x"><line x1="-50" y1="-28" x2="50" y2="28"/><line x1="50" y1="-28" x2="-50" y2="28"/></g></g>`).join('');
+  return `<svg viewBox="0 0 ${W} 500" role="img" aria-label="Infektionskette mit sechs Gliedern"><g id="ic-links">${links}</g><circle id="ic-dot" r="9" fill="#FF6B7A"/>${nodes}
+    <text id="ic-mid" x="${C[0]}" y="${C[1] - 6}" text-anchor="middle" class="ic-mid"></text><text id="ic-mid2" x="${C[0]}" y="${C[1] + 18}" text-anchor="middle" class="ic-s"></text></svg>`;
+}
+function icApply(){
+  const svg = $('#ig-kette svg'); if (!svg) return;
+  svg.querySelectorAll('.ic-n').forEach(g => { g.classList.toggle('cut', +g.dataset.i === ic.cut); });
+  svg.querySelectorAll('.ic-link').forEach(l => l.classList.toggle('dead', ic.cut !== null));
+  $('#ic-mid').textContent = ic.cut === null ? 'Infektion' : 'Keine Infektion';
+  $('#ic-mid').setAttribute('fill', ic.cut === null ? '#FF8FA0' : '#4FD1A1');
+  $('#ic-mid2').textContent = ic.cut === null ? 'Tippe ein Glied an, um es zu unterbrechen' : 'Kette unterbrochen bei ' + IK6[ic.cut].n;
+  const k = ic.cut;
+  $('#ic-card').innerHTML = k === null ? '<div class="ig-state" style="color:var(--c1);font-size:21px">Die Kette ist geschlossen</div><div class="ig-note2">Der rote Punkt wandert durch alle sechs Glieder: so entsteht eine Ansteckung. Tippe auf ein Glied, um es zu unterbrechen.</div>' :
+    '<div class="ig-joint">Glied ' + (k + 1) + ' von 6</div><div class="ig-state" style="color:var(--c1);font-size:22px">' + esc(IK6[k].n) + '</div><dl class="ct-dl"><dt>Was ist das?</dt><dd>' + esc(IK6[k].d) + '</dd><dt>Beispiel</dt><dd>' + esc(IK6[k].ex) + '</dd><dt>So unterbrechen</dt><dd><b>' + esc(IK6[k].cut) + '</b></dd></dl><div class="ig-moves"><button class="chip" id="ic-reset">Kette wieder schließen</button></div>';
+}
+function icLoop(now){
+  ic.raf = requestAnimationFrame(icLoop);
+  const svg = $('#ig-kette svg'); if (!svg || !svg.getBoundingClientRect().width) return;
+  const dt = Math.min(.05, (now - (ic.last || now)) / 1000); ic.last = now;
+  const links = svg.querySelectorAll('.ic-link'), dot = $('#ic-dot');
+  if (ic.cut === null) ic.t = (ic.t + dt * (RM ? 0 : .55)) % 6;
+  else { const stopAt = ic.cut; let target = stopAt; let d = (target - ic.t + 6) % 6; if (d > .02) ic.t = (ic.t + Math.min(d, dt * .55)) % 6; }
+  const i = Math.floor(ic.t), f = ic.t - i, l = links[i];
+  const x = +l.getAttribute('x1') + (l.getAttribute('x2') - l.getAttribute('x1')) * f, y = +l.getAttribute('y1') + (l.getAttribute('y2') - l.getAttribute('y1')) * f;
+  dot.setAttribute('cx', x.toFixed(1)); dot.setAttribute('cy', y.toFixed(1));
+  dot.setAttribute('fill', ic.cut === null ? '#FF6B7A' : '#8FA3B8');
+}
+function renderKette(){
+  if (!ic.built) {
+    $('#ig-kette').innerHTML = '<div class="ig-grid"><div class="ig-box"><div class="art">' + icSVG() + '</div></div><div class="ig-panel"><div class="ig-card" id="ic-card" style="--pc:var(--c1)"></div><p class="ig-hint">Merke: Wird ein Glied unterbrochen, entsteht keine Infektion. Die Händedesinfektion unterbricht den häufigsten Übertragungsweg.</p></div></div>';
+    ic.built = true;
+  }
+  icApply(); cancelAnimationFrame(ic.raf); ic.last = 0; ic.raf = requestAnimationFrame(icLoop);
+}
+$('#ig-kette').addEventListener('click', e => {
+  const n = e.target.closest('.ic-n'); if (n) { const i = +n.dataset.i; ic.cut = ic.cut === i ? null : i; icApply(); return; }
+  if (e.target.id === 'ic-reset') { ic.cut = null; icApply(); }
+});
+
+/* ===================== Hygiene: Händedesinfektion ===================== */
+const HD_STEPS = ['Handfläche auf Handfläche','Rechte Handfläche auf linkem Handrücken und umgekehrt','Handfläche auf Handfläche mit verschränkten Fingern','Fingeraußenseiten auf der gegenüberliegenden Handfläche','Linke Handfläche umschließt den rechten Daumen und umgekehrt','Fingerkuppen in der Handfläche kreisen und umgekehrt'];
+const HD_MOM = [['Vor Patientenkontakt','Schützt den Patienten'],['Vor aseptischen Tätigkeiten','Z. B. Injektion, Katheter legen, Medikamente richten'],['Nach Kontakt mit potenziell infektiösem Material','Z. B. Körperflüssigkeiten, nach Handschuhen'],['Nach Patientenkontakt','Schützt Sie und die Umgebung'],['Nach Kontakt mit der Patientenumgebung','Z. B. Bett, Nachttisch, auch ohne Patientenkontakt']];
+const HD_SIT = [['Vor einer s.c.-Injektion',1],['Nach dem Abziehen der Bettwäsche',2],['Vor dem Händeschütteln zur Begrüßung',0],['Nach dem Ablegen der Handschuhe',2],['Nach dem Aufräumen des Nachttischs',4],['Nach dem Blutdruckmessen',3],['Vor dem Legen eines Blasenkatheters',1]];
+const hd = {built:false, run:false, t:0, raf:0, last:0, q:0, ans:null, score:0, tot:0};
+function hdHand(step){
+  const k = step % 6;
+  const L = '<path d="M-58 40 C-70 0 -64 -40 -50 -70 L-44 -100 C-42 -110 -30 -110 -30 -100 L-34 -70 L-28 -110 C-26 -120 -14 -120 -14 -110 L-16 -70 L-10 -112 C-8 -122 4 -122 4 -112 L0 -68 L8 -100 C10 -110 22 -108 20 -98 L12 -56 C30 -70 44 -60 34 -46 L10 -14 C0 10 -10 30 -20 40 Z"/>';
+  const poses = [['rotate(0) translate(-22 0)','scale(-1 1) translate(-22 0)'],['translate(-18 0)','scale(-1 1) translate(-30 -8) rotate(8)'],['translate(-14 0) rotate(-6)','scale(-1 1) translate(-14 6) rotate(-6)'],['translate(-20 10) rotate(-30)','scale(-1 1) translate(-20 -10) rotate(30)'],['translate(-26 0) rotate(-12)','scale(-1 1) translate(-6 -20) rotate(40)'],['translate(-24 0) rotate(10)','scale(-1 1) translate(-10 -30) rotate(70)']][k];
+  return `<g transform="translate(160 160)"><g class="hd-h hd-a" style="--w:${k}">${'<g transform="' + poses[0] + '">' + L + '</g>'}</g><g class="hd-h hd-b">${'<g transform="' + poses[1] + '">' + L + '</g>'}</g></g>`;
+}
+function hdApply(){
+  const step = Math.min(5, Math.floor(hd.t / 5)), sec = Math.min(30, hd.t);
+  const art = $('#hd-hands'); if (!art) return;
+  if (art.dataset.s !== String(step)) { art.innerHTML = hdHand(step); art.dataset.s = step; }
+  $('#hd-sec').textContent = Math.ceil(30 - sec);
+  $('#hd-ring').setAttribute('stroke-dashoffset', (2 * Math.PI * 140 * (1 - sec / 30)).toFixed(1));
+  $('#hd-step').textContent = 'Schritt ' + (step + 1) + ' von 6';
+  $('#hd-stxt').textContent = HD_STEPS[step];
+  document.querySelectorAll('#hd-list li').forEach((li, i) => li.classList.toggle('on', i === step));
+  $('#hd-go').textContent = hd.run ? 'Pause' : hd.t >= 30 ? 'Nochmal' : hd.t > 0 ? 'Weiter' : 'Start: 30 Sekunden';
+  $('#hd-done').hidden = hd.t < 30;
+}
+function hdLoop(now){
+  hd.raf = requestAnimationFrame(hdLoop);
+  const dt = Math.min(.1, (now - (hd.last || now)) / 1000); hd.last = now;
+  if (hd.run) { hd.t += dt; if (hd.t >= 30) { hd.t = 30; hd.run = false; } hdApply(); }
+}
+function hdQuiz(){
+  const [s, a] = HD_SIT[hd.q];
+  $('#hd-quiz').innerHTML = '<div class="ig-joint">Punkte: <b>' + hd.score + ' / ' + hd.tot + '</b></div><div class="ig-state" style="color:var(--c1);font-size:19px">Welcher Moment ist das?</div><div class="sp-q">„' + esc(s) + '“</div>' +
+    '<div class="hd-ans">' + HD_MOM.map((m, i) => '<button class="opt' + (hd.ans !== null ? (i === a ? ' ok' : i === hd.ans ? ' no' : '') : '') + '" data-m="' + i + '"' + (hd.ans !== null ? ' disabled' : '') + '><b>' + (i + 1) + '</b> ' + esc(m[0]) + '</button>').join('') + '</div>' +
+    (hd.ans !== null ? '<div class="ig-moves"><button class="chip" id="hd-next">Nächste Situation</button></div>' : '');
+}
+function renderHaende(){
+  if (!hd.built) {
+    $('#ig-haende').innerHTML = '<div class="ig-grid"><div class="ig-box"><div class="art hd-art"><svg viewBox="0 0 320 320" role="img" aria-label="Händedesinfektion mit 30-Sekunden-Zähler"><circle cx="160" cy="160" r="140" fill="none" stroke="#2A3A55" stroke-width="10"/><circle id="hd-ring" cx="160" cy="160" r="140" fill="none" stroke="#4FD1A1" stroke-width="10" stroke-linecap="round" stroke-dasharray="' + (2 * Math.PI * 140).toFixed(1) + '" transform="rotate(-90 160 160)"/><g id="hd-hands" fill="#F2D3B8" stroke="#C99A78" stroke-width="2"></g><text id="hd-sec" x="160" y="300" text-anchor="middle" class="hd-sec">30</text></svg>' +
+      '<div class="hd-cap"><b id="hd-step"></b><span id="hd-stxt"></span></div><div class="ig-moves" style="justify-content:center;padding-bottom:14px"><button class="chip" id="hd-go"></button><button class="chip" id="hd-rs">Zurück auf 0</button></div></div>' +
+      '<ol class="rk-steps" id="hd-list" style="padding-top:12px">' + HD_STEPS.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol><p class="ig-note2" id="hd-done" hidden><b>Fertig.</b> Die Hände waren 30 Sekunden feucht. Das Mittel konnte wirken.</p></div>' +
+      '<div class="ig-panel"><div class="ig-card" style="--pc:var(--c2)"><div class="ig-joint"><b>Die 5 Momente</b></div><ol class="hd-mom">' + HD_MOM.map(m => '<li><b>' + esc(m[0]) + '</b><span>' + esc(m[1]) + '</span></li>').join('') + '</ol></div>' +
+      '<div class="ig-card" id="hd-quiz" style="--pc:var(--c1)"></div><p class="ig-hint">Handschuhe ersetzen die Händedesinfektion nicht. Nach dem Ausziehen immer desinfizieren.</p></div></div>';
+    hd.built = true; hd.q = Math.floor(Math.random() * HD_SIT.length); hdQuiz();
+  }
+  hdApply(); cancelAnimationFrame(hd.raf); hd.last = 0; hd.raf = requestAnimationFrame(hdLoop);
+}
+$('#ig-haende').addEventListener('click', e => {
+  if (e.target.id === 'hd-go') { if (hd.t >= 30) hd.t = 0; hd.run = !hd.run; hdApply(); return; }
+  if (e.target.id === 'hd-rs') { hd.run = false; hd.t = 0; hdApply(); return; }
+  const m = e.target.closest('[data-m]'); if (m && hd.ans === null) { hd.ans = +m.dataset.m; hd.tot++; if (hd.ans === HD_SIT[hd.q][1]) hd.score++; hdQuiz(); return; }
+  if (e.target.id === 'hd-next') { let n; do { n = Math.floor(Math.random() * HD_SIT.length); } while (n === hd.q); hd.q = n; hd.ans = null; hdQuiz(); }
+});
+
 /* directions */
 const FRONT = '<g class="fig"><circle cx="200" cy="82" r="30"/><rect x="160" y="120" width="80" height="150" rx="26"/><path d="M168 137 L112 247"/><path d="M232 137 L288 247"/><path d="M182 267 L176 502"/><path d="M218 267 L224 502"/></g>';
 const SIDE = '<g class="fig"><circle cx="200" cy="82" r="30"/><polygon points="228,76 242,86 228,92"/><rect x="172" y="120" width="56" height="150" rx="26"/><path d="M200 137 L206 247" style="stroke-width:20"/><path d="M200 267 L200 502" style="stroke-width:34"/><path d="M200 506 L236 506" style="stroke-width:20"/></g>';
@@ -2468,15 +2897,14 @@ $('#dchips').addEventListener('click', e => { const b = e.target.closest('.chip'
 function applyHandout(){
   const h = HANDOUTS[H];
   $('#kick').textContent = h.kicker; $('#htitle').textContent = h.title;
-  document.querySelector('#fc-mode [data-m="terms"]').textContent = QB[H] ? 'Questions & terms' : 'Single terms';
   document.querySelectorAll('#h-switch button').forEach(b => b.setAttribute('aria-pressed', b.dataset.h === H));
 }
 function setHandout(h){
   if (h === H) return;
   H = h; DATA = HANDOUTS[h].data; status = store.get(SKEY[h]) || {}; store.set('bb-handout', h);
   openSet.clear(); openSet.add(0); query = ''; $('#search').value = ''; coverOn = false; $('#cover').checked = false; revealed.clear();
-  Object.assign(fc, {mode:'topics', branch:'all', unknown:false, i:0, flip:false});
-  document.querySelectorAll('#fc-mode button').forEach(x => x.setAttribute('aria-pressed', x.dataset.m === 'topics'));
+  Object.assign(fc, {mode:'terms', branch:'all', unknown:false, i:0, flip:false});
+  document.querySelectorAll('#fc-mode button').forEach(x => x.setAttribute('aria-pressed', x.dataset.m === 'terms'));
   $('#fc-unknown').checked = false;
   qz.branch = 'all'; qz.list = null;
   buildTerms(); applyHandout(); updateProgress(); igView = IG_VIEWS[h][0][0]; dsel = 0; showTab(tab);
